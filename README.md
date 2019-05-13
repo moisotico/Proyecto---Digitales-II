@@ -1,2 +1,2 @@
-# Proyecto---Digitales-II
+# Proyecto-Digitales-II
 Diseño de la interfaz PCIe
