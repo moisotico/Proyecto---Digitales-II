@@ -4,7 +4,7 @@ Diseño de la interfaz PCIe
 # Integrantes:
 
 * Giancarlo Marín Hernández
-* Moisés Campos Zepeda
+* Moisés Campos Zepeda - moiso.camposcr@gmail.com
 * Esteban Valverde Hernández - e.valverde95@hotmail.com
 
 # Makefile
@@ -22,7 +22,7 @@ $ make limpiar # elimina archivos intermedios generados
 | Etapa | Actividad | Encargado | Tiempo  estimado (min) | Tiempo  dedicado (min) | Fecha  de entrega | Comentarios |
 |-------|-----------------------------|-----------|------------------------|------------------------|-------------------|-------------|
 | 0 | Plan de trabajo | Esteban |  |  | 15/5/19 |  |
-| 1 | Generador de relojes | Moisés |  |  | 15/5/19 |  |
+| 1 | Generador de relojes | Moisés | 300 | 330 | 15/5/19 |  |
 | 1 | Lógica muxes y demuxes | Giancarlo |  |  | 15/5/19 |  |
 | 1 | Paralelo a serial | Esteban |  |  | 15/5/19 |  |
 | 2 | Byte striping y un-striping | - |  |  | 22/5/19 |  |
