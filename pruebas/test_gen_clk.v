@@ -24,39 +24,38 @@ module test_gen_clk;
 		      .clk_8f		(clk_8f),
 		      .rst		(rst),
 		      .enb		(enb));
-    
-    
-    initial clk_8f <= 0;
-
+     
     initial begin
+       
         $dumpfile("gen_clk.vcd");               //Dumpfile to make in current folder
         $dumpvars;
-
-        clk_8f <= 0;
-        enb <= 0;                       //
-        rst <= 1;                       // relojes se resetean
-
-        repeat (20) begin
-            @(posedge clk_8f)
-                enb <= 0;
-        end
-
-        repeat(20)begin;
-            @(posedge clk_8f)
-                rst <= 1;
-        end
-
-
-        repeat(50)begin;
-            @(posedge clk_8f)
-                enb <= 1;
-        end
-
-        repeat (10)begin
-            @(posedge clk_8f)
-                rst <= 1;
-        end
         
+        clk_8f <= 0;
+        enb <= 0;                       //                           
+        rst <= 1;                       // relojes se resetean            
+        
+        # 10;
+        @(posedge clk_8f)
+            rst <= 0;
+            enb <= 1;
+        
+        # 60;
+        @(posedge clk_8f)
+            enb <= 1;
+
+        # 20;
+        @(posedge clk_8f)
+            enb <= 0;
+
+        # 20;
+        @(posedge clk_8f)
+            rst <= 1;
+                
+        
+        # 20;
+        @(posedge clk_8f)
+            rst <= 0;
+            enb <= 1;
         $finish;
     end
 

@@ -13,17 +13,20 @@ module gen_clk(
     always@(posedge clk_8f) begin
         
         if(rst) begin
-            clk_2f <=   1'b0;
-            clk_f <=   1'b0;
+            counter <= 3;
+            clk_2f <= 1'b0;
+            clk_f <= 1'b0;
         end
 
         else begin
             if(enb) begin
-                if (counter < 3) counter <= counter + 'b1;  // counter de clk_2f y clk_f
+                if (counter < 3) begin
+                    counter <= counter + 'b1;  // counter de clk_2f y clk_f
+                end
                 else begin
                     counter <= 'b0;                         //resetear counter
-                    if(~clk_2f) clk_2f <= ~clk_2f;          //clk 
-                    if(~clk_2f & ~clk_f) clk_f <= ~clk_f; 
+                    clk_2f <= ~clk_2f;                      //clk_2f cada 4 ciclos 
+                    if(~clk_2f) clk_f <= ~clk_f;            //clk_f solo la mitad
                 end
             end
         end

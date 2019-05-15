@@ -1,0 +1,18 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Wed May 15 17:42:22 2019
+[*]
+[dumpfile] "/home/moi/Documents/DigitalesII_Proyecto1/pruebas/gen_clk.vcd"
+[dumpfile_mtime] "Wed May 15 17:36:20 2019"
+[dumpfile_size] 1341
+[savefile] "/home/moi/Documents/DigitalesII_Proyecto1/gtkw/gen_clk.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*0.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 223
+[signals_width] 78
+[sst_expanded] 1
+[sst_vpaned_height] 152
+[pattern_trace] 1
+[pattern_trace] 0
