@@ -9,6 +9,8 @@ module probador(
     reg clk_f;
     reg clk_4f;
     reg clk_ff;
+    reg cond;
+    reg estruct;
    initial begin
     $dumpfile("bancopruebas.vcd");
     $dumpvars;
@@ -61,20 +63,15 @@ module probador(
     always @(posedge clk_ff)begin
         clk_f<=~clk_f;
     end
-    //always #16 clk_f <=~clk_f;
-
-//    always @(posedge clk) begin
-//       salida0_condi<=salida_0_cond;
-//       salida0_estructi<=salida_0_estruct;
-//       salida1_condi<=salida_1_cond;
-//       salida1_estructi<=salida_1_estruct;
-//       if (reset) begin
-//       if(salida0_condi==salida0_estructi & salida1_condi==salida1_estructi)
-//          $display("Las descripciones son iguales en ambas salidas");   
-//       end else begin
-         
-//       end
-//    end
+    
+   always @(posedge clk_8f) begin
+      cond<=data_out_conduc;
+      estruct<=data_out_estruct;
+      if (reset) begin
+      if(cond==estruct)
+         $display("Las descripciones son iguales en ambas salidas");   
+      end 
+   end
 
 endmodule
 
