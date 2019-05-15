@@ -1,0 +1,30 @@
+[*]
+[*] GTKWave Analyzer v3.3.99 (w)1999-2019 BSI
+[*] Wed May 15 20:36:43 2019
+[*]
+[dumpfile] "/home/evalverde95/Desktop/Proyecto-Digitales-II/partoserial/bancopruebas.vcd"
+[dumpfile_mtime] "Wed May 15 20:29:53 2019"
+[dumpfile_size] 27789
+[savefile] "/home/evalverde95/Desktop/Proyecto-Digitales-II/partoserial/config.gtkw"
+[timestart] 0
+[size] 1366 713
+[pos] -1 -1
+*-16.145464 177900 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] bancopruebas.
+[sst_width] 43
+[signals_width] 207
+[sst_expanded] 0
+[sst_vpaned_height] 192
+@28
+bancopruebas.clk_8f
+bancopruebas.mi_probador.clk_f
+bancopruebas.reset
+bancopruebas.valid_in
+@22
+bancopruebas.data_in[7:0]
+bancopruebas.modul_cond.data2send[7:0]
+@28
+bancopruebas.data_out_conduc
+bancopruebas.data_out_estruct
+[pattern_trace] 1
+[pattern_trace] 0
