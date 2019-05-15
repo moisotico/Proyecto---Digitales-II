@@ -7,6 +7,17 @@ Diseño de la interfaz PCIe
 * Moisés Campos Zepeda
 * Esteban Valverde Hernández - e.valverde95@hotmail.com
 
+# Makefile
+
+Los makefile se distribuyen con 4 reglas
+```bash
+$ make compilar # compila el archivo.v
+$ make sintetizar # sintetiza la descripción conductual con Yosys
+$ make visualizar # visualiza las formas de onda con GTKWave
+$ make limpiar # elimina archivos intermedios generados
+```
+
+
 # Plan de trabajo propuesto
 | Etapa | Actividad | Encargado | Tiempo  estimado (min) | Tiempo  dedicado (min) | Fecha  de entrega | Comentarios |
 |-------|-----------------------------|-----------|------------------------|------------------------|-------------------|-------------|
