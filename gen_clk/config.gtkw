@@ -1,0 +1,35 @@
+[*]
+[*] GTKWave Analyzer v3.3.99 (w)1999-2019 BSI
+[*] Thu May 16 00:08:21 2019
+[*]
+[dumpfile] "/home/evalverde95/Desktop/Proyecto-Digitales-II/gen_clk/gen_clk.vcd"
+[dumpfile_mtime] "Thu May 16 00:07:38 2019"
+[dumpfile_size] 6765
+[savefile] "/home/evalverde95/Desktop/Proyecto-Digitales-II/gen_clk/config.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-15.054590 14000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 43
+[signals_width] 142
+[sst_expanded] 0
+[sst_vpaned_height] 152
+@200
+-Entradas
+@28
+bancopruebas.clk_8f
+bancopruebas.rst
+bancopruebas.enb
+@200
+-Conductual
+@28
+bancopruebas.clk_2f_cond
+@29
+bancopruebas.clk_f_cond
+@200
+-Estructural
+@28
+bancopruebas.clk_2f_estruct
+bancopruebas.clk_f_estruct
+[pattern_trace] 1
+[pattern_trace] 0
