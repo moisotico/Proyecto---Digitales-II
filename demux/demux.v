@@ -25,12 +25,13 @@ module demux(
 		valid_out0=0;
 		valid_out1=0;
 		reading=0;
+		toggle=1;
 		if (reset_L == 0) begin		// reset asincrono
 			data_out0 = 'b0;				
 			data_out1 = 'b0;
 			valid_out0=0;
 			valid_out1=0;
-			toggle=0;
+			toggle=1;
 		end
 		else if (selector == 0 & valid_in == 1) begin	// mux selector para las salidas del demux
 			data_out0 = data_in;
@@ -38,6 +39,7 @@ module demux(
 			valid_out0=1;
 			valid_out1=0;
 			reading=1;
+			toggle=0;
 		end
 		else if (selector == 1 & valid_in == 1) begin
 			data_out0 = data_reg0;
@@ -45,6 +47,7 @@ module demux(
 			valid_out0=0;
 			valid_out1=1;
 			reading=1;
+			toggle=0;
 		end
 		else begin
 			data_out0 = data_reg0;
@@ -52,16 +55,13 @@ module demux(
 			valid_out0=0;
 			valid_out1=0;
 			reading=0;
+			toggle=1;
 		end
 	end
 
-	always @(negedge reading) begin
-		toggle = 1;
-	end
-
-	always @(posedge reading) begin
-		toggle = 0;
-	end
+	// always @(negedge reading) begin
+	// 	toggle = 1;
+	// end
 
     always @(posedge clk) begin		// bloque sincrono
 		if (reset_L == 0) begin		// reset de los flops 

@@ -3,40 +3,66 @@
 (* top =  1  *)
 (* src = "demux_synth.v:9" *)
 module demux_synth(data_out0, data_out1, valid_out0, valid_out1, valid_in, clk, reset_L, data_in);
-  wire _00_;
-  wire _01_;
-  wire _02_;
-  wire _03_;
-  wire _04_;
-  wire _05_;
-  wire _06_;
-  wire _07_;
-  wire _08_;
-  wire _09_;
-  wire _10_;
-  wire _11_;
-  wire _12_;
-  wire _13_;
-  wire _14_;
-  wire _15_;
-  wire _16_;
-  wire _17_;
-  wire _18_;
-  wire _19_;
-  wire _20_;
-  wire _21_;
-  wire _22_;
-  wire _23_;
-  wire _24_;
-  wire _25_;
-  wire _26_;
-  wire _27_;
-  wire _28_;
-  wire _29_;
-  wire _30_;
-  wire _31_;
-  wire _32_;
-  wire _33_;
+  (* src = "demux_synth.v:66" *)
+  wire _000_;
+  wire _001_;
+  wire _002_;
+  wire _003_;
+  wire _004_;
+  wire _005_;
+  wire _006_;
+  wire _007_;
+  wire _008_;
+  wire _009_;
+  wire _010_;
+  wire _011_;
+  wire _012_;
+  wire _013_;
+  wire _014_;
+  wire _015_;
+  wire _016_;
+  wire _017_;
+  wire _018_;
+  wire _019_;
+  wire _020_;
+  wire _021_;
+  wire _022_;
+  wire _023_;
+  wire _024_;
+  wire _025_;
+  wire _026_;
+  wire _027_;
+  wire _028_;
+  wire _029_;
+  wire _030_;
+  wire _031_;
+  wire _032_;
+  wire _033_;
+  wire _034_;
+  wire _035_;
+  wire _036_;
+  wire _037_;
+  wire _038_;
+  wire _039_;
+  wire _040_;
+  wire _041_;
+  wire _042_;
+  wire _043_;
+  wire _044_;
+  wire _045_;
+  wire _046_;
+  wire _047_;
+  wire _048_;
+  wire _049_;
+  wire _050_;
+  wire _051_;
+  wire _052_;
+  wire _053_;
+  wire _054_;
+  wire _055_;
+  wire _056_;
+  wire _057_;
+  wire _058_;
   (* src = "demux_synth.v:15" *)
   input clk;
   (* src = "demux_synth.v:17" *)
@@ -47,259 +73,474 @@ module demux_synth(data_out0, data_out1, valid_out0, valid_out1, valid_in, clk, 
   output [7:0] data_out1;
   (* src = "demux_synth.v:20" *)
   wire [7:0] data_reg0;
+  (* src = "demux_synth.v:20" *)
+  wire [7:0] data_reg1;
   (* src = "demux_synth.v:16" *)
   input reset_L;
+  (* src = "demux_synth.v:19" *)
+  wire selector;
   (* src = "demux_synth.v:14" *)
   input valid_in;
   (* src = "demux_synth.v:12" *)
   output valid_out0;
   (* src = "demux_synth.v:13" *)
   output valid_out1;
-  NOT _34_ (
+  NOT _059_ (
+    .A(selector),
+    .Y(_017_)
+  );
+  NOR _060_ (
     .A(valid_in),
-    .Y(_00_)
+    .B(_017_),
+    .Y(_018_)
   );
-  NOT _35_ (
+  NAND _061_ (
+    .A(valid_in),
+    .B(_017_),
+    .Y(_019_)
+  );
+  NAND _062_ (
+    .A(_019_),
+    .B(reset_L),
+    .Y(_020_)
+  );
+  NOR _063_ (
+    .A(_020_),
+    .B(_018_),
+    .Y(_000_)
+  );
+  NOT _064_ (
     .A(reset_L),
-    .Y(_01_)
+    .Y(_021_)
   );
-  NOR _36_ (
-    .A(_01_),
-    .B(_00_),
+  NOT _065_ (
+    .A(valid_in),
+    .Y(_022_)
+  );
+  NOR _066_ (
+    .A(_022_),
+    .B(_017_),
+    .Y(_023_)
+  );
+  NOT _067_ (
+    .A(_023_),
+    .Y(_024_)
+  );
+  NOR _068_ (
+    .A(_024_),
+    .B(_021_),
+    .Y(valid_out1)
+  );
+  NOR _069_ (
+    .A(_019_),
+    .B(_021_),
     .Y(valid_out0)
   );
-  NOR _37_ (
-    .A(data_reg0[0]),
-    .B(valid_in),
-    .Y(_02_)
+  NOR _070_ (
+    .A(_023_),
+    .B(data_reg1[0]),
+    .Y(_025_)
   );
-  NOT _38_ (
+  NOT _071_ (
     .A(data_in[0]),
-    .Y(_03_)
+    .Y(_026_)
   );
-  NAND _39_ (
-    .A(_03_),
-    .B(valid_in),
-    .Y(_04_)
+  NAND _072_ (
+    .A(_023_),
+    .B(_026_),
+    .Y(_027_)
   );
-  NAND _40_ (
-    .A(_04_),
+  NAND _073_ (
+    .A(_027_),
     .B(reset_L),
-    .Y(_05_)
+    .Y(_028_)
   );
-  NOR _41_ (
-    .A(_05_),
-    .B(_02_),
+  NOR _074_ (
+    .A(_028_),
+    .B(_025_),
+    .Y(data_out1[0])
+  );
+  NOR _075_ (
+    .A(_023_),
+    .B(data_reg1[1]),
+    .Y(_029_)
+  );
+  NOT _076_ (
+    .A(data_in[1]),
+    .Y(_030_)
+  );
+  NAND _077_ (
+    .A(_023_),
+    .B(_030_),
+    .Y(_031_)
+  );
+  NAND _078_ (
+    .A(_031_),
+    .B(reset_L),
+    .Y(_032_)
+  );
+  NOR _079_ (
+    .A(_032_),
+    .B(_029_),
+    .Y(data_out1[1])
+  );
+  NOR _080_ (
+    .A(_023_),
+    .B(data_reg1[2]),
+    .Y(_033_)
+  );
+  NOT _081_ (
+    .A(data_in[2]),
+    .Y(_034_)
+  );
+  NAND _082_ (
+    .A(_023_),
+    .B(_034_),
+    .Y(_035_)
+  );
+  NAND _083_ (
+    .A(_035_),
+    .B(reset_L),
+    .Y(_036_)
+  );
+  NOR _084_ (
+    .A(_036_),
+    .B(_033_),
+    .Y(data_out1[2])
+  );
+  NOR _085_ (
+    .A(_023_),
+    .B(data_reg1[3]),
+    .Y(_037_)
+  );
+  NOT _086_ (
+    .A(data_in[3]),
+    .Y(_038_)
+  );
+  NAND _087_ (
+    .A(_023_),
+    .B(_038_),
+    .Y(_039_)
+  );
+  NAND _088_ (
+    .A(_039_),
+    .B(reset_L),
+    .Y(_040_)
+  );
+  NOR _089_ (
+    .A(_040_),
+    .B(_037_),
+    .Y(data_out1[3])
+  );
+  NOR _090_ (
+    .A(_023_),
+    .B(data_reg1[4]),
+    .Y(_041_)
+  );
+  NOT _091_ (
+    .A(data_in[4]),
+    .Y(_042_)
+  );
+  NAND _092_ (
+    .A(_023_),
+    .B(_042_),
+    .Y(_043_)
+  );
+  NAND _093_ (
+    .A(_043_),
+    .B(reset_L),
+    .Y(_044_)
+  );
+  NOR _094_ (
+    .A(_044_),
+    .B(_041_),
+    .Y(data_out1[4])
+  );
+  NOR _095_ (
+    .A(_023_),
+    .B(data_reg1[5]),
+    .Y(_045_)
+  );
+  NOT _096_ (
+    .A(data_in[5]),
+    .Y(_046_)
+  );
+  NAND _097_ (
+    .A(_023_),
+    .B(_046_),
+    .Y(_047_)
+  );
+  NAND _098_ (
+    .A(_047_),
+    .B(reset_L),
+    .Y(_048_)
+  );
+  NOR _099_ (
+    .A(_048_),
+    .B(_045_),
+    .Y(data_out1[5])
+  );
+  NOR _100_ (
+    .A(_023_),
+    .B(data_reg1[6]),
+    .Y(_049_)
+  );
+  NOT _101_ (
+    .A(data_in[6]),
+    .Y(_050_)
+  );
+  NAND _102_ (
+    .A(_023_),
+    .B(_050_),
+    .Y(_051_)
+  );
+  NAND _103_ (
+    .A(_051_),
+    .B(reset_L),
+    .Y(_052_)
+  );
+  NOR _104_ (
+    .A(_052_),
+    .B(_049_),
+    .Y(data_out1[6])
+  );
+  NOR _105_ (
+    .A(_023_),
+    .B(data_reg1[7]),
+    .Y(_053_)
+  );
+  NOT _106_ (
+    .A(data_in[7]),
+    .Y(_054_)
+  );
+  NAND _107_ (
+    .A(_023_),
+    .B(_054_),
+    .Y(_055_)
+  );
+  NAND _108_ (
+    .A(_055_),
+    .B(reset_L),
+    .Y(_056_)
+  );
+  NOR _109_ (
+    .A(_056_),
+    .B(_053_),
+    .Y(data_out1[7])
+  );
+  NOR _110_ (
+    .A(_022_),
+    .B(selector),
+    .Y(_057_)
+  );
+  NOR _111_ (
+    .A(_057_),
+    .B(_021_),
+    .Y(_058_)
+  );
+  NAND _112_ (
+    .A(_058_),
+    .B(data_reg0[0]),
+    .Y(_001_)
+  );
+  NAND _113_ (
+    .A(valid_out0),
+    .B(data_in[0]),
+    .Y(_002_)
+  );
+  NAND _114_ (
+    .A(_002_),
+    .B(_001_),
     .Y(data_out0[0])
   );
-  NOR _42_ (
-    .A(valid_in),
+  NAND _115_ (
+    .A(_058_),
     .B(data_reg0[1]),
-    .Y(_06_)
+    .Y(_003_)
   );
-  NOT _43_ (
-    .A(data_in[1]),
-    .Y(_07_)
+  NAND _116_ (
+    .A(valid_out0),
+    .B(data_in[1]),
+    .Y(_004_)
   );
-  NAND _44_ (
-    .A(valid_in),
-    .B(_07_),
-    .Y(_08_)
-  );
-  NAND _45_ (
-    .A(_08_),
-    .B(reset_L),
-    .Y(_09_)
-  );
-  NOR _46_ (
-    .A(_09_),
-    .B(_06_),
+  NAND _117_ (
+    .A(_004_),
+    .B(_003_),
     .Y(data_out0[1])
   );
-  NOR _47_ (
-    .A(data_reg0[2]),
-    .B(valid_in),
-    .Y(_10_)
+  NAND _118_ (
+    .A(_058_),
+    .B(data_reg0[2]),
+    .Y(_005_)
   );
-  NOT _48_ (
-    .A(data_in[2]),
-    .Y(_11_)
+  NAND _119_ (
+    .A(valid_out0),
+    .B(data_in[2]),
+    .Y(_006_)
   );
-  NAND _49_ (
-    .A(_11_),
-    .B(valid_in),
-    .Y(_12_)
-  );
-  NAND _50_ (
-    .A(_12_),
-    .B(reset_L),
-    .Y(_13_)
-  );
-  NOR _51_ (
-    .A(_13_),
-    .B(_10_),
+  NAND _120_ (
+    .A(_006_),
+    .B(_005_),
     .Y(data_out0[2])
   );
-  NOR _52_ (
-    .A(data_reg0[3]),
-    .B(valid_in),
-    .Y(_14_)
+  NAND _121_ (
+    .A(_058_),
+    .B(data_reg0[3]),
+    .Y(_007_)
   );
-  NOT _53_ (
-    .A(data_in[3]),
-    .Y(_15_)
+  NAND _122_ (
+    .A(valid_out0),
+    .B(data_in[3]),
+    .Y(_008_)
   );
-  NAND _54_ (
-    .A(_15_),
-    .B(valid_in),
-    .Y(_16_)
-  );
-  NAND _55_ (
-    .A(_16_),
-    .B(reset_L),
-    .Y(_17_)
-  );
-  NOR _56_ (
-    .A(_17_),
-    .B(_14_),
+  NAND _123_ (
+    .A(_008_),
+    .B(_007_),
     .Y(data_out0[3])
   );
-  NOR _57_ (
-    .A(data_reg0[4]),
-    .B(valid_in),
-    .Y(_18_)
+  NAND _124_ (
+    .A(_058_),
+    .B(data_reg0[4]),
+    .Y(_009_)
   );
-  NOT _58_ (
-    .A(data_in[4]),
-    .Y(_19_)
+  NAND _125_ (
+    .A(valid_out0),
+    .B(data_in[4]),
+    .Y(_010_)
   );
-  NAND _59_ (
-    .A(_19_),
-    .B(valid_in),
-    .Y(_20_)
-  );
-  NAND _60_ (
-    .A(_20_),
-    .B(reset_L),
-    .Y(_21_)
-  );
-  NOR _61_ (
-    .A(_21_),
-    .B(_18_),
+  NAND _126_ (
+    .A(_010_),
+    .B(_009_),
     .Y(data_out0[4])
   );
-  NOR _62_ (
-    .A(data_reg0[5]),
-    .B(valid_in),
-    .Y(_22_)
+  NAND _127_ (
+    .A(_058_),
+    .B(data_reg0[5]),
+    .Y(_011_)
   );
-  NOT _63_ (
-    .A(data_in[5]),
-    .Y(_23_)
+  NAND _128_ (
+    .A(valid_out0),
+    .B(data_in[5]),
+    .Y(_012_)
   );
-  NAND _64_ (
-    .A(_23_),
-    .B(valid_in),
-    .Y(_24_)
-  );
-  NAND _65_ (
-    .A(_24_),
-    .B(reset_L),
-    .Y(_25_)
-  );
-  NOR _66_ (
-    .A(_25_),
-    .B(_22_),
+  NAND _129_ (
+    .A(_012_),
+    .B(_011_),
     .Y(data_out0[5])
   );
-  NOR _67_ (
-    .A(data_reg0[6]),
-    .B(valid_in),
-    .Y(_26_)
+  NAND _130_ (
+    .A(_058_),
+    .B(data_reg0[6]),
+    .Y(_013_)
   );
-  NOT _68_ (
-    .A(data_in[6]),
-    .Y(_27_)
+  NAND _131_ (
+    .A(valid_out0),
+    .B(data_in[6]),
+    .Y(_014_)
   );
-  NAND _69_ (
-    .A(_27_),
-    .B(valid_in),
-    .Y(_28_)
-  );
-  NAND _70_ (
-    .A(_28_),
-    .B(reset_L),
-    .Y(_29_)
-  );
-  NOR _71_ (
-    .A(_29_),
-    .B(_26_),
+  NAND _132_ (
+    .A(_014_),
+    .B(_013_),
     .Y(data_out0[6])
   );
-  NOR _72_ (
-    .A(data_reg0[7]),
-    .B(valid_in),
-    .Y(_30_)
+  NAND _133_ (
+    .A(_058_),
+    .B(data_reg0[7]),
+    .Y(_015_)
   );
-  NOT _73_ (
-    .A(data_in[7]),
-    .Y(_31_)
+  NAND _134_ (
+    .A(valid_out0),
+    .B(data_in[7]),
+    .Y(_016_)
   );
-  NAND _74_ (
-    .A(_31_),
-    .B(valid_in),
-    .Y(_32_)
-  );
-  NAND _75_ (
-    .A(_32_),
-    .B(reset_L),
-    .Y(_33_)
-  );
-  NOR _76_ (
-    .A(_33_),
-    .B(_30_),
+  NAND _135_ (
+    .A(_016_),
+    .B(_015_),
     .Y(data_out0[7])
   );
-  DFF _77_ (
+  DFF _136_ (
+    .C(clk),
+    .D(_000_),
+    .Q(selector)
+  );
+  DFF _137_ (
     .C(clk),
     .D(data_out0[0]),
     .Q(data_reg0[0])
   );
-  DFF _78_ (
+  DFF _138_ (
     .C(clk),
     .D(data_out0[1]),
     .Q(data_reg0[1])
   );
-  DFF _79_ (
+  DFF _139_ (
     .C(clk),
     .D(data_out0[2]),
     .Q(data_reg0[2])
   );
-  DFF _80_ (
+  DFF _140_ (
     .C(clk),
     .D(data_out0[3]),
     .Q(data_reg0[3])
   );
-  DFF _81_ (
+  DFF _141_ (
     .C(clk),
     .D(data_out0[4]),
     .Q(data_reg0[4])
   );
-  DFF _82_ (
+  DFF _142_ (
     .C(clk),
     .D(data_out0[5]),
     .Q(data_reg0[5])
   );
-  DFF _83_ (
+  DFF _143_ (
     .C(clk),
     .D(data_out0[6]),
     .Q(data_reg0[6])
   );
-  DFF _84_ (
+  DFF _144_ (
     .C(clk),
     .D(data_out0[7]),
     .Q(data_reg0[7])
   );
-  assign data_out1 = 8'b00000000;
-  assign valid_out1 = 1'b0;
+  DFF _145_ (
+    .C(clk),
+    .D(data_out1[0]),
+    .Q(data_reg1[0])
+  );
+  DFF _146_ (
+    .C(clk),
+    .D(data_out1[1]),
+    .Q(data_reg1[1])
+  );
+  DFF _147_ (
+    .C(clk),
+    .D(data_out1[2]),
+    .Q(data_reg1[2])
+  );
+  DFF _148_ (
+    .C(clk),
+    .D(data_out1[3]),
+    .Q(data_reg1[3])
+  );
+  DFF _149_ (
+    .C(clk),
+    .D(data_out1[4]),
+    .Q(data_reg1[4])
+  );
+  DFF _150_ (
+    .C(clk),
+    .D(data_out1[5]),
+    .Q(data_reg1[5])
+  );
+  DFF _151_ (
+    .C(clk),
+    .D(data_out1[6]),
+    .Q(data_reg1[6])
+  );
+  DFF _152_ (
+    .C(clk),
+    .D(data_out1[7]),
+    .Q(data_reg1[7])
+  );
 endmodule

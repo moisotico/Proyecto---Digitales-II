@@ -1,14 +1,14 @@
 [*]
 [*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
-[*] Wed May 15 23:44:04 2019
+[*] Thu May 16 00:12:24 2019
 [*]
 [dumpfile] "/home/gianca/Documents/UCR/IE-0523/Proyecto1/Proyecto-Digitales-II/demux/demux.vcd"
-[dumpfile_mtime] "Wed May 15 23:41:16 2019"
-[dumpfile_size] 21185
+[dumpfile_mtime] "Thu May 16 00:11:57 2019"
+[dumpfile_size] 19766
 [savefile] "/home/gianca/Documents/UCR/IE-0523/Proyecto1/Proyecto-Digitales-II/demux/demux.gtkw"
 [timestart] 0
 [size] 1299 713
-[pos] -67 -67
+[pos] -1 -1
 *-16.609644 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] tb.
 [sst_width] 223
@@ -42,7 +42,7 @@ tb.test.valid_out0_e
 tb.test.data_out0_e[7:0]
 @28
 tb.test.valid_out1_e
-@23
+@22
 tb.test.data_out1_e[7:0]
 @200
 -check
