@@ -21,9 +21,10 @@ module probador(
     data_in<='b0;
     valid_in<='b0;
     
-    @(posedge clk_8f);
-    reset<='b1;
+    @(posedge clk_f);
+	reset<='b1;
     valid_in<='b1;
+	data_in<=data_in+1;
     
     repeat (10) begin
     @(posedge clk_f);

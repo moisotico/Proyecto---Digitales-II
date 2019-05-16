@@ -26,7 +26,7 @@ end
 always @(posedge clk_8f)begin
     if(reset==0)begin
         data_out<='b0;
-        data2send<=data_in;
+        //data2send<=data_in;
         contador<=0;
     end
     else begin    
