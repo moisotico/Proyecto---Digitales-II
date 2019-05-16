@@ -46,8 +46,12 @@ module probador (
 		// Pruebas #1: Reset bajo. 
 		reset_L <= 0;
 		// Prueba #2: Reset alto. Valido primer dato
+		@(posedge clk);
+		reset_L <= 1;
+		// Sincroniza
+		@(posedge clk);
+		@(posedge clk);
 		@(posedge clk) begin
-			reset_L <= 1;
 			valid_in_0 <= 1;
 			data_in_0 <= 8'hff;
 		end
