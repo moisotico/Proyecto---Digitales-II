@@ -1,0 +1,157 @@
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+checker	checker.v	/^module checker($/;"	m
+clk	checker.v	/^	input 			clk,			\/\/ señal de clock del modulo	$/;"	p
+data_out0_c	checker.v	/^	input [7:0]		data_out0_c,	\/\/ salida 0 del demultiplexor conductual$/;"	p
+data_out0_e	checker.v	/^	input [7:0]		data_out0_e,			\/\/ salida 0 del demultiplexor estructural$/;"	p
+input	checker.v	/^	input 			reset_L,		\/\/ señal de reset_L del modulo$/;"	p
+input	checker.v	/^	input [7:0]		data_out1_c,	\/\/ salida 1 del demultiplexor conductual$/;"	p
+input	checker.v	/^	input [7:0]		data_out1_e			\/\/ salida 1 del demultiplexor estructural$/;"	p
+out_c_0	checker.v	/^	reg [7:0] 		out_c_0,out_e_0,out_c_1,out_e_1; \/\/ff$/;"	r
+out_c_1	checker.v	/^	reg [7:0] 		out_c_0,out_e_0,out_c_1,out_e_1; \/\/ff$/;"	r
+out_e_0	checker.v	/^	reg [7:0] 		out_c_0,out_e_0,out_c_1,out_e_1; \/\/ff$/;"	r
+out_e_1	checker.v	/^	reg [7:0] 		out_c_0,out_e_0,out_c_1,out_e_1; \/\/ff$/;"	r
+reg	checker.v	/^	output reg		check_out0,		\/\/ salida de 1 bit que indica que ambos datos de la salida 0 son iguales	$/;"	p
+reg	checker.v	/^	output reg		check_out1,		\/\/ salida de 1 bit que indica que ambos datos de la salida 1 son iguales	$/;"	p
+BUF	cmos_cells.v	/^module BUF(input A,output Y);$/;"	m
+DFF	cmos_cells.v	/^module DFF(input C, input D, output reg Q);$/;"	m
+DFFSR	cmos_cells.v	/^module DFFSR(input C, input D, input S, input R, output reg Q);$/;"	m
+NAND	cmos_cells.v	/^module NAND(input A, input B, output Y);$/;"	m
+NOR	cmos_cells.v	/^module NOR(input A, input B, output Y);$/;"	m
+NOT	cmos_cells.v	/^module NOT(input A,output Y);$/;"	m
+data_reg0	demux.v	/^	reg [7:0]		data_reg0, data_reg1;	\/\/ regs internos que transfieren la entrada a la salida y soluciona el problema de temporizacion$/;"	r
+data_reg1	demux.v	/^	reg [7:0]		data_reg0, data_reg1;	\/\/ regs internos que transfieren la entrada a la salida y soluciona el problema de temporizacion$/;"	r
+demux	demux.v	/^module demux($/;"	m
+input	demux.v	/^	input 			clk,			\/\/ señal de clock del modulo$/;"	p
+input	demux.v	/^	input [7:0]		data_in			\/\/ señal entrada de datos del demultiplexor$/;"	p
+reg	demux.v	/^	output reg 		valid_out0,		\/\/ salida 0 bit de valid $/;"	p
+reg	demux.v	/^	output reg 		valid_out1,		\/\/ salida 1 bit de valid$/;"	p
+reg	demux.v	/^	output reg[7:0]	data_out0,		\/\/ salida 0 de tipo reg del demultiplexor$/;"	p
+reg	demux.v	/^	output reg[7:0]	data_out1,		\/\/ salida 1 de tipo reg del demultiplexor$/;"	p
+reset_L	demux.v	/^	input 			reset_L,		\/\/ señal de reset en bajo del modulo$/;"	p
+selector	demux.v	/^	reg 			selector,valid0,valid1;		\/\/ regs internos de un 1b $/;"	r
+valid0	demux.v	/^	reg 			selector,valid0,valid1;		\/\/ regs internos de un 1b $/;"	r
+valid1	demux.v	/^	reg 			selector,valid0,valid1;		\/\/ regs internos de un 1b $/;"	r
+valid_in	demux.v	/^	input 			valid_in,		\/\/ entrada de datos valid$/;"	p
+_000_	demux_synth.v	/^  wire _000_;$/;"	n
+_001_	demux_synth.v	/^  wire _001_;$/;"	n
+_002_	demux_synth.v	/^  wire _002_;$/;"	n
+_003_	demux_synth.v	/^  wire _003_;$/;"	n
+_004_	demux_synth.v	/^  wire _004_;$/;"	n
+_005_	demux_synth.v	/^  wire _005_;$/;"	n
+_006_	demux_synth.v	/^  wire _006_;$/;"	n
+_007_	demux_synth.v	/^  wire _007_;$/;"	n
+_008_	demux_synth.v	/^  wire _008_;$/;"	n
+_009_	demux_synth.v	/^  wire _009_;$/;"	n
+_010_	demux_synth.v	/^  wire _010_;$/;"	n
+_011_	demux_synth.v	/^  wire _011_;$/;"	n
+_012_	demux_synth.v	/^  wire _012_;$/;"	n
+_013_	demux_synth.v	/^  wire _013_;$/;"	n
+_014_	demux_synth.v	/^  wire _014_;$/;"	n
+_015_	demux_synth.v	/^  wire _015_;$/;"	n
+_016_	demux_synth.v	/^  wire _016_;$/;"	n
+_017_	demux_synth.v	/^  wire _017_;$/;"	n
+_018_	demux_synth.v	/^  wire _018_;$/;"	n
+_019_	demux_synth.v	/^  wire _019_;$/;"	n
+_020_	demux_synth.v	/^  wire _020_;$/;"	n
+_021_	demux_synth.v	/^  wire _021_;$/;"	n
+_022_	demux_synth.v	/^  wire _022_;$/;"	n
+_023_	demux_synth.v	/^  wire _023_;$/;"	n
+_024_	demux_synth.v	/^  wire _024_;$/;"	n
+_025_	demux_synth.v	/^  wire _025_;$/;"	n
+_026_	demux_synth.v	/^  wire _026_;$/;"	n
+_027_	demux_synth.v	/^  wire _027_;$/;"	n
+_028_	demux_synth.v	/^  wire _028_;$/;"	n
+_029_	demux_synth.v	/^  wire _029_;$/;"	n
+_030_	demux_synth.v	/^  wire _030_;$/;"	n
+_031_	demux_synth.v	/^  wire _031_;$/;"	n
+_032_	demux_synth.v	/^  wire _032_;$/;"	n
+_033_	demux_synth.v	/^  wire _033_;$/;"	n
+_034_	demux_synth.v	/^  wire _034_;$/;"	n
+_035_	demux_synth.v	/^  wire _035_;$/;"	n
+_036_	demux_synth.v	/^  wire _036_;$/;"	n
+_037_	demux_synth.v	/^  wire _037_;$/;"	n
+_038_	demux_synth.v	/^  wire _038_;$/;"	n
+_039_	demux_synth.v	/^  wire _039_;$/;"	n
+_040_	demux_synth.v	/^  wire _040_;$/;"	n
+_041_	demux_synth.v	/^  wire _041_;$/;"	n
+_042_	demux_synth.v	/^  wire _042_;$/;"	n
+_043_	demux_synth.v	/^  wire _043_;$/;"	n
+_044_	demux_synth.v	/^  wire _044_;$/;"	n
+_045_	demux_synth.v	/^  wire _045_;$/;"	n
+_046_	demux_synth.v	/^  wire _046_;$/;"	n
+_047_	demux_synth.v	/^  wire _047_;$/;"	n
+_048_	demux_synth.v	/^  wire _048_;$/;"	n
+_049_	demux_synth.v	/^  wire _049_;$/;"	n
+_050_	demux_synth.v	/^  wire _050_;$/;"	n
+_051_	demux_synth.v	/^  wire _051_;$/;"	n
+_052_	demux_synth.v	/^  wire _052_;$/;"	n
+_053_	demux_synth.v	/^  wire _053_;$/;"	n
+_054_	demux_synth.v	/^  wire _054_;$/;"	n
+_055_	demux_synth.v	/^  wire _055_;$/;"	n
+_056_	demux_synth.v	/^  wire _056_;$/;"	n
+_057_	demux_synth.v	/^  wire _057_;$/;"	n
+_058_	demux_synth.v	/^  wire _058_;$/;"	n
+_059_	demux_synth.v	/^  wire _059_;$/;"	n
+_060_	demux_synth.v	/^  wire _060_;$/;"	n
+_061_	demux_synth.v	/^  wire _061_;$/;"	n
+clk	demux_synth.v	/^  input clk;$/;"	p
+data_in	demux_synth.v	/^  input [7:0] data_in;$/;"	p
+data_out0	demux_synth.v	/^  output [7:0] data_out0;$/;"	p
+data_out1	demux_synth.v	/^  output [7:0] data_out1;$/;"	p
+data_reg0	demux_synth.v	/^  wire [7:0] data_reg0;$/;"	n
+data_reg1	demux_synth.v	/^  wire [7:0] data_reg1;$/;"	n
+demux_synth	demux_synth.v	/^module demux_synth(data_out0, data_out1, valid_out0, valid_out1, valid_in, clk, reset_L, data_in);$/;"	m
+reset_L	demux_synth.v	/^  input reset_L;$/;"	p
+selector	demux_synth.v	/^  wire selector;$/;"	n
+valid_in	demux_synth.v	/^  input valid_in;$/;"	p
+valid_out0	demux_synth.v	/^  output valid_out0;$/;"	p
+valid_out1	demux_synth.v	/^  output valid_out1;$/;"	p
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+CC	makefile	/^CC := iverilog$/;"	m
+CC_RUN	makefile	/^CC_RUN := vvp$/;"	m
+CC_SYNTH	makefile	/^CC_SYNTH := yosys$/;"	m
+LIB	makefile	/^export LIB := cmos_cells.lib$/;"	m
+NEW_TOP_MODULE	makefile	/^NEW_TOP_MODULE = demux_synth$/;"	m
+NEW_VLOG_FILE_NAME	makefile	/^NEW_VLOG_FILE_NAME = demux_synth.v$/;"	m
+OUTPUT_SIM	makefile	/^OUTPUT_SIM := demux.out$/;"	m
+OUTPUT_SYNTH	makefile	/^export OUTPUT_SYNTH = demux_synth.v$/;"	m
+SRC	makefile	/^SRC = yosys.tcl$/;"	m
+TARGET_TOP	makefile	/^TARGET_TOP := demux.v$/;"	m
+TARGET_VIS	makefile	/^TARGET_VIS := demux.vcd$/;"	m
+TOP_MODULE	makefile	/^export TOP_MODULE := demux$/;"	m
+VISUAL	makefile	/^VISUAL := gtkwave$/;"	m
+VLOG_FILE_NAME	makefile	/^export VLOG_FILE_NAME := demux.v$/;"	m
+check_out0	probador.v	/^	wire check_out0, check_out1, check_valid_out0, check_valid_out1;	\/\/ salidas del checker$/;"	n
+check_out1	probador.v	/^	wire check_out0, check_out1, check_valid_out0, check_valid_out1;	\/\/ salidas del checker$/;"	n
+check_valid_out0	probador.v	/^	wire check_out0, check_out1, check_valid_out0, check_valid_out1;	\/\/ salidas del checker$/;"	n
+check_valid_out1	probador.v	/^	wire check_out0, check_out1, check_valid_out0, check_valid_out1;	\/\/ salidas del checker$/;"	n
+data_out0_c	probador.v	/^	input [7:0]					data_out0_c,	\/\/ monitor de salida 0 de datos cond$/;"	p
+data_out1_c	probador.v	/^	input [7:0]					data_out1_c,	\/\/ monitor de salida 1 de datos cond$/;"	p
+input	probador.v	/^	input 						valid_out0_e, 	\/\/ monitor de salida del bit valido 0 estr$/;"	p
+input	probador.v	/^	input 						valid_out1_e 	\/\/ monitor de salida del bit valido 1 estr$/;"	p
+input	probador.v	/^	input [7:0]					data_out0_e,	\/\/ monitor de salida 0 de datos estr$/;"	p
+input	probador.v	/^	input [7:0]					data_out1_e,	\/\/ monitor de salida 1 de datos estr$/;"	p
+probador	probador.v	/^module probador ($/;"	m
+reg	probador.v	/^	output reg 					clk,			\/\/ generador del clock$/;"	p
+reg	probador.v	/^	output reg 					reset_L,		\/\/ generador de reset$/;"	p
+reg	probador.v	/^	output reg 					valid_in_0,		\/\/ generador de bit valido entrada 0$/;"	p
+reg	probador.v	/^	output reg[7:0]				data_in,		\/\/ generador de la entrada de dato 0$/;"	p
+valid_out0_c	probador.v	/^	input 						valid_out0_c, 	\/\/ monitor de salida del bit valido 0 cond$/;"	p
+valid_out1_c	probador.v	/^	input 						valid_out1_c, 	\/\/ monitor de salida del bit valido 1 cond$/;"	p
+clk	tb.v	/^	wire 		clk, reset_L, valid_in, valid_out0_c, valid_out0_e, valid_out1_c, valid_out1_e;$/;"	n
+data_in	tb.v	/^	wire[7:0] 	data_in, data_out0_c, data_out0_e, data_out1_c, data_out1_e;$/;"	n
+data_out0_c	tb.v	/^	wire[7:0] 	data_in, data_out0_c, data_out0_e, data_out1_c, data_out1_e;$/;"	n
+data_out0_e	tb.v	/^	wire[7:0] 	data_in, data_out0_c, data_out0_e, data_out1_c, data_out1_e;$/;"	n
+data_out1_c	tb.v	/^	wire[7:0] 	data_in, data_out0_c, data_out0_e, data_out1_c, data_out1_e;$/;"	n
+data_out1_e	tb.v	/^	wire[7:0] 	data_in, data_out0_c, data_out0_e, data_out1_c, data_out1_e;$/;"	n
+reset_L	tb.v	/^	wire 		clk, reset_L, valid_in, valid_out0_c, valid_out0_e, valid_out1_c, valid_out1_e;$/;"	n
+tb	tb.v	/^module tb(); \/\/ Testbench$/;"	m
+valid_in	tb.v	/^	wire 		clk, reset_L, valid_in, valid_out0_c, valid_out0_e, valid_out1_c, valid_out1_e;$/;"	n
+valid_out0_c	tb.v	/^	wire 		clk, reset_L, valid_in, valid_out0_c, valid_out0_e, valid_out1_c, valid_out1_e;$/;"	n
+valid_out0_e	tb.v	/^	wire 		clk, reset_L, valid_in, valid_out0_c, valid_out0_e, valid_out1_c, valid_out1_e;$/;"	n
+valid_out1_c	tb.v	/^	wire 		clk, reset_L, valid_in, valid_out0_c, valid_out0_e, valid_out1_c, valid_out1_e;$/;"	n
+valid_out1_e	tb.v	/^	wire 		clk, reset_L, valid_in, valid_out0_c, valid_out0_e, valid_out1_c, valid_out1_e;$/;"	n
