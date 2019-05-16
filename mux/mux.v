@@ -16,7 +16,7 @@ module mux(
 	input 			valid_in_1,		// bit valid entrada 1
 	input [7:0]		data_in_1		// entrada de datos 1 del multiplexor
 	);
-	reg 			selector,write,channel,ignore,next,toggle;
+	reg 			selector,write,channel,next,toggle;
 	reg				cntr_wait_cyc;	// contador de ciclos wait 
 	reg [7:0]		data_reg;		// regs internos que transfieren la entrada a la salida
 	
@@ -26,8 +26,8 @@ module mux(
 		channel = 0;
 		next = 0;
 		if (valid_in_0 || valid_in_1) begin
-			write = 1;
 			if (!write) begin
+				write = 1;
 				if (valid_in_0 && !valid_in_1) begin
 					data_reg = data_in_0;
 					channel = 0;
@@ -49,6 +49,7 @@ module mux(
 				end
 			end
 			else if (write) begin
+				write = 1;
 				if (!channel) begin
 					data_reg = data_in_0;
 					channel = 0;	
