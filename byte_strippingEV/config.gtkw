@@ -1,0 +1,43 @@
+[*]
+[*] GTKWave Analyzer v3.3.99 (w)1999-2019 BSI
+[*] Wed May 22 20:30:33 2019
+[*]
+[dumpfile] "/home/evalverde95/Proyecto-Digitales-II/byte_strippingEV/bancopruebas.vcd"
+[dumpfile_mtime] "Wed May 22 20:29:26 2019"
+[dumpfile_size] 27495
+[savefile] "/home/evalverde95/Proyecto-Digitales-II/byte_strippingEV/config.gtkw"
+[timestart] 0
+[size] 1366 713
+[pos] -1 -1
+*-15.776920 274000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] bancopruebas.
+[sst_width] 43
+[signals_width] 182
+[sst_expanded] 0
+[sst_vpaned_height] 192
+@28
+bancopruebas.bs_cond.clk_2f
+@22
+bancopruebas.probador.data_in[7:0]
+@28
+bancopruebas.probador.valid_in
+bancopruebas.bs_cond.selector
+@22
+bancopruebas.bs_cond.lane_0_cond[7:0]
+@28
+bancopruebas.bs_cond.valid_0_cond
+@22
+bancopruebas.bs_cond.lane_1_cond[7:0]
+@28
+bancopruebas.bs_cond.valid_1_cond
+@22
+bancopruebas.bs_estruct.data_in[7:0]
+bancopruebas.bs_estruct.lane_0_estruct[7:0]
+@28
+bancopruebas.bs_estruct.valid_0_estruct
+@22
+bancopruebas.bs_estruct.lane_1_estruct[7:0]
+@28
+bancopruebas.bs_estruct.valid_1_estruct
+[pattern_trace] 1
+[pattern_trace] 0
