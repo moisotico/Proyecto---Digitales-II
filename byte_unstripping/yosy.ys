@@ -1,0 +1,14 @@
+read_verilog gen_clk.v
+hierarchy -check -top gen_clk
+
+proc; opt; fsm; opt; memory; opt; techmap; opt;
+
+dfflibmap -liberty ./CMOS/cmos_cells.lib
+
+abc -liberty ./CMOS/cmos_cells.lib
+
+clean
+
+show -notitle -format pdf -prefix modulo_diagramCMOS -lib ./CMOS/cmos_cells.v
+
+write_verilog -noattr gen_clkSynth.v
