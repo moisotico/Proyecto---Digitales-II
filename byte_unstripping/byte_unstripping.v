@@ -1,13 +1,13 @@
 /**
 	*Universidad de Costa Rica - Escuela de Ingenieria Electrica
-	*Proyecto #1 - IE-0523 - modulo byte stripping
+	*Proyecto #1 - IE-0523 - modulo byte unstripping
 	*@author Moises Campos Z.
 	*@date   21/05/2019
 	*@brief  Descripcion conductual del byte unstripping    
 **/
 `timescale 1ns/1ps
 
-module byte_stripping(
+module byte_unstripping(
                         output reg[7:0] data_demux,     //salida a data demux, cambia con clk_2f
                         output reg      valid_demux,
 
@@ -24,10 +24,17 @@ module byte_stripping(
     reg [7,0]       data_validated0;
     reg [7,0]       data_validated_1;
     reg             counter;
-    
+    reg             selector; 
     
 //bloques always
     always@(*)begin
+        if (!reset_L) begin
+            counter <= 'b0;
+            valid_stripe_0 <= 'b0;
+            valid_stripe_0 <= 'b0;
+            selector <= 'b0;
+        end
+
         if (valid_stripe_0) data_valdated_0 <= data_stripe_0;
         if (valid_stripe_1) data_valdated_1 <= data_stripe_1;
         //  salida data_demux      
