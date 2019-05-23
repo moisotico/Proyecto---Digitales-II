@@ -1,0 +1,48 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Thu May 16 02:54:32 2019
+[*]
+[dumpfile] "/home/gianca/Documents/UCR/IE-0523/Proyecto1/Proyecto-Digitales-II/mux/mux.vcd"
+[dumpfile_mtime] "Thu May 16 02:52:54 2019"
+[dumpfile_size] 14782
+[savefile] "/home/gianca/Documents/UCR/IE-0523/Proyecto1/Proyecto-Digitales-II/mux/mux.gtkw"
+[timestart] 0
+[size] 1299 713
+[pos] -1 -1
+*-16.596588 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb.
+[sst_width] 223
+[signals_width] 150
+[sst_expanded] 1
+[sst_vpaned_height] 192
+@200
+-inputs
+@28
+tb.test.clk
+tb.test.reset_L
+tb.test.valid_in_0
+@22
+tb.test.data_in_0[7:0]
+@28
+tb.test.valid_in_1
+@22
+tb.test.data_in_1[7:0]
+@200
+-outputs cond
+@28
+tb.test.valid_out_c
+@22
+tb.test.data_out_c[7:0]
+@200
+-outputs synth
+@28
+tb.test.valid_out_e
+@22
+tb.test.data_out_e[7:0]
+@200
+-checker
+@28
+tb.test.check_valid
+tb.test.check_data_out
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,0 +1,3 @@
+# Validación
+
+![](./figs/parse.png)

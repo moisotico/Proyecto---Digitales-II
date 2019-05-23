@@ -1,0 +1,181 @@
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+checker	checker.v	/^module checker($/;"	m
+clk	checker.v	/^	input 			clk,			\/\/ señal de clock del modulo	$/;"	p
+data_out_c	checker.v	/^	input [7:0]		data_out_c,		\/\/ entrada de datos generada por del modulo conductual$/;"	p
+input	checker.v	/^	input 			reset_L,		\/\/ señal de reset_L del modulo$/;"	p
+input	checker.v	/^	input 			valid_out_e	\/\/ entrada de bit de valido por el modulo estructural$/;"	p
+input	checker.v	/^	input [7:0]		data_out_e,		\/\/ entrada de datos generada por el modulo estructural$/;"	p
+out_c	checker.v	/^	reg [7:0] 		out_c,out_e; 	$/;"	r
+out_e	checker.v	/^	reg [7:0] 		out_c,out_e; 	$/;"	r
+reg	checker.v	/^	output reg		check_data_out,	\/\/ salida de 1 bit que indica que ambos datos de data_out son iguales	$/;"	p
+reg	checker.v	/^	output reg 		check_valid,	\/\/ salida de 1 bit que indica que ambos bits de valido son iguales$/;"	p
+valid_c	checker.v	/^	reg 			valid_c,valid_e;$/;"	r
+valid_e	checker.v	/^	reg 			valid_c,valid_e;$/;"	r
+valid_out_c	checker.v	/^	input 			valid_out_c,	\/\/ entrada de bit de valido por el modulo conductual$/;"	p
+BUF	cmos_cells.v	/^module BUF(input A,output Y);$/;"	m
+DFF	cmos_cells.v	/^module DFF(input C, input D, output reg Q);$/;"	m
+DFFSR	cmos_cells.v	/^module DFFSR(input C, input D, input S, input R, output reg Q);$/;"	m
+NAND	cmos_cells.v	/^module NAND(input A, input B, output Y);$/;"	m
+NOR	cmos_cells.v	/^module NOR(input A, input B, output Y);$/;"	m
+NOT	cmos_cells.v	/^module NOT(input A,output Y);$/;"	m
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+CC	makefile	/^CC := iverilog$/;"	m
+CC_RUN	makefile	/^CC_RUN := vvp$/;"	m
+CC_SYNTH	makefile	/^CC_SYNTH := yosys$/;"	m
+LIB	makefile	/^export LIB := cmos_cells.lib$/;"	m
+NEW_TOP_MODULE	makefile	/^NEW_TOP_MODULE = mux_synth$/;"	m
+NEW_VLOG_FILE_NAME	makefile	/^NEW_VLOG_FILE_NAME = mux_synth.v$/;"	m
+OUTPUT_SIM	makefile	/^OUTPUT_SIM := mux.out$/;"	m
+OUTPUT_SYNTH	makefile	/^export OUTPUT_SYNTH = mux_synth.v$/;"	m
+SRC	makefile	/^SRC = yosys.tcl$/;"	m
+TARGET_TOP	makefile	/^TARGET_TOP := mux.v$/;"	m
+TARGET_VIS	makefile	/^TARGET_VIS := mux.vcd$/;"	m
+TOP_MODULE	makefile	/^export TOP_MODULE := mux$/;"	m
+VISUAL	makefile	/^VISUAL := gtkwave$/;"	m
+VLOG_FILE_NAME	makefile	/^export VLOG_FILE_NAME := mux.v$/;"	m
+channel	mux.v	/^	reg 			selector,receiving,channel,sync;		\/\/ regs internos de un 1b$/;"	r
+clk	mux.v	/^	input 			clk,			\/\/ señal de clock del modulo$/;"	p
+cntr_wait_cyc	mux.v	/^	reg[1:0]		cntr_wait_cyc;	\/\/ contador de ciclos wait $/;"	r
+data_reg	mux.v	/^	reg [7:0]		data_reg;		\/\/ regs internos que transfieren la entrada a la salida$/;"	r
+input	mux.v	/^	input 			reset_L,		\/\/ señal de reset del modulo$/;"	p
+input	mux.v	/^	input [7:0]		data_in_0,		\/\/ entrada de datos 0 del multiplexor$/;"	p
+input	mux.v	/^	input [7:0]		data_in_1		\/\/ entrada de datos 1 del multiplexor$/;"	p
+mux	mux.v	/^module mux($/;"	m
+receiving	mux.v	/^	reg 			selector,receiving,channel,sync;		\/\/ regs internos de un 1b$/;"	r
+reg	mux.v	/^	output reg 		valid_out,		\/\/ bit de valid de la salida$/;"	p
+reg	mux.v	/^	output reg[7:0]	data_out,		\/\/ salida del multiplexor$/;"	p
+selector	mux.v	/^	reg 			selector,receiving,channel,sync;		\/\/ regs internos de un 1b$/;"	r
+sync	mux.v	/^	reg 			selector,receiving,channel,sync;		\/\/ regs internos de un 1b$/;"	r
+valid_in_0	mux.v	/^	input 			valid_in_0,		\/\/ bit valid entrada 0$/;"	p
+valid_in_1	mux.v	/^	input 			valid_in_1,		\/\/ bit valid entrada 1$/;"	p
+_000_	mux_synth.v	/^  wire [1:0] _000_;$/;"	n
+_001_	mux_synth.v	/^  wire [7:0] _001_;$/;"	n
+_002_	mux_synth.v	/^  wire _002_;$/;"	n
+_003_	mux_synth.v	/^  wire _003_;$/;"	n
+_004_	mux_synth.v	/^  wire _004_;$/;"	n
+_005_	mux_synth.v	/^  wire _005_;$/;"	n
+_006_	mux_synth.v	/^  wire _006_;$/;"	n
+_007_	mux_synth.v	/^  wire _007_;$/;"	n
+_008_	mux_synth.v	/^  wire _008_;$/;"	n
+_009_	mux_synth.v	/^  wire _009_;$/;"	n
+_010_	mux_synth.v	/^  wire _010_;$/;"	n
+_011_	mux_synth.v	/^  wire _011_;$/;"	n
+_012_	mux_synth.v	/^  wire _012_;$/;"	n
+_013_	mux_synth.v	/^  wire _013_;$/;"	n
+_014_	mux_synth.v	/^  wire _014_;$/;"	n
+_015_	mux_synth.v	/^  wire _015_;$/;"	n
+_016_	mux_synth.v	/^  wire _016_;$/;"	n
+_017_	mux_synth.v	/^  wire _017_;$/;"	n
+_018_	mux_synth.v	/^  wire _018_;$/;"	n
+_019_	mux_synth.v	/^  wire _019_;$/;"	n
+_020_	mux_synth.v	/^  wire _020_;$/;"	n
+_021_	mux_synth.v	/^  wire _021_;$/;"	n
+_022_	mux_synth.v	/^  wire _022_;$/;"	n
+_023_	mux_synth.v	/^  wire _023_;$/;"	n
+_024_	mux_synth.v	/^  wire _024_;$/;"	n
+_025_	mux_synth.v	/^  wire _025_;$/;"	n
+_026_	mux_synth.v	/^  wire _026_;$/;"	n
+_027_	mux_synth.v	/^  wire _027_;$/;"	n
+_028_	mux_synth.v	/^  wire _028_;$/;"	n
+_029_	mux_synth.v	/^  wire _029_;$/;"	n
+_030_	mux_synth.v	/^  wire _030_;$/;"	n
+_031_	mux_synth.v	/^  wire _031_;$/;"	n
+_032_	mux_synth.v	/^  wire _032_;$/;"	n
+_033_	mux_synth.v	/^  wire _033_;$/;"	n
+_034_	mux_synth.v	/^  wire _034_;$/;"	n
+_035_	mux_synth.v	/^  wire _035_;$/;"	n
+_036_	mux_synth.v	/^  wire _036_;$/;"	n
+_037_	mux_synth.v	/^  wire _037_;$/;"	n
+_038_	mux_synth.v	/^  wire _038_;$/;"	n
+_039_	mux_synth.v	/^  wire _039_;$/;"	n
+_040_	mux_synth.v	/^  wire _040_;$/;"	n
+_041_	mux_synth.v	/^  wire _041_;$/;"	n
+_042_	mux_synth.v	/^  wire _042_;$/;"	n
+_043_	mux_synth.v	/^  wire _043_;$/;"	n
+_044_	mux_synth.v	/^  wire _044_;$/;"	n
+_045_	mux_synth.v	/^  wire _045_;$/;"	n
+_046_	mux_synth.v	/^  wire _046_;$/;"	n
+_047_	mux_synth.v	/^  wire _047_;$/;"	n
+_048_	mux_synth.v	/^  wire _048_;$/;"	n
+_049_	mux_synth.v	/^  wire _049_;$/;"	n
+_050_	mux_synth.v	/^  wire _050_;$/;"	n
+_051_	mux_synth.v	/^  wire _051_;$/;"	n
+_052_	mux_synth.v	/^  wire _052_;$/;"	n
+_053_	mux_synth.v	/^  wire _053_;$/;"	n
+_054_	mux_synth.v	/^  wire _054_;$/;"	n
+_055_	mux_synth.v	/^  wire _055_;$/;"	n
+_056_	mux_synth.v	/^  wire _056_;$/;"	n
+_057_	mux_synth.v	/^  wire _057_;$/;"	n
+_058_	mux_synth.v	/^  wire _058_;$/;"	n
+_059_	mux_synth.v	/^  wire _059_;$/;"	n
+_060_	mux_synth.v	/^  wire _060_;$/;"	n
+_061_	mux_synth.v	/^  wire _061_;$/;"	n
+_062_	mux_synth.v	/^  wire _062_;$/;"	n
+_063_	mux_synth.v	/^  wire _063_;$/;"	n
+_064_	mux_synth.v	/^  wire _064_;$/;"	n
+_065_	mux_synth.v	/^  wire _065_;$/;"	n
+_066_	mux_synth.v	/^  wire _066_;$/;"	n
+_067_	mux_synth.v	/^  wire _067_;$/;"	n
+_068_	mux_synth.v	/^  wire _068_;$/;"	n
+_069_	mux_synth.v	/^  wire _069_;$/;"	n
+_070_	mux_synth.v	/^  wire _070_;$/;"	n
+_071_	mux_synth.v	/^  wire _071_;$/;"	n
+_072_	mux_synth.v	/^  wire _072_;$/;"	n
+_073_	mux_synth.v	/^  wire _073_;$/;"	n
+_074_	mux_synth.v	/^  wire _074_;$/;"	n
+_075_	mux_synth.v	/^  wire _075_;$/;"	n
+_076_	mux_synth.v	/^  wire _076_;$/;"	n
+_077_	mux_synth.v	/^  wire _077_;$/;"	n
+_078_	mux_synth.v	/^  wire _078_;$/;"	n
+_079_	mux_synth.v	/^  wire _079_;$/;"	n
+_080_	mux_synth.v	/^  wire _080_;$/;"	n
+_081_	mux_synth.v	/^  wire _081_;$/;"	n
+_082_	mux_synth.v	/^  wire _082_;$/;"	n
+_083_	mux_synth.v	/^  wire _083_;$/;"	n
+_084_	mux_synth.v	/^  wire _084_;$/;"	n
+_085_	mux_synth.v	/^  wire _085_;$/;"	n
+_086_	mux_synth.v	/^  wire _086_;$/;"	n
+_087_	mux_synth.v	/^  wire _087_;$/;"	n
+_088_	mux_synth.v	/^  wire _088_;$/;"	n
+_089_	mux_synth.v	/^  wire _089_;$/;"	n
+_090_	mux_synth.v	/^  wire _090_;$/;"	n
+clk	mux_synth.v	/^  input clk;$/;"	p
+cntr_wait_cyc	mux_synth.v	/^  wire [1:0] cntr_wait_cyc;$/;"	n
+data_in_0	mux_synth.v	/^  input [7:0] data_in_0;$/;"	p
+data_in_1	mux_synth.v	/^  input [7:0] data_in_1;$/;"	p
+data_out	mux_synth.v	/^  output [7:0] data_out;$/;"	p
+mux_synth	mux_synth.v	/^module mux_synth(data_out, valid_out, clk, reset_L, valid_in_0, data_in_0, valid_in_1, data_in_1);$/;"	m
+reset_L	mux_synth.v	/^  input reset_L;$/;"	p
+selector	mux_synth.v	/^  wire selector;$/;"	n
+sync	mux_synth.v	/^  wire sync;$/;"	n
+valid_in_0	mux_synth.v	/^  input valid_in_0;$/;"	p
+valid_in_1	mux_synth.v	/^  input valid_in_1;$/;"	p
+valid_out	mux_synth.v	/^  output valid_out;$/;"	p
+check_data_out	probador.v	/^	wire check_data_out, check_valid;	\/\/ salidas del checker$/;"	n
+check_valid	probador.v	/^	wire check_data_out, check_valid;	\/\/ salidas del checker$/;"	n
+data_out_c	probador.v	/^	input [7:0]					data_out_c,		\/\/ monitor de salida de datos cond$/;"	p
+input	probador.v	/^	input 						valid_out_e 	\/\/ monitor de salida del bit valido estr$/;"	p
+input	probador.v	/^	input [7:0]					data_out_e,		\/\/ monitor de salida de datos estr$/;"	p
+probador	probador.v	/^module probador ($/;"	m
+reg	probador.v	/^	output reg 					clk,			\/\/ generador del clock$/;"	p
+reg	probador.v	/^	output reg 					reset_L,		\/\/ generador de reset$/;"	p
+reg	probador.v	/^	output reg 					valid_in_0,		\/\/ generador de bit valido entrada 0$/;"	p
+reg	probador.v	/^	output reg 					valid_in_1,		\/\/ generador de bit valido entrada 1$/;"	p
+reg	probador.v	/^	output reg[7:0]				data_in_0,		\/\/ generador de la entrada de dato 0$/;"	p
+reg	probador.v	/^	output reg[7:0]				data_in_1,		\/\/ generador de la entrada de dato 1$/;"	p
+valid_out_c	probador.v	/^	input 						valid_out_c, 	\/\/ monitor de salida del bit valido cond$/;"	p
+clk	tb.v	/^	wire 		clk, reset_L, valid_in_0, valid_in_1, valid_out_c, valid_out_e;$/;"	n
+data_in_0	tb.v	/^	wire[7:0] 	data_in_0, data_in_1, data_out_c, data_out_e;$/;"	n
+data_in_1	tb.v	/^	wire[7:0] 	data_in_0, data_in_1, data_out_c, data_out_e;$/;"	n
+data_out_c	tb.v	/^	wire[7:0] 	data_in_0, data_in_1, data_out_c, data_out_e;$/;"	n
+data_out_e	tb.v	/^	wire[7:0] 	data_in_0, data_in_1, data_out_c, data_out_e;$/;"	n
+reset_L	tb.v	/^	wire 		clk, reset_L, valid_in_0, valid_in_1, valid_out_c, valid_out_e;$/;"	n
+tb	tb.v	/^module tb(); \/\/ Testbench$/;"	m
+valid_in_0	tb.v	/^	wire 		clk, reset_L, valid_in_0, valid_in_1, valid_out_c, valid_out_e;$/;"	n
+valid_in_1	tb.v	/^	wire 		clk, reset_L, valid_in_0, valid_in_1, valid_out_c, valid_out_e;$/;"	n
+valid_out_c	tb.v	/^	wire 		clk, reset_L, valid_in_0, valid_in_1, valid_out_c, valid_out_e;$/;"	n
+valid_out_e	tb.v	/^	wire 		clk, reset_L, valid_in_0, valid_in_1, valid_out_c, valid_out_e;$/;"	n

@@ -1,0 +1,57 @@
+`timescale 1ns /100 ps
+
+`include "probador.v"
+`include "bs.v"
+`include "bsSynth.v"
+
+module bancopruebas;
+/*AUTOWIRE*/
+// Beginning of automatic wires (for undeclared instantiated-module outputs)
+wire			clk_2f;			// From probador of probador.v
+wire [7:0]		data_in;		// From probador of probador.v
+wire [7:0]		lane_0_cond;		// From bs_cond of bs.v, ...
+wire [7:0]		lane_1_cond;		// From bs_cond of bs.v, ...
+wire			reset;			// From probador of probador.v
+wire			valid_0_cond;		// From bs_cond of bs.v, ...
+wire			valid_1_cond;		// From bs_cond of bs.v, ...
+wire			valid_in;		// From probador of probador.v
+// End of automatics
+/*AUTOREG*/
+    bs bs_cond(/*AUTOINST*/
+	       // Outputs
+	       .lane_0_cond		(lane_0_cond[7:0]),
+	       .valid_0_cond		(valid_0_cond),
+	       .lane_1_cond		(lane_1_cond[7:0]),
+	       .valid_1_cond		(valid_1_cond),
+	       // Inputs
+	       .data_in			(data_in[7:0]),
+	       .valid_in		(valid_in),
+	       .reset			(reset),
+	       .clk_2f			(clk_2f));
+    bsSynth bs_estruct(/*AUTOINST*/
+		       // Outputs
+		       .lane_0_cond	(lane_0_cond[7:0]),
+		       .lane_1_cond	(lane_1_cond[7:0]),
+		       .valid_0_cond	(valid_0_cond),
+		       .valid_1_cond	(valid_1_cond),
+		       // Inputs
+		       .clk_2f		(clk_2f),
+		       .data_in		(data_in[7:0]),
+		       .reset		(reset),
+		       .valid_in	(valid_in));
+    probador probador(/*AUTOINST*/
+		      // Outputs
+		      .data_in		(data_in[7:0]),
+		      .valid_in		(valid_in),
+		      .reset		(reset),
+		      .clk_2f		(clk_2f),
+		      // Inputs
+		      .lane_0_cond	(lane_0_cond[7:0]),
+		      .valid_0_cond	(valid_0_cond),
+		      .lane_1_cond	(lane_1_cond[7:0]),
+		      .valid_1_cond	(valid_1_cond),
+		      .lane_0_estruct	(lane_0_estruct[7:0]),
+		      .valid_0_estruct	(valid_0_estruct),
+		      .lane_1_estruct	(lane_1_estruct[7:0]),
+		      .valid_1_estruct	(valid_1_estruct));
+endmodule
