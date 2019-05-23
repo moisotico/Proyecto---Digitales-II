@@ -17,7 +17,7 @@ module probador( /*AUTOINST*/
 
  initial begin
        
-        $dumpfile("byte_unstriping.vcd");               //Dumpfile to make in current folder
+        $dumpfile("byte_unstripping.vcd");               //Dumpfile to make in current folder
         $dumpvars;
 /**        
         clk_8f <= 0;

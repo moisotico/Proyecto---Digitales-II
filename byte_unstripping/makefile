@@ -1,7 +1,5 @@
-# makefile for TAREA6 IE0523
-# @Author Giancarlo Marin H.
 # @Date 14/05/2019
-# @Brief UCR - IE0523 - T7 - demux 1:4 de 4bits con bits de valid
+# @Brief UCR - IE0523 - Proyecto 1 - byte unstriping con 2 bits de valid en la entrada
 
 # Tags de Variables de Programa
 CC := iverilog
@@ -11,11 +9,11 @@ VISUAL := gtkwave
 SRC = yosys.tcl
 
 # Tags de Variables de modulo con valores por defecto 
-TARGET_TOP := serialtopar.v
-TARGET_VIS := s2p.vcd
-OUTPUT_SIM := serialtopar.out
+TARGET_TOP := byte_unstripping.v
+TARGET_VIS := byte_unstripping.vcd
+OUTPUT_SIM := bus.out
 export LIB := cmos_cells.lib
-export VLOG_FILE_NAME := serialtopar.v
+export VLOG_FILE_NAME := byte_unstripping.v
 NEW_VLOG_FILE_NAME = serialtopar_synth.v
 export TOP_MODULE := serialtopar
 NEW_TOP_MODULE = serialtopar_synth
