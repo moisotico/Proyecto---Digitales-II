@@ -24,7 +24,7 @@ module probador(
     validin0<='b0;
     validin1<='b0;
     entrada_0<='b0;
-    entrada_1<='b0;
+    entrada_1<='hEF;
     
     @(posedge clk_2f);
 	reset<='b1;
