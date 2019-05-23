@@ -24,10 +24,7 @@ module serialtopar(
 	always @(posedge clk_8f) begin		// bloque sincrono
 		if (!reset_L) begin			// reset de los flops 
 			buffer <= 0;
-			data_out <= 0;
-			valid_out <= 0;
-			bc_cnt <= 0;
-			active <= 0;
+	
 		end
 		else begin
 			buffer <= shift_reg;
@@ -36,7 +33,10 @@ module serialtopar(
 
     always @(posedge clk_f) begin		// bloque sincrono
 		if (!reset_L) begin			// reset de los flops 
-			
+			data_out <= 0;
+			valid_out<=0;
+			bc_cnt <= 0;
+			active <= 0;
 		end
 		else begin					// asignacion de los flops de manera sincrona
 			data_out<=shift_reg;			
