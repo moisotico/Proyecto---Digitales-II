@@ -1,13 +1,13 @@
 module probador(
-    input salida_ser_lane_0_cond,
-    input salida_ser_lane_1_cond,
-    output reg reset,
+    input tx_out_0,
+    input tx_out_1,
+    output reg reset_L,
     output reg clk_8f,
     output reg enable,
-    output reg validin0,
-    output reg [7:0]entrada_0,
-    output reg validin1,
-    output reg [7:0]entrada_1    
+    output reg valid_data_0,
+    output reg [7:0]    data_in_0,
+    output reg valid_data_1,
+    output reg [7:0]    data_in_1    
 );
 
     reg clk_2f;
@@ -16,52 +16,53 @@ module probador(
    initial begin
     $dumpfile("bancopruebas.vcd");
     $dumpvars;
-    $display("\t\ttime,\t clk_8f, reset, enable, validin0, entrada_0, validin1, entrada_1, salida_ser_lane_0_cond,salida_ser_lane_1_cond");
+    $display("\t\ttime,\t clk_8f, reset_L, enable, valid_data_0, data_in_0, valid_data_1, data_in_1, tx_out_0,tx_out_1");
 
-    $monitor($time,"\t%b,\t%b,\t%b,\t%b,\t%h,\t%b,\t%h,\t%b,\t%b",clk_8f, reset, enable, validin0, entrada_0, validin1, entrada_1, salida_ser_lane_0_cond,salida_ser_lane_1_cond);
-    reset<='b0;
+    $monitor($time,"\t%b,\t%b,\t%b,\t%b,\t%h,\t%b,\t%h,\t%b,\t%b",clk_8f, reset_L, enable, valid_data_0, data_in_0, valid_data_1, data_in_1, tx_out_0,tx_out_1);
+    reset_L<='b0;
     enable<='b0;
-    validin0<='b0;
-    validin1<='b0;
-    entrada_0<='b0;
-    entrada_1<='hEF;
-    
-    @(posedge clk_2f);
-	reset<='b1;
+    valid_data_0<='b0;
+    valid_data_1<='b0;
+    data_in_0<='b0;
+    data_in_1<='hEF;
+    @(posedge clk_8f);
     enable<='b1;
-    validin0<='b1;
-	entrada_0<=entrada_0+1;
+    @(posedge clk_2f);
+    @(posedge clk_2f);
+	reset_L<='b1;
+    valid_data_0<='b1;
+	data_in_0<=data_in_0+1;
     
     @(posedge clk_2f);
-	validin1<='b1;
-	entrada_1<=entrada_1+1;
-    entrada_0<=entrada_0+1;
+	valid_data_1<='b1;
+	data_in_1<=data_in_1+1;
+    data_in_0<=data_in_0+1;
 
     repeat (2) begin
     @(posedge clk_2f);
-    entrada_0<=entrada_0+1;
-    entrada_1<=entrada_1+1;
+    data_in_0<=data_in_0+1;
+    data_in_1<=data_in_1+1;
     end
 
-    validin1<='b0;
-    validin0<='b0;
+    valid_data_1<='b0;
+    valid_data_0<='b0;
     
     @(posedge clk_2f);
     @(posedge clk_2f);
     
     @(posedge clk_2f);
-    validin1<='b1;
-    entrada_1<=entrada_1+1;
+    valid_data_1<='b1;
+    data_in_1<=data_in_1+1;
 
     @(posedge clk_2f);
-    validin0<='b1;
-    entrada_0<=entrada_0+1;
-    entrada_1<=entrada_1+1;
+    valid_data_0<='b1;
+    data_in_0<=data_in_0+1;
+    data_in_1<=data_in_1+1;
     
     repeat (2) begin
     @(posedge clk_2f);
-    entrada_0<=entrada_0+1;
-    entrada_1<=entrada_1+1;
+    data_in_0<=data_in_0+1;
+    data_in_1<=data_in_1+1;
     end
     $finish;
    end
@@ -92,7 +93,7 @@ module probador(
 //       _1cond<=lane_1_cond;
 //       _1estruct<=lane_1_estruct;
       
-//     if (reset) begin
+//     if (reset_L) begin
 //         if(_0cond==_0estruct && _1cond==_1estruct)begin
 //             $display("Las descripciones son iguales en ambas salidas");   
 //         end 
