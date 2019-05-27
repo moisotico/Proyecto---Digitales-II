@@ -21,8 +21,8 @@ module byte_unstripping(
 
 //Banderas y senales internas
     
-    reg [7,0]       data_validated_0;
-    reg [7,0]       data_validated_1;
+    reg [7:0]       data_validated_0;
+    reg [7:0]       data_validated_1;
     reg             valid_counter;
     reg             selector; 
     
@@ -32,8 +32,8 @@ module byte_unstripping(
         //activa la entrada
         if (!reset_L) begin
             valid_counter = 'b0;
-            data_stripe_0 = 'b0;
-            data_stripe_1 = 'b0;
+            data_validated_0 = 'b0;
+            data_validated_1 = 'b0;
         end 
     end
     
@@ -41,8 +41,10 @@ module byte_unstripping(
     always@(posedge clk_f)begin
     end
     **/
+
+    //fecuencia clk_2f
     always@(posedge clk_2f)begin
-        if valid_demux begin
+        if (valid_demux) begin
             if (valid_counter)begin
                 valid_counter <= 'b0;
                 if(valid_demux) data_demux <= data_validated_1; 
@@ -54,9 +56,9 @@ module byte_unstripping(
             end
         end
         if (!reset_L)begin
-            selector<= 'b0;
-            valid_stripe_0 <= 'b0;
-            valid_stripe_1 <= 'b0;
+            selector <= 'b0;
+           // valid_stripe_0 <= 'b0;
+           // valid_stripe_1 <= 'b0;
         end
         
         // else selector <= ~selector;
@@ -83,7 +85,5 @@ module byte_unstripping(
  
         // validar entradas
     end
-
-
 
 endmodule

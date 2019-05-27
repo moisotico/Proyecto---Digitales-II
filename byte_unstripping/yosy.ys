@@ -1,5 +1,6 @@
-read_verilog gen_clk.v
-hierarchy -check -top gen_clk
+read_verilog byte_unstripping.v
+
+hierarchy -check -top byte_unstripping
 
 proc; opt; fsm; opt; memory; opt; techmap; opt;
 
@@ -11,4 +12,5 @@ clean
 
 show -notitle -format pdf -prefix modulo_diagramCMOS -lib ./CMOS/cmos_cells.v
 
-write_verilog -noattr gen_clkSynth.v
+
+write_verilog -noattr  byte_unstripping_synth.v

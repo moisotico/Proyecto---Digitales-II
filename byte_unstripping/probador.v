@@ -1,13 +1,21 @@
+/**
+	*Universidad de Costa Rica - Escuela de Ingenieria Electrica
+	*Proyecto #1 - IE-0523 - modulo probador para byte unstripping
+	*@author Moises Campos Z.
+	*@date   22/05/2019
+	*@brief  Probador del byte unstripping    
+**/
+
 module probador( /*AUTOINST*/
-						input[7:0]      data_demux,     //salida a data demux, cambia con clk_2f
-						input     	 	valid_demux,
-						output          clk_f,
-						output          clk_2f,
-						output          reset_L,
-						output[7:0]     data_stripe_0,      //entradas data stripe cambian 
-						output[7:0]     data_stripe_1,      //tomando como referencia clk_f
-						output          valid_stripe_0,
-						output          valid_stripe_1   );
+					input[7:0]			data_demux,     //salida a data demux, cambia con clk_2f
+					input				valid_demux,
+					output reg			clk_f,
+					output reg			clk_2f,
+					output reg			reset_L,
+					output reg [7:0]	data_stripe_0,      //entradas data stripe cambian 
+					output reg [7:0]	data_stripe_1,      //tomando como referencia clk_f
+					output reg         	valid_stripe_0,
+					output reg			valid_stripe_1	);
 //senales internas (pendiente importar clock)
     
     reg             f2_cond;
@@ -19,15 +27,21 @@ module probador( /*AUTOINST*/
        
         $dumpfile("byte_unstripping.vcd");               //Dumpfile to make in current folder
         $dumpvars;
-/**        
-        clk_8f <= 0;
-        enb <= 0;                       //                           
-        rst <= 1;                       // relojes se resetean            
-**/        
-        # 10;
-        @(posedge clk_8f)
-            rst <= 0;
-            enb <= 1;
+     
+     //$display?
+    
+
+    //se resetean los datos
+        reset_L         <= 'b0;
+        data_stripe_0   <= 'b0;
+        data_stripe_1   <= 'b0;
+
+                          
+     //inicio de pruebas     
+        # 60;
+        @(posedge clk_2f)
+        reset_L	<= 1;
+        
 /**        
         # 60;
         @(posedge clk_8f)
@@ -50,7 +64,8 @@ module probador( /*AUTOINST*/
         $finish;
 end
 
-// Checker
+// Checker pendiente
+    /**
 always @(posedge clk_8f) begin
     f2_cond<=clk_2f_cond;
     f_cond<=clk_f_cond;
@@ -72,7 +87,11 @@ always @(posedge clk_8f) begin
         end
     end
 end
+**/
+    always # 8 clk_2f <= ~clk_2f;       //genera señal 4 ns 
 
-    always # 2 clk_8f <= ~clk_8f;       //genera señal 4 ns 
+    //provisional
+    always  #20 data_stripe_0 <= $random % 256;
+    always  #20 data_stripe_1 <= $random % 256;
 
 endmodule
