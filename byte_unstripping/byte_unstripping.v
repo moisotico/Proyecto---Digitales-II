@@ -23,18 +23,17 @@ module byte_unstripping(
     
     reg [7:0]       data_validated_0;
     reg [7:0]       data_validated_1;
-    reg             valid_counter;
+    //reg             valid_counter;
     reg             selector; 
     
 //bloques always
     always@(*)begin
-        
         //activa la entrada
-        if (!reset_L) begin
-            valid_counter = 'b0;
-            data_validated_0 = 'b0;
-            data_validated_1 = 'b0;
+       /**
+        if (reset_L==0) begin
+            selector = 'b0;
         end 
+        **/
     end
     
     /**
@@ -44,46 +43,49 @@ module byte_unstripping(
 
     //fecuencia clk_2f
     always@(posedge clk_2f)begin
-        if (valid_demux) begin
-            if (valid_counter)begin
-                valid_counter <= 'b0;
-                if(valid_demux) data_demux <= data_validated_1; 
-            end
-            
-            else begin
-                valid_counter <= valid_counter + 'b1;
-                if(valid_demux) data_demux <= data_validated_0; 
-            end
-        end
         if (!reset_L)begin
             selector <= 'b0;
-           // valid_stripe_0 <= 'b0;
-           // valid_stripe_1 <= 'b0;
+            data_validated_0 <= 'b0;
+            data_validated_1 <= 'b0;
         end
         
-        // else selector <= ~selector;
         // agregar entradas
         // dar prioridad a data_strip_0
         else begin
+            case (selector)
+                0:
+                    if (valid_stripe_0) begin
+                        data_validated_0 <= data_stripe_0;
+                        selector <= ~selector; 
+                    end
+                    else begin
+                        data_validated_0 <= data_validated_0;
+                    end
+
+                1:
+                    if (valid_stripe_1) begin
+                        data_validated_1 <= data_stripe_1;
+                        selector <= ~selector; 
+                    end
+                    else begin
+                         data_validated_1 <= data_validated_1;
+                    end
+            endcase
             //mover a posedge2f
-            if (valid_stripe_0) begin
-                data_validated_0 <= data_stripe_0;
-                
-            end
-            else begin
-                data_validated_0 <= data_validated_0;
-            end
             
-            if (valid_stripe_1) begin
-                data_validated_1 <= data_stripe_1;
-            end
-            else begin
-                 data_validated_1 <= data_validated_1;
-            end
             //  salida data_demux
          end
  
         // validar entradas
+        if (valid_demux) begin
+            if (selector)begin
+                data_demux <= data_validated_1; 
+            end
+            
+            else begin
+                data_demux <= data_validated_0; 
+            end
+        end
     end
 
 endmodule
