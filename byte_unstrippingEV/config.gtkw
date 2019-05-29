@@ -1,0 +1,41 @@
+[*]
+[*] GTKWave Analyzer v3.3.99 (w)1999-2019 BSI
+[*] Wed May 29 19:11:51 2019
+[*]
+[dumpfile] "/home/evalverde95/Downloads/byte_unstripping1/byte_unstripping/byte_unstripping.vcd"
+[dumpfile_mtime] "Wed May 29 19:09:24 2019"
+[dumpfile_size] 11684
+[savefile] "/home/evalverde95/Downloads/byte_unstripping1/byte_unstripping/config.gtkw"
+[timestart] 0
+[size] 1366 713
+[pos] -1 -1
+*-14.054386 10000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] testbench.
+[sst_width] 43
+[signals_width] 214
+[sst_expanded] 0
+[sst_vpaned_height] 192
+@200
+-Entradas
+@22
+testbench.probador.data_stripe_0[7:0]
+@28
+testbench.probador.valid_stripe_0
+@22
+testbench.probador.data_stripe_1[7:0]
+@28
+testbench.probador.valid_stripe_1
+@200
+-Conductual
+@22
+testbench.probador.data_demux_cond[7:0]
+@28
+testbench.probador.valid_demux_cond
+@200
+-Estructural
+@22
+testbench.probador.data_demux_estruct[7:0]
+@28
+testbench.probador.valid_demux_estruct
+[pattern_trace] 1
+[pattern_trace] 0
