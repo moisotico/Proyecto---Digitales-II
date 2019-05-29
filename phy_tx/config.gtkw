@@ -1,17 +1,17 @@
 [*]
 [*] GTKWave Analyzer v3.3.99 (w)1999-2019 BSI
-[*] Wed May 29 15:26:32 2019
+[*] Wed May 29 17:01:19 2019
 [*]
 [dumpfile] "/home/evalverde95/Proyecto-Digitales-II/phy_tx/bancopruebas.vcd"
-[dumpfile_mtime] "Wed May 29 15:22:46 2019"
-[dumpfile_size] 142751
+[dumpfile_mtime] "Wed May 29 17:00:10 2019"
+[dumpfile_size] 143049
 [savefile] "/home/evalverde95/Proyecto-Digitales-II/phy_tx/config.gtkw"
 [timestart] 0
 [size] 1366 713
 [pos] -1 -1
-*-14.848837 66000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-14.856742 66000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] bancopruebas.
-[sst_width] 43
+[sst_width] 49
 [signals_width] 174
 [sst_expanded] 0
 [sst_vpaned_height] 192
@@ -43,6 +43,11 @@ bancopruebas.phy_cond.line1.reset_L
 bancopruebas.probador.data_in_0[7:0]
 @28
 bancopruebas.probador.valid_data_0
+@22
+bancopruebas.probador.data_in_1[7:0]
+@29
+bancopruebas.probador.valid_data_1
+@28
 bancopruebas.probador.tx_out_0_cond
 bancopruebas.probador.tx_out_0_estruct
 @22
