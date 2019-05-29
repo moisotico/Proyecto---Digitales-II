@@ -18,7 +18,6 @@ wire			tx_out_1_estruct;	// From phy_estruct of phy_txSynth.v
 wire			valid_data_0;		// From probador of probador.v
 wire			valid_data_1;		// From probador of probador.v
 // End of automatics
-/*autoreg*/
     phy_tx phy_cond(/*autoinst*/
 		    // Outputs
 		    .tx_out_0_cond	(tx_out_0_cond),
