@@ -1,0 +1,45 @@
+[*]
+[*] GTKWave Analyzer v3.3.99 (w)1999-2019 BSI
+[*] Wed May 29 03:55:43 2019
+[*]
+[dumpfile] "/home/evalverde95/Desktop/phy_tx/bancopruebas.vcd"
+[dumpfile_mtime] "Wed May 29 03:54:30 2019"
+[dumpfile_size] 6692
+[savefile] "/home/evalverde95/Desktop/phy_tx/config.gtkw"
+[timestart] 0
+[size] 1366 713
+[pos] -1 -1
+*-15.107149 66000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] bancopruebas.
+[treeopen] bancopruebas.phy_cond.
+[sst_width] 223
+[signals_width] 174
+[sst_expanded] 1
+[sst_vpaned_height] 192
+@200
+-Lane0
+@22
+bancopruebas.phy_cond.line0.data_stripe[7:0]
+@28
+bancopruebas.phy_cond.line0.valid_stripe
+@22
+bancopruebas.phy_cond.line0.data2send[7:0]
+bancopruebas.phy_cond.line0.contador[3:0]
+@28
+bancopruebas.phy_cond.line0.out
+bancopruebas.phy_cond.line0.reset_L
+@200
+-Lane1
+@22
+bancopruebas.phy_cond.line1.data_stripe[7:0]
+@28
+bancopruebas.phy_cond.line1.valid_stripe
+@22
+bancopruebas.phy_cond.line1.data2send[7:0]
+bancopruebas.phy_cond.line1.contador[3:0]
+@28
+bancopruebas.phy_cond.line1.reset_L
+@29
+bancopruebas.phy_cond.line1.out
+[pattern_trace] 1
+[pattern_trace] 0
