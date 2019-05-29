@@ -19,7 +19,7 @@ module serialtopar(
 	reg [2:0]		bc_cnt;			// reg que cuenta la cantidad de datos de control bc
 	wire [7:0]		shift_reg;
 
-	assign shift_reg = {data_in,buffer[7:1]};
+	assign shift_reg = {buffer[6:0],data_in};
 
 	always @(posedge clk_8f) begin		// bloque sincrono
 		if (!reset_L) begin			// reset de los flops 

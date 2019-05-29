@@ -46,21 +46,21 @@ module probador (
 		// Prueba #3: Envía BC 4 veces
 		repeat(4) begin
 			@(posedge clk_8f);
-			data_in <= 0;
-			@(posedge clk_8f);
-			data_in <= 0;
-			@(posedge clk_8f);
-			data_in <= 1;
-			@(posedge clk_8f);
-			data_in <= 1;
-			@(posedge clk_8f);
-			data_in <= 1;
-			@(posedge clk_8f);
 			data_in <= 1;
 			@(posedge clk_8f);
 			data_in <= 0;
 			@(posedge clk_8f);
 			data_in <= 1;
+			@(posedge clk_8f);
+			data_in <= 1;
+			@(posedge clk_8f);
+			data_in <= 1;
+			@(posedge clk_8f);
+			data_in <= 1;
+			@(posedge clk_8f);
+			data_in <= 0;
+			@(posedge clk_8f);
+			data_in <= 0;
 		end
 		// Prueba #4: Envía 3 datos validos
 		repeat(8) begin // envía FF
@@ -70,49 +70,49 @@ module probador (
 		// envia EE
 		repeat(2) begin
 			@(posedge clk_8f);
+			data_in <= 1;
+			@(posedge clk_8f);
+			data_in <= 1;
+			@(posedge clk_8f);
+			data_in <= 1;
+			@(posedge clk_8f);
 			data_in <= 0;
-			@(posedge clk_8f);
-			data_in <= 1;
-			@(posedge clk_8f);
-			data_in <= 1;
-			@(posedge clk_8f);
-			data_in <= 1;
 		end
 		//envia DD
 		repeat(2) begin
 			@(posedge clk_8f);
 			data_in <= 1;
 			@(posedge clk_8f);
-			data_in <= 0;
-			@(posedge clk_8f);
 			data_in <= 1;
+			@(posedge clk_8f);
+			data_in <= 0;
 			@(posedge clk_8f);
 			data_in <= 1;
 		end
 		// Prueba #5: Envía BC de nuevo. Se espera valid_out = 0
 		@(posedge clk_8f);
-		data_in <= 0;
-		@(posedge clk_8f);
-		data_in <= 0;
-		@(posedge clk_8f);
-		data_in <= 1;
-		@(posedge clk_8f);
-		data_in <= 1;
-		@(posedge clk_8f);
-		data_in <= 1;
-		@(posedge clk_8f);
 		data_in <= 1;
 		@(posedge clk_8f);
 		data_in <= 0;
 		@(posedge clk_8f);
 		data_in <= 1;
+		@(posedge clk_8f);
+		data_in <= 1;
+		@(posedge clk_8f);
+		data_in <= 1;
+		@(posedge clk_8f);
+		data_in <= 1;
+		@(posedge clk_8f);
+		data_in <= 0;
+		@(posedge clk_8f);
+		data_in <= 0;
 		// Prueba 6: Vuelve a enviar otro dato valido
 		// envia AA
 		repeat(4) begin
 			@(posedge clk_8f);
-			data_in <= 0;
-			@(posedge clk_8f);
 			data_in <= 1;
+			@(posedge clk_8f);
+			data_in <= 0;
 		end
 		// Prueba 7: Reset alto y termina de almacenar señales
 		repeat(7) begin
