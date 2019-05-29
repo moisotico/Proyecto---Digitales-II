@@ -23,9 +23,18 @@ all: sintetizar compilar visualizar limpiar
 	
 
 sintetizar:
+	sed -i '1i\`include "gen_clk.v"\' phy_tx.v
+	sed -i '1i\`include "mux.v"\' phy_tx.v
+	sed -i '1i\`include "partoserial.v"\' phy_tx.v
+	sed -i '1i\`include "bs.v"\' phy_tx.v
 	$(YOSYS) $(YOSFILE)
 	sed -i 's/$(ORIG)/$(FINAL)/g' $(SYNTH)
 	sed -i '2i\`include "./CMOS/cmos_cells.v"\' $(SYNTH)
+	sed -i '/`include "gen_clk.v"/d' phy_tx.v
+	sed -i '/`include "mux.v"/d' phy_tx.v
+	sed -i '/`include "partoserial.v"/d' phy_tx.v
+	sed -i '/`include "bs.v"/d' phy_tx.v
+	sed -i 's/cond/estruct/g' $(SYNTH)
 
 compilar:
 	$(VC) $(BANCO) $(FLAGSVC)

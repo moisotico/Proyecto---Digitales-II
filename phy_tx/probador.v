@@ -1,6 +1,8 @@
 module probador(
-    input tx_out_0,
-    input tx_out_1,
+    input tx_out_0_cond,
+    input tx_out_1_cond,
+    input tx_out_0_estruct,
+    input tx_out_1_estruct,
     output reg reset_L,
     output reg clk_8f,
     output reg enable,
@@ -18,7 +20,7 @@ module probador(
     $dumpvars;
     $display("\t\ttime,\t clk_8f, reset_L, enable, valid_data_0, data_in_0, valid_data_1, data_in_1, tx_out_0,tx_out_1");
 
-    $monitor($time,"\t%b,\t%b,\t%b,\t%b,\t%h,\t%b,\t%h,\t%b,\t%b",clk_8f, reset_L, enable, valid_data_0, data_in_0, valid_data_1, data_in_1, tx_out_0,tx_out_1);
+    $monitor($time,"\t%b,\t%b,\t%b,\t%b,\t%h,\t%b,\t%h,\t%b,\t%b",clk_8f, reset_L, enable, valid_data_0, data_in_0, valid_data_1, data_in_1, tx_out_0_cond,tx_out_1_cond);
     reset_L<='b0;
     enable<='b0;
     valid_data_0<='b0;

@@ -1,7 +1,3 @@
-`include "gen_clk.v"
-`include "mux.v"
-`include "bs.v"
-`include "partoserial.v"
 module phy_tx(
     input reset_L,
     input clk_8f,
@@ -10,8 +6,8 @@ module phy_tx(
     input valid_data_1,
     input [7:0]data_in_0,
     input [7:0]data_in_1,
-    output reg tx_out_0,
-    output reg tx_out_1);
+    output reg tx_out_0_cond,
+    output reg tx_out_1_cond);
 
 reg[7:0]        data_reg_0;
 reg[7:0]        data_reg_1;
@@ -51,11 +47,11 @@ end
 
 always @(posedge clk_8f) begin
     if(~reset_L) begin
-        tx_out_0 <= 0;
-        tx_out_1 <= 0;
+        tx_out_0_cond <= 0;
+        tx_out_1_cond <= 0;
     end else begin
-        tx_out_0 <= out_0;
-        tx_out_1 <= out_1;
+        tx_out_0_cond <= out_0;
+        tx_out_1_cond <= out_1;
     end
 end
 

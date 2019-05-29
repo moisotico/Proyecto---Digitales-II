@@ -1,20 +1,19 @@
 [*]
 [*] GTKWave Analyzer v3.3.99 (w)1999-2019 BSI
-[*] Wed May 29 03:55:43 2019
+[*] Wed May 29 15:26:32 2019
 [*]
-[dumpfile] "/home/evalverde95/Desktop/phy_tx/bancopruebas.vcd"
-[dumpfile_mtime] "Wed May 29 03:54:30 2019"
-[dumpfile_size] 6692
-[savefile] "/home/evalverde95/Desktop/phy_tx/config.gtkw"
+[dumpfile] "/home/evalverde95/Proyecto-Digitales-II/phy_tx/bancopruebas.vcd"
+[dumpfile_mtime] "Wed May 29 15:22:46 2019"
+[dumpfile_size] 142751
+[savefile] "/home/evalverde95/Proyecto-Digitales-II/phy_tx/config.gtkw"
 [timestart] 0
 [size] 1366 713
 [pos] -1 -1
-*-15.107149 66000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-14.848837 66000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] bancopruebas.
-[treeopen] bancopruebas.phy_cond.
-[sst_width] 223
+[sst_width] 43
 [signals_width] 174
-[sst_expanded] 1
+[sst_expanded] 0
 [sst_vpaned_height] 192
 @200
 -Lane0
@@ -23,7 +22,6 @@ bancopruebas.phy_cond.line0.data_stripe[7:0]
 @28
 bancopruebas.phy_cond.line0.valid_stripe
 @22
-bancopruebas.phy_cond.line0.data2send[7:0]
 bancopruebas.phy_cond.line0.contador[3:0]
 @28
 bancopruebas.phy_cond.line0.out
@@ -35,11 +33,23 @@ bancopruebas.phy_cond.line1.data_stripe[7:0]
 @28
 bancopruebas.phy_cond.line1.valid_stripe
 @22
-bancopruebas.phy_cond.line1.data2send[7:0]
 bancopruebas.phy_cond.line1.contador[3:0]
 @28
-bancopruebas.phy_cond.line1.reset_L
-@29
 bancopruebas.phy_cond.line1.out
+bancopruebas.phy_cond.line1.reset_L
+@200
+-Probador
+@22
+bancopruebas.probador.data_in_0[7:0]
+@28
+bancopruebas.probador.valid_data_0
+bancopruebas.probador.tx_out_0_cond
+bancopruebas.probador.tx_out_0_estruct
+@22
+bancopruebas.probador.data_in_1[7:0]
+@28
+bancopruebas.probador.valid_data_1
+bancopruebas.probador.tx_out_1_cond
+bancopruebas.probador.tx_out_1_estruct
 [pattern_trace] 1
 [pattern_trace] 0

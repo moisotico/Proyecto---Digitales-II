@@ -729,8 +729,8 @@ module gen_clk(clk_8f, enable, clk_2f, clk_f);
     .Y(_03_)
   );
   NOR _16_ (
-    .A(counter[1]),
-    .B(counter[0]),
+    .A(counter[0]),
+    .B(counter[1]),
     .Y(_04_)
   );
   NAND _17_ (
@@ -1642,7 +1642,7 @@ module partoserial(data_stripe, valid_stripe, reset_L, clk_8f, out);
   );
 endmodule
 
-module phy_txSynth(reset_L, clk_8f, enable, valid_data_0, valid_data_1, data_in_0, data_in_1, tx_out_0, tx_out_1);
+module phy_txSynth(reset_L, clk_8f, enable, valid_data_0, valid_data_1, data_in_0, data_in_1, tx_out_0_estruct, tx_out_1_estruct);
   wire [7:0] _00_;
   wire [7:0] _01_;
   wire _02_;
@@ -1683,8 +1683,8 @@ module phy_txSynth(reset_L, clk_8f, enable, valid_data_0, valid_data_1, data_in_
   wire out_0;
   wire out_1;
   input reset_L;
-  output tx_out_0;
-  output tx_out_1;
+  output tx_out_0_estruct;
+  output tx_out_1_estruct;
   input valid_data_0;
   input valid_data_1;
   wire valid_mux;
@@ -1875,12 +1875,12 @@ module phy_txSynth(reset_L, clk_8f, enable, valid_data_0, valid_data_1, data_in_
   DFF _66_ (
     .C(clk_8f),
     .D(_02_),
-    .Q(tx_out_0)
+    .Q(tx_out_0_estruct)
   );
   DFF _67_ (
     .C(clk_8f),
     .D(_03_),
-    .Q(tx_out_1)
+    .Q(tx_out_1_estruct)
   );
   DFF _68_ (
     .C(clk_2f),
