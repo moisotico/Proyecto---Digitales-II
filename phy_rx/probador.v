@@ -197,30 +197,32 @@ module probador(
         in_1 <= 1;
 
         //Dato invalido
-        @(posedge clk_8f);
-        in_0 <= 1;
-        in_1 <= 1;
-        @(posedge clk_8f);
-        in_0 <= 0;
-        in_1 <= 0;
-        @(posedge clk_8f);
-        in_0 <= 1;
-        in_1 <= 1;
-        @(posedge clk_8f);
-        in_0 <= 1;
-        in_1 <= 1;
-        @(posedge clk_8f);
-        in_0 <= 1;
-        in_1 <= 1;
-        @(posedge clk_8f);
-        in_0 <= 1;
-        in_1 <= 1;
-        @(posedge clk_8f);
-        in_0 <= 0;
-        in_1 <= 0;
-        @(posedge clk_8f);
-        in_0 <= 0;
-        in_1 <= 0;
+        repeat(2)begin
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 0;
+            in_1 <= 0;
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 0;
+            in_1 <= 0;
+            @(posedge clk_8f);
+            in_0 <= 0;
+            in_1 <= 0;
+        end
         // Se envia por lane0 88 y lane 1 22
         @(posedge clk_8f);
         in_0 <= 1;

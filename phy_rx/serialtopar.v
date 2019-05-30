@@ -46,7 +46,7 @@ module serialtopar(
 			if (bc_cnt >= 4) begin
 				active = 1;
 			end
-			if (active && buffer2!=8'hbc)begin
+			if (active && shift_reg!=8'hbc)begin
 				valid <= 1;
 			end		
 			else begin
