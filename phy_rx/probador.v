@@ -35,6 +35,15 @@ module probador(
         end
         enable <= 1;
         reset_L <= 1;
+        
+        repeat(4) begin
+        @(posedge clk_8f);
+        end
+        reset_L <= 0;
+        repeat(4) begin
+        @(posedge clk_8f);
+        end
+        reset_L <= 1;
         // Prueba #3: Envía BC 4 veces
         repeat(4) begin
             @(posedge clk_8f);
