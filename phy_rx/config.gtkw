@@ -1,0 +1,19 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Thu May 30 00:09:25 2019
+[*]
+[dumpfile] "/home/gianca/Documents/UCR/IE-0523/Proyecto1/Proyecto-Digitales-II/phy_rx/bancopruebas.vcd"
+[dumpfile_mtime] "Thu May 30 00:08:54 2019"
+[dumpfile_size] 222957
+[savefile] "/home/gianca/Documents/UCR/IE-0523/Proyecto1/Proyecto-Digitales-II/phy_rx/config.gtkw"
+[timestart] 0
+[size] 1299 713
+[pos] -1 -1
+*-16.133207 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] bancopruebas.
+[sst_width] 223
+[signals_width] 78
+[sst_expanded] 1
+[sst_vpaned_height] 192
+[pattern_trace] 1
+[pattern_trace] 0

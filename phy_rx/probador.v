@@ -23,41 +23,121 @@ module probador(
    initial begin
     $dumpfile("bancopruebas.vcd");
     $dumpvars;
-    reset_L<='b0;
-    enable<='b0;
-    in_0<='b0;
-    in_1<='b0;
-    @(posedge clk_f);
-    reset_L<='b1;
-    enable<='b1;
-@(posedge clk_4f);
-    repeat (4)begin    
-    @(posedge clk_8f);
-    in_0<='b1;
-    in_1<='b1;
-    @(posedge clk_8f);
-    in_0<='b0;
-    in_1<='b0;
-    @(posedge clk_8f);
-    in_0<='b1;
-    in_1<='b1;
-    @(posedge clk_8f);
-    in_0<='b1;
-    in_1<='b1;
-    @(posedge clk_8f);
-    in_0<='b1;
-    in_1<='b1;
-    @(posedge clk_8f);
-    in_0<='b1;
-    in_1<='b1;
-    @(posedge clk_8f);
-    in_0<='b0;
-    in_1<='b0;
-    @(posedge clk_8f);
-    in_0<='b0;
-    in_1<='b0;
-    end
-    $finish;
+    // Pruebas
+        enable <= 0;
+        in_0 <= 0;
+        in_1 <= 0;               
+        // Pruebas #1: Reset bajo. 
+        reset_L <= 0;
+        // Prueba #2: Reset alto. Valido primer dato
+        @(posedge clk_f);
+        reset_L <= 1;
+        enable <= 1;
+        // Prueba #3: Envía BC 4 veces
+        repeat(4) begin
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 0;
+            in_1 <= 0;
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 0;
+            in_1 <= 0;
+            @(posedge clk_8f);
+            in_0 <= 0;
+            in_1 <= 0;
+        end
+        // Prueba #4: Envía 3 datos validos
+        repeat(8) begin // envía FF
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 0;
+        end
+        // envia EE
+        repeat(2) begin
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 0;
+            in_1 <= 1;
+        end
+        //envia DD
+        repeat(2) begin
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 0;
+            in_1 <= 0;
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+        end
+        // Prueba #5: Envía BC de nuevo. Se espera valid_out = 0
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 1;
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 1;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 1;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 1;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 1;
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 0;
+        // Prueba 6: Vuelve a enviar otro dato valido
+        // envia AA
+        repeat(4) begin
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 0;
+            in_1 <= 0;
+        end
+        // Prueba 7: Reset alto y termina de almacenar señales
+        repeat(7) begin
+            @(posedge clk_8f);
+        end
+        reset_L <= 0;
+        @(posedge clk_f);
+        $finish;    
    end
 
     initial begin
@@ -68,37 +148,14 @@ module probador(
     end
 
     always #2 clk_8f <=~clk_8f;
-    
     always @(posedge clk_8f)begin
         clk_4f=~clk_4f;
     end
-
     always @(posedge clk_4f)begin
         clk_2f=~clk_2f;
     end
-
     always @(posedge clk_2f)begin
         clk_f=~clk_f;
-    end
-    // always @(posedge clk_8f)begin
-    //     clk_4f<=~clk_4f;
-    //     temp_0_cond<=tx_out_0_cond;
-    //     temp_1_cond<=tx_out_1_cond;
-    //     temp_0_estruct<=tx_out_0_estruct;
-    //     temp_1_estruct<=tx_out_1_estruct;
-    //     if (reset_L) begin
-    //         if(temp_0_cond==temp_0_estruct && temp_1_cond==temp_1_estruct)begin
-    //             $display("Las descripciones son iguales en ambas salidas");   
-    //         end 
-    //         else begin
-    //             $display("Las descripciones NO son iguales en ambas salidas");   
-    //         end
-    //     end
-
-    // end
-
-    
-
-  
+    end  
 endmodule
 

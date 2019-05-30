@@ -16,7 +16,7 @@ module demux(
 	input 			reset_L,		// señal de reset en bajo del modulo
 	input [7:0]		data_unstripped			// señal entrada de datos del demultiplexor
 	);
-	reg 			selector,valid0,valid1,reading,toggle;		// regs internos de un 1b 
+	reg 			inicial, selector,valid0,valid1,reading,toggle;		// regs internos de un 1b 
 	reg [7:0]		data_reg0, data_reg1;	// regs internos que transfieren la entrada a la salida y soluciona el problema de temporizacion
 	
 	always @(*) begin				// bloque combinacional
@@ -26,12 +26,14 @@ module demux(
 		valid_demux_1=0;
 		reading=0;
 		toggle=1;
+		inicial=0;
 		if (reset_L == 0) begin		// reset asincrono
 			data_demux_0 = 'b0;				
 			data_demux_1 = 'b0;
 			valid_demux_0=0;
 			valid_demux_1=0;
 			toggle=1;
+			inicial=1;
 		end
 		else if (selector == 0 & valid_unstripped == 1) begin	// mux selector para las salidas del demux
 			data_demux_0 = data_unstripped;
@@ -59,9 +61,9 @@ module demux(
 		end
 	end
 
-	// always @(negedge reading) begin
-	// 	toggle = 1;
-	// end
+	always @(posedge inicial) begin
+		selector=0;
+	end
 
     always @(posedge clk_2f) begin		// bloque sincrono
 		if (reset_L == 0) begin		// reset de los flops 
@@ -72,6 +74,9 @@ module demux(
     		valid1 <= 0;
 		end
 		else begin					// asignacion de los flops de manera sincrona
+			//if (inicial==0)begin
+			//	selector<=0;
+			//end
 			if (toggle) begin
 				selector <= ~selector; // toggle del selector cuando 
 			end
