@@ -131,7 +131,135 @@ module probador(
             in_0 <= 0;
             in_1 <= 0;
         end
-        // Prueba 7: Reset alto y termina de almacenar señales
+        // Prueba 7: Envía dato invalido
+         repeat(3) begin
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 0;
+            in_1 <= 0;
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 1;
+            in_1 <= 1;
+            @(posedge clk_8f);
+            in_0 <= 0;
+            in_1 <= 0;
+            @(posedge clk_8f);
+            in_0 <= 0;
+            in_1 <= 0;
+        end
+        // Prueba 8: Envía datos validos
+        // Se envia por lane0 99 y lane 1 11
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 1;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 1;
+        // Se envia por lane0 88 y lane 1 22
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 1;
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 1;
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 0;
+        // Se envia por lane0 77 y lane 1 33
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 1;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 1;
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 1;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 1;
+        // Se envia por lane0 66 y lane 1 44
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 1;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 1;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 0;
+        // Prueba 9: Reset alto y termina de almacenar señales
         repeat(7) begin
             @(posedge clk_8f);
         end
