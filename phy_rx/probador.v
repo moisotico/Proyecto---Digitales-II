@@ -16,10 +16,17 @@ module probador(
     reg clk_4f;
     reg clk_2f;
     reg clk_f;
-    // reg temp_0_cond;
-    // reg temp_1_cond;
-    // reg temp_0_estruct;
-    // reg temp_1_estruct;
+    reg [7:0]temp_0_cond;
+    reg [7:0]temp_1_cond;
+
+    reg [7:0]temp_0_estruct;
+    reg [7:0]temp_1_estruct;
+    
+    reg temp_valid_0_cond;
+    reg temp_valid_1_cond;
+
+    reg temp_valid_0_estruct;
+    reg temp_valid_1_estruct;
    initial begin
     $dumpfile("bancopruebas.vcd");
     $dumpvars;
@@ -197,32 +204,30 @@ module probador(
         in_1 <= 1;
 
         //Dato invalido
-        repeat(2)begin
-            @(posedge clk_8f);
-            in_0 <= 1;
-            in_1 <= 1;
-            @(posedge clk_8f);
-            in_0 <= 0;
-            in_1 <= 0;
-            @(posedge clk_8f);
-            in_0 <= 1;
-            in_1 <= 1;
-            @(posedge clk_8f);
-            in_0 <= 1;
-            in_1 <= 1;
-            @(posedge clk_8f);
-            in_0 <= 1;
-            in_1 <= 1;
-            @(posedge clk_8f);
-            in_0 <= 1;
-            in_1 <= 1;
-            @(posedge clk_8f);
-            in_0 <= 0;
-            in_1 <= 0;
-            @(posedge clk_8f);
-            in_0 <= 0;
-            in_1 <= 0;
-        end
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 1;
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 1;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 1;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 1;
+        @(posedge clk_8f);
+        in_0 <= 1;
+        in_1 <= 1;
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 0;
+        @(posedge clk_8f);
+        in_0 <= 0;
+        in_1 <= 0;
         // Se envia por lane0 88 y lane 1 22
         @(posedge clk_8f);
         in_0 <= 1;
@@ -348,6 +353,33 @@ module probador(
     end
     always @(posedge clk_2f)begin
         clk_f=~clk_f;
+        temp_0_cond<=data_out_0_cond;
+        temp_1_cond<=data_out_1_cond;
+        temp_valid_0_cond<=valid_out_0_cond;
+        temp_valid_1_cond<=valid_out_1_cond;
+      
+        temp_0_estruct<=data_out_0_estruct;
+        temp_1_estruct<=data_out_1_estruct;
+        temp_valid_0_estruct<=valid_out_0_estruct;
+        temp_valid_1_estruct<=valid_out_1_estruct;
+    
+    if (reset_L) begin
+        if(temp_0_cond==temp_0_estruct && temp_1_cond==temp_1_estruct)begin
+            $display("Las descripciones son iguales en ambas salidas");   
+        end 
+        else begin
+            $display("Las descripciones NO son iguales en ambas salidas");   
+        end
+
+        if(temp_valid_0_cond==temp_valid_0_estruct && temp_valid_1_cond==temp_valid_1_estruct)begin
+            $display("Las descripciones son iguales en ambas valids");   
+        end 
+        else begin
+            $display("Las descripciones NO son iguales en ambas valids");   
+        end
+    end
     end  
+
+
 endmodule
 
