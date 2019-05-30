@@ -30,9 +30,11 @@ module probador(
         // Pruebas #1: Reset bajo. 
         reset_L <= 0;
         // Prueba #2: Reset alto. Valido primer dato
-        @(posedge clk_f);
-        reset_L <= 1;
+        repeat(8) begin
+        @(posedge clk_8f);
+        end
         enable <= 1;
+        reset_L <= 1;
         // Prueba #3: Envía BC 4 veces
         repeat(4) begin
             @(posedge clk_8f);
