@@ -3,6 +3,8 @@ module probador(
     output reg reset_L,
     output reg [7:0] data_in_0,
     output reg [7:0] data_in_1,
+    output reg valid_in_0,
+    output reg valid_in_1,
     output reg enable,
     input [7:0] data_out_0_cond,
     input [7:0] data_out_1_cond,
@@ -34,7 +36,9 @@ module probador(
     // Pruebas
         enable <= 0;
         data_in_0 <= 'h00;
-        data_in_1 <= 'h00;               
+        data_in_1 <= 'h00;
+        valid_in_0<='b0;
+        valid_in_1<='b0;
         // Pruebas #1: Reset bajo. 
         reset_L <= 0;
         // Prueba #2: Reset alto. Valido primer dato
@@ -55,72 +59,74 @@ module probador(
         end
         reset_L <= 1;
         // Prueba #3: Envía BC 4 veces
-        repeat(4) begin
+        repeat(16) begin
         @(posedge clk_8f);
         end   
-            data_in_0<='hBC;
-            data_in_1<='hBC;
-
-        repeat(4) begin
-        @(posedge clk_8f);
-        end   
-            data_in_0<='hBC;
-            data_in_1<='hBC;
-
-        repeat(4) begin
-        @(posedge clk_8f);
-        end   
-            data_in_0<='hBC;
-            data_in_1<='hBC;
-
+        
             repeat(4) begin
         @(posedge clk_8f);
         end   
-            data_in_0<='hBC;
-            data_in_1<='hBC;
+            data_in_0<='hDD;
+            data_in_1<='hCC;
+            valid_in_0<='b1;
+            valid_in_1<='b0;
         // Prueba #4: Envía 3 datos validos
         repeat(4) begin
         @(posedge clk_8f);
         end   
             data_in_0<='hEC;
             data_in_1<='hBC;
+            valid_in_0<='b1;
+            valid_in_1<='b1;
 
         repeat(4) begin
         @(posedge clk_8f);
         end   
             data_in_0<='hAC;
             data_in_1<='h0C;
+            valid_in_0<='b1;
+            valid_in_1<='b1;
         // envia EE
         repeat(4) begin
         @(posedge clk_8f);
         end
             data_in_0<='hAA;
             data_in_1<='hBB;
+            valid_in_0<='b0;
+            valid_in_1<='b1;
         //envia DD
         repeat(4) begin
         @(posedge clk_8f);
         end
             data_in_0<='hDD;
             data_in_1<='hDE;
+            valid_in_0<='b0;
+            valid_in_1<='b0;
         // Prueba #5: Envía BC de nuevo. Se espera valid_out = 0
         repeat(4) begin
         @(posedge clk_8f);
         end
-            data_in_0<='hBC;
-            data_in_1<='hBC;
+            data_in_0<='h01;
+            data_in_1<='h23;
+            valid_in_0<='b0;
+            valid_in_1<='b0;
         // Prueba 6: Vuelve a enviar otro dato valido
         // envia AA
         repeat(4) begin
         @(posedge clk_8f);
         end
             data_in_0<='hAA;
-            data_in_1<='hAA;
+            data_in_1<='hAB;
+            valid_in_0<='b1;
+            valid_in_1<='b1;
         // Prueba 7: Envía dato invalido
         repeat(4) begin
         @(posedge clk_8f);
         end
             data_in_0<='hBC;
             data_in_1<='hBC;
+            valid_in_0<='b1;
+            valid_in_1<='b1;
         // Prueba 8: Envía datos validos
         // Se envia por lane0 99 y lane 1 11
         repeat(4) begin
@@ -128,42 +134,49 @@ module probador(
         end
             data_in_0<='h99;
             data_in_1<='h11;
+            valid_in_0<='b1;
+            valid_in_1<='b1;
         //Dato invalido
         repeat(4) begin
         @(posedge clk_8f);
         end
-            data_in_0<='hBC;
-            data_in_1<='hBC;
+            data_in_0<='hEE;
+            data_in_1<='hAA;
+            valid_in_0<='b0;
+            valid_in_1<='b0;
         // Se envia por lane0 88 y lane 1 22
         repeat(4) begin
         @(posedge clk_8f);
         end
             data_in_0<='h88;
             data_in_1<='h22;
+            valid_in_0<='b0;
+            valid_in_1<='b0;
         // Se envia por lane0 77 y lane 1 33
         repeat(4) begin
         @(posedge clk_8f);
         end
             data_in_0<='h77;
             data_in_1<='h33;
+            valid_in_0<='b0;
+            valid_in_1<='b1;
         //Dato invalido
         repeat(4) begin
         @(posedge clk_8f);
         end
             data_in_0<='hBC;
             data_in_1<='hBC;
+            valid_in_0<='b1;
+            valid_in_1<='b1;
         // Se envia por lane0 66 y lane 1 44
         repeat(4) begin
         @(posedge clk_8f);
         end
             data_in_0<='h66;
             data_in_1<='h44;
-        // Prueba 9: Reset alto y termina de almacenar señales
-        repeat(7) begin
-            @(posedge clk_8f);
-        end
-        reset_L <= 0;
-        @(posedge clk_f);
+            valid_in_0<='b1;
+            valid_in_1<='b1;
+        
         $finish;    
    end
 
