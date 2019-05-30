@@ -24,9 +24,9 @@ export OUTPUT_SYNTH = phy_synth.v
 .PHONY: clean
 
 autoinst_verilog: 
-	emacs-tealeg --batch --no-site-file -l verilog-mode.el tb.v -f verilog-auto -f save-buffer
+	emacs-tealeg --batch --no-site-file -l verilog-mode.el tb.v phy.v -f verilog-auto -f save-buffer
 
-assign_tb:
+assign_tb: 
 	$(eval TARGET_TOP = tb.v)
 
 all: compile synth rename clean
@@ -52,6 +52,13 @@ synth:
 rename:
 	@echo 'Renaming module $(NEW_TOP_MODULE)'
 	sed -i 's/$(TOP_MODULE)/$(NEW_TOP_MODULE)/' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/mux/mux_synth/g' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/demux/demux_synth/g' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/bs/bs_synth/g' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/gen_clk/gen_clk_synth/g' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/partoserial/partoserial_synth/g' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/byte_unstripping/byte_unstripping_synth/g' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/serialtopar/serialtopar_synth/g' $(NEW_VLOG_FILE_NAME)
 
 tb: assign_tb compile run sim clean
 	@echo 'Testbench tested'

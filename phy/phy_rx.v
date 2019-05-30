@@ -1,3 +1,7 @@
+ `include "demux.v"
+ `include "byte_unstripping.v"
+ `include "serialtopar.v"
+
 module phy_rx(
     input clk_8f,
     input clk_2f,
@@ -7,8 +11,8 @@ module phy_rx(
     input transfer_1,
     output reg [7:0] data_out_0,
     output reg [7:0] data_out_1,
-	output reg valid_out_0,
-	output reg valid_out_1
+	output reg valid_data_out_0,
+	output reg valid_data_out_1
 );
 /*AUTOWIRE*/
 // Beginning of automatic wires (for undeclared instantiated-module outputs)
@@ -27,13 +31,13 @@ always @(posedge clk_2f) begin
     if(~reset_L) begin
         data_out_0<='b0;
         data_out_1<='b0;
-		valid_out_0<='b0;
-		valid_out_1<='b0;
+		valid_data_out_0<='b0;
+		valid_data_out_1<='b0;
     end else begin
         data_out_0<=data_demux_0;
         data_out_1<=data_demux_1;
-		valid_out_0<=valid_demux_0;
-		valid_out_1<=valid_demux_1;
+		valid_data_out_0<=valid_demux_0;
+		valid_data_out_1<=valid_demux_1;
     end
 end
 

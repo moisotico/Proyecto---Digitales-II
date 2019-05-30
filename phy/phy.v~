@@ -4,6 +4,8 @@
  `include "gen_clk.v"
 
 module phy(
+            input clk_f,
+            input clk_2f,
             input clk_8f,
             input reset_L,
             input enable,
@@ -11,8 +13,8 @@ module phy(
             input[7:0] data_in_1,
             input valid_data_in_0,
             input valid_data_in_1,
-            output valid_data_out_0,
-            output valid_data_out_1,
+            output reg valid_data_out_0,
+            output reg valid_data_out_1,
             output [7:0] data_out_0,
             output [7:0] data_out_1
 );
@@ -52,8 +54,8 @@ phy_rx rx_mod(/*AUTOINST*/
 	      // Outputs
 	      .data_out_0		(data_out_0[7:0]),
 	      .data_out_1		(data_out_1[7:0]),
-	      .valid_data_out_0		(valid_data_out_0),
-	      .valid_data_out_1		(valid_data_out_1),
+	      .valid_out_0		(valid_out_0),
+	      .valid_out_1		(valid_out_1),
 	      // Inputs
 	      .clk_8f			(clk_8f),
 	      .clk_2f			(clk_2f),

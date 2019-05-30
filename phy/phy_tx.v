@@ -1,3 +1,7 @@
+ `include "mux.v"
+ `include "partoserial.v"
+ `include "bs.v"
+
 module phy_tx(
     input reset_L,
     input clk_8f,

@@ -24,9 +24,7 @@ module demux(
 		data_demux_1 = 'b0;
 		valid_demux_0=0;
 		valid_demux_1=0;
-		reading=0;
 		toggle=0;
-		lane=0;
 		if (reset_L == 0) begin		// reset asincrono
 			data_demux_0 = 'b0;				
 			data_demux_1 = 'b0;
