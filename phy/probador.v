@@ -69,7 +69,7 @@ module probador(
             data_in_0<='hDD;
             data_in_1<='hCC;
             valid_in_0<='b1;
-            valid_in_1<='b0;
+            valid_in_1<='b1;
         // Prueba #4: Envía 3 datos validos
         repeat(4) begin
         @(posedge clk_8f);
