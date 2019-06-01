@@ -12,11 +12,11 @@ Diseño de la interfaz PCIe
 Los makefile se distribuyen con 4 reglas
 ```bash
 $ make compile 		# compila el <archivo>.v
-$ make run 			# corre el <archivo>.out y genera el archivo de simulación
 $ make synth  		# genera la síntesis del módulo en <archivo>.v
 $ make rename		# realiza todo el proceso de renaming del <arhivo_synth>.v
 $ make tb 			# visualiza las formas de onda de las pruebas completas con GTKWave del banco de pruebas
 $ make clean 		# elimina archivos intermedios generados
+$ make all			# ejecuta todos los procesos en el orden correcto
 ```
 
 

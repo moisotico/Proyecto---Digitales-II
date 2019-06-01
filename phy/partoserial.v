@@ -3,14 +3,15 @@ module partoserial(
     input valid_stripe,
     input reset_L,
     input clk_8f,
+    input clk_f,
     output reg out);
 
 reg [7:0]data2send;
-reg [3:0]contador;
+reg [2:0]contador;
 reg [7:0]data_temp;
 reg flag;
 
-always @(*)begin
+always @(*) begin
     if(reset_L==0)begin
         data2send='hBC;
     end
@@ -20,9 +21,15 @@ always @(*)begin
         else
             data2send='hBC; 
     end
- 
 end
 
+always @(posedge clk_f) begin
+    if(~reset_L) begin
+        data_temp <= 0;
+    end else begin
+        data_temp <= data2send;
+    end
+end
 
 always @(posedge clk_8f)begin
     if(reset_L==0)begin
@@ -32,23 +39,18 @@ always @(posedge clk_8f)begin
         data_temp<=0;
     end
     else begin
-        data_temp<=data2send;//    
-        if (valid_stripe==1)begin
-            out<=data2send[7-contador];
-            contador<=contador+1;
-        end
-
-        else begin
-            if(flag==1)begin
-            out<=data2send[7-contador];
-            contador<=contador+1;    
-            end
-        end
+        out<=data_temp[7-contador];
+        contador<=contador+1;
+        // if(flag==1)begin
+        //     out<=data2send[7-contador];
+        //     contador<=contador+1;    
+        // end
+        // //end
         
-        if(contador==7)begin
-            flag<=1;
-            contador<='b0;
-        end
+        // if(contador==7)begin
+        //     flag<=1;
+        //     contador<='b0;
+        // end
     end
 end
 

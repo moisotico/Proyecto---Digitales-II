@@ -20,69 +20,101 @@ OUTPUT_SIM	makefile	/^OUTPUT_SIM := serialtopar.out$/;"	m
 OUTPUT_SYNTH	makefile	/^export OUTPUT_SYNTH = serialtopar_synth.v$/;"	m
 SRC	makefile	/^SRC = yosys.tcl$/;"	m
 TARGET_TOP	makefile	/^TARGET_TOP := serialtopar.v$/;"	m
-TARGET_VIS	makefile	/^TARGET_VIS := serialtopar.vcd$/;"	m
+TARGET_VIS	makefile	/^TARGET_VIS := s2p.vcd$/;"	m
 TOP_MODULE	makefile	/^export TOP_MODULE := serialtopar$/;"	m
 VISUAL	makefile	/^VISUAL := gtkwave$/;"	m
 VLOG_FILE_NAME	makefile	/^export VLOG_FILE_NAME := serialtopar.v$/;"	m
-_00_	serialtopar_synth.v	/^  wire [7:0] _00_;$/;"	n
-_01_	serialtopar_synth.v	/^  wire _01_;$/;"	n
-_02_	serialtopar_synth.v	/^  wire _02_;$/;"	n
+_00_	serialtopar_synth.v	/^  wire _00_;$/;"	n
+_01_	serialtopar_synth.v	/^  wire [2:0] _01_;$/;"	n
+_02_	serialtopar_synth.v	/^  wire [7:0] _02_;$/;"	n
 _03_	serialtopar_synth.v	/^  wire _03_;$/;"	n
 _04_	serialtopar_synth.v	/^  wire _04_;$/;"	n
 _05_	serialtopar_synth.v	/^  wire _05_;$/;"	n
 _06_	serialtopar_synth.v	/^  wire _06_;$/;"	n
 _07_	serialtopar_synth.v	/^  wire _07_;$/;"	n
 _08_	serialtopar_synth.v	/^  wire _08_;$/;"	n
+_09_	serialtopar_synth.v	/^  wire _09_;$/;"	n
+_10_	serialtopar_synth.v	/^  wire _10_;$/;"	n
+_11_	serialtopar_synth.v	/^  wire _11_;$/;"	n
+_12_	serialtopar_synth.v	/^  wire _12_;$/;"	n
+_13_	serialtopar_synth.v	/^  wire _13_;$/;"	n
+_14_	serialtopar_synth.v	/^  wire _14_;$/;"	n
+_15_	serialtopar_synth.v	/^  wire _15_;$/;"	n
+_16_	serialtopar_synth.v	/^  wire _16_;$/;"	n
+_17_	serialtopar_synth.v	/^  wire _17_;$/;"	n
+_18_	serialtopar_synth.v	/^  wire _18_;$/;"	n
+_19_	serialtopar_synth.v	/^  wire _19_;$/;"	n
+_20_	serialtopar_synth.v	/^  wire _20_;$/;"	n
+_21_	serialtopar_synth.v	/^  wire _21_;$/;"	n
+_22_	serialtopar_synth.v	/^  wire _22_;$/;"	n
+_23_	serialtopar_synth.v	/^  wire _23_;$/;"	n
+_24_	serialtopar_synth.v	/^  wire _24_;$/;"	n
+_25_	serialtopar_synth.v	/^  wire _25_;$/;"	n
+_26_	serialtopar_synth.v	/^  wire _26_;$/;"	n
+_27_	serialtopar_synth.v	/^  wire _27_;$/;"	n
+_28_	serialtopar_synth.v	/^  wire _28_;$/;"	n
+_29_	serialtopar_synth.v	/^  wire _29_;$/;"	n
+_30_	serialtopar_synth.v	/^  wire _30_;$/;"	n
+_31_	serialtopar_synth.v	/^  wire _31_;$/;"	n
+_32_	serialtopar_synth.v	/^  wire _32_;$/;"	n
+_33_	serialtopar_synth.v	/^  wire _33_;$/;"	n
+_34_	serialtopar_synth.v	/^  wire _34_;$/;"	n
 active	serialtopar.v	/^	reg 			active;		    \/\/ regs internos de 1 bit$/;"	r
+active	serialtopar_synth.v	/^  wire active;$/;"	n
 bc_cnt	serialtopar.v	/^	reg [2:0]		bc_cnt;			\/\/ reg que cuenta la cantidad de datos de control bc$/;"	r
+bc_cnt	serialtopar_synth.v	/^  wire [2:0] bc_cnt;$/;"	n
 buffer	serialtopar.v	/^	reg [7:0]		buffer;			\/\/ reg desplazante que recibe los datos$/;"	r
 buffer	serialtopar_synth.v	/^  wire [7:0] buffer;$/;"	n
+buffer2	serialtopar.v	/^	reg [7:0]		buffer2;		\/\/ reg que contiene el dato a enviar a la salida$/;"	r
 check_data_out	probador.v	/^	wire check_data_out, check_valid;	\/\/ salidas del checker$/;"	n
 check_valid	probador.v	/^	wire check_data_out, check_valid;	\/\/ salidas del checker$/;"	n
 checker	checker.v	/^module checker($/;"	m
 clk	checker.v	/^	input 			clk,			\/\/ señal de clock del modulo	$/;"	p
 clk_8f	serialtopar_synth.v	/^  input clk_8f;$/;"	p
-clk_8f	tb.v	/^	wire 		clk_f, clk_8f, reset_L, data_in, valid_out_c, valid_out_e;$/;"	n
+clk_8f	tb.v	/^	wire 		clk_f, clk_8f, reset_L, in, valid_par_c, valid_par_e;$/;"	n
 clk_f	serialtopar.v	/^	input 			clk_f,			\/\/ señal de clock del modulo$/;"	p
 clk_f	serialtopar_synth.v	/^  input clk_f;$/;"	p
-clk_f	tb.v	/^	wire 		clk_f, clk_8f, reset_L, data_in, valid_out_c, valid_out_e;$/;"	n
-data_2_send	tb.v	/^	wire[7:0] 	data_2_send, data_in_1, data_out_c, data_out_e;$/;"	n
-data_in	serialtopar_synth.v	/^  input data_in;$/;"	p
-data_in	tb.v	/^	wire 		clk_f, clk_8f, reset_L, data_in, valid_out_c, valid_out_e;$/;"	n
-data_in_1	tb.v	/^	wire[7:0] 	data_2_send, data_in_1, data_out_c, data_out_e;$/;"	n
-data_out	serialtopar_synth.v	/^  output [7:0] data_out;$/;"	p
+clk_f	tb.v	/^	wire 		clk_f, clk_8f, reset_L, in, valid_par_c, valid_par_e;$/;"	n
+cnt_bits	serialtopar.v	/^	reg [2:0]		cnt_bits;		\/\/ contador de bits leidos despues de ultima lectura$/;"	r
 data_out_c	checker.v	/^	input [7:0]		data_out_c,		\/\/ entrada de datos generada por del modulo conductual$/;"	p
 data_out_c	probador.v	/^	input [7:0]					data_out_c,		\/\/ monitor de salida de datos cond$/;"	p
-data_out_c	tb.v	/^	wire[7:0] 	data_2_send, data_in_1, data_out_c, data_out_e;$/;"	n
-data_out_e	tb.v	/^	wire[7:0] 	data_2_send, data_in_1, data_out_c, data_out_e;$/;"	n
+data_par	serialtopar_synth.v	/^  output [7:0] data_par;$/;"	p
+data_par_c	tb.v	/^	wire[7:0] 	data_par_c, data_par_e;$/;"	n
+data_par_e	tb.v	/^	wire[7:0] 	data_par_c, data_par_e;$/;"	n
+in	serialtopar_synth.v	/^  input in;$/;"	p
+in	tb.v	/^	wire 		clk_f, clk_8f, reset_L, in, valid_par_c, valid_par_e;$/;"	n
 input	checker.v	/^	input 			reset_L,		\/\/ señal de reset_L del modulo$/;"	p
 input	checker.v	/^	input 			valid_out_e	\/\/ entrada de bit de valido por el modulo estructural$/;"	p
 input	checker.v	/^	input [7:0]		data_out_e,		\/\/ entrada de datos generada por el modulo estructural$/;"	p
 input	probador.v	/^	input 						valid_out_e 	\/\/ monitor de salida del bit valido estr$/;"	p
 input	probador.v	/^	input [7:0]					data_out_e,		\/\/ monitor de salida de datos estr$/;"	p
 input	serialtopar.v	/^	input			clk_8f,			\/\/ señal de clock a 8f$/;"	p
-input	serialtopar.v	/^	input 			data_in 		\/\/ entrada de datos serial$/;"	p
+input	serialtopar.v	/^	input 			in 				\/\/ entrada de datos serial$/;"	p
 out_c	checker.v	/^	reg [7:0] 		out_c,out_e; 	$/;"	r
 out_e	checker.v	/^	reg [7:0] 		out_c,out_e; 	$/;"	r
 probador	probador.v	/^module probador ($/;"	m
 reg	checker.v	/^	output reg		check_data_out,	\/\/ salida de 1 bit que indica que ambos datos de data_out son iguales	$/;"	p
 reg	checker.v	/^	output reg 		check_valid,	\/\/ salida de 1 bit que indica que ambos bits de valido son iguales$/;"	p
+reg	probador.v	/^	output reg					data_in,		\/\/ generador de la entrada de dato 0$/;"	p
 reg	probador.v	/^	output reg 					clk_8f,			\/\/ generador del clock$/;"	p
 reg	probador.v	/^	output reg 					clk_f,			\/\/ generador del clock$/;"	p
 reg	probador.v	/^	output reg 					reset_L,		\/\/ generador de reset$/;"	p
-reg	probador.v	/^	output reg[7:0]				data_in,		\/\/ generador de la entrada de dato 0$/;"	p
-reg	serialtopar.v	/^	output reg 		valid_out,		\/\/ bit de valid de la salida$/;"	p
-reg	serialtopar.v	/^	output reg[7:0]	data_out,		\/\/ salida en paralelo de 8b$/;"	p
+reg	serialtopar.v	/^	output reg 		valid_par,		\/\/ bit de valid de la salida$/;"	p
+reg	serialtopar.v	/^	output reg[7:0]	data_par,		\/\/ salida en paralelo de 8b$/;"	p
 reset_L	serialtopar.v	/^	input 			reset_L,		\/\/ señal de reset del modulo$/;"	p
 reset_L	serialtopar_synth.v	/^  input reset_L;$/;"	p
-reset_L	tb.v	/^	wire 		clk_f, clk_8f, reset_L, data_in, valid_out_c, valid_out_e;$/;"	n
+reset_L	tb.v	/^	wire 		clk_f, clk_8f, reset_L, in, valid_par_c, valid_par_e;$/;"	n
 serialtopar	serialtopar.v	/^module serialtopar($/;"	m
-serialtopar_synth	serialtopar_synth.v	/^module serialtopar_synth(data_out, valid_out, clk_f, clk_8f, reset_L, data_in);$/;"	m
+serialtopar_synth	serialtopar_synth.v	/^module serialtopar_synth(data_par, valid_par, clk_f, clk_8f, reset_L, in);$/;"	m
+shift_reg	serialtopar.v	/^	wire [7:0]		shift_reg;$/;"	n
+shift_reg	serialtopar_synth.v	/^  wire [7:0] shift_reg;$/;"	n
 tb	tb.v	/^module tb(); \/\/ Testbench$/;"	m
+valid	serialtopar.v	/^	reg 			valid;			\/\/ valid temporal$/;"	r
+valid	serialtopar_synth.v	/^  wire valid;$/;"	n
 valid_c	checker.v	/^	reg 			valid_c,valid_e;$/;"	r
 valid_e	checker.v	/^	reg 			valid_c,valid_e;$/;"	r
-valid_out	serialtopar_synth.v	/^  output valid_out;$/;"	p
 valid_out_c	checker.v	/^	input 			valid_out_c,	\/\/ entrada de bit de valido por el modulo conductual$/;"	p
 valid_out_c	probador.v	/^	input 						valid_out_c, 	\/\/ monitor de salida del bit valido cond$/;"	p
-valid_out_c	tb.v	/^	wire 		clk_f, clk_8f, reset_L, data_in, valid_out_c, valid_out_e;$/;"	n
-valid_out_e	tb.v	/^	wire 		clk_f, clk_8f, reset_L, data_in, valid_out_c, valid_out_e;$/;"	n
+valid_par	serialtopar_synth.v	/^  output valid_par;$/;"	p
+valid_par_c	tb.v	/^	wire 		clk_f, clk_8f, reset_L, in, valid_par_c, valid_par_e;$/;"	n
+valid_par_e	tb.v	/^	wire 		clk_f, clk_8f, reset_L, in, valid_par_c, valid_par_e;$/;"	n

@@ -29,32 +29,32 @@ always @(*)begin
     else begin
         if (valid_mux==0) begin //datos no validos
             if (selector==0) begin
-                data_stripe_0=data_mux;
-                data_stripe_1=l1;
-                valid_stripe_0=valid_mux;
-                valid_stripe_1=validflop;
-            end 
-            else begin
                 data_stripe_1=data_mux;
-                data_stripe_0=l0;
+                data_stripe_0=l1;
                 valid_stripe_1=valid_mux;
                 valid_stripe_0=validflop;
+            end 
+            else begin
+                data_stripe_0=data_mux;
+                data_stripe_1=l0;
+                valid_stripe_0=valid_mux;
+                valid_stripe_1=validflop;
             end
         end 
 
         else begin
             flag='b0;
             if (selector==0) begin
-                data_stripe_0=data_mux;
-                data_stripe_1=l1;
-                valid_stripe_0=valid_mux;
-                valid_stripe_1=validflop;
-            end 
-            else begin
                 data_stripe_1=data_mux;
-                data_stripe_0=l0;
+                data_stripe_0=l1;
                 valid_stripe_1=valid_mux;
                 valid_stripe_0=validflop;
+            end 
+            else begin
+                data_stripe_0=data_mux;
+                data_stripe_1=l0;
+                valid_stripe_0=valid_mux;
+                valid_stripe_1=validflop;
             end
         end
     end

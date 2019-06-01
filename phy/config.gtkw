@@ -1,0 +1,51 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Sat Jun  1 10:47:39 2019
+[*]
+[dumpfile] "/home/gianca/Documents/UCR/IE-0523/Proyecto1/Proyecto-Digitales-II/phy/phy.vcd"
+[dumpfile_mtime] "Sat Jun  1 10:41:37 2019"
+[dumpfile_size] 200274
+[savefile] "/home/gianca/Documents/UCR/IE-0523/Proyecto1/Proyecto-Digitales-II/phy/config.gtkw"
+[timestart] 0
+[size] 1299 713
+[pos] -1 -1
+*-16.086458 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb.
+[treeopen] tb.pcie_phy_con.
+[sst_width] 223
+[signals_width] 198
+[sst_expanded] 1
+[sst_vpaned_height] 192
+@200
+-inputs
+@28
+tb.test.clk_8f
+tb.test.reset_L
+@22
+tb.test.data_in_0[7:0]
+@28
+tb.test.valid_data_in_0
+tb.test.valid_data_in_1
+@22
+tb.test.data_in_1[7:0]
+@200
+-output cond
+@22
+tb.test.data_out_0_cond[7:0]
+@28
+tb.test.valid_out_data_0_cond
+@22
+tb.test.data_out_1_cond[7:0]
+@28
+tb.test.valid_out_data_1_cond
+@200
+-output synth
+-clocks
+@28
+tb.pcie_phy_con.clocks.clk_8f
+tb.pcie_phy_con.clocks.clk_2f
+tb.pcie_phy_con.clocks.clk_f
+@200
+-TX
+[pattern_trace] 1
+[pattern_trace] 0

@@ -19,7 +19,7 @@ module tb(); // Testbench
 	wire 		clk, reset_L, valid_in, valid_out0_c, valid_out0_e, valid_out1_c, valid_out1_e;
 
 	// Instanciacion de modulos con los parametros definidos
-	demux mux_con(/*autoinst*/
+	demux demux_con(/*autoinst*/
 			.data_out0(data_out0_c[7:0]),
 			.data_out1(data_out1_c[7:0]),
 			.valid_out0(valid_out0_c),
@@ -29,7 +29,7 @@ module tb(); // Testbench
 			.reset_L(reset_L),
 			.data_in(data_in[7:0]));
 
-	demux_synth mux_est(/*autoinst*/
+	demux_synth demux_est(/*autoinst*/
 			.data_out0(data_out0_e[7:0]),
 			.data_out1(data_out1_e[7:0]),
 			.valid_out0(valid_out0_e),

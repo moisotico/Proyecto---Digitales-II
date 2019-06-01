@@ -1,3 +1,11 @@
+/*
+ *Universidad de Costa Rica - Escuela de Ingenieria Electrica
+ *Proyecto #1 - IE-0523 - modulo probador phy
+ *@author Giancarlo Marin H. / esteban Valverde
+ *@date   31/05/2019
+ *@brief  Modulo probador que monitoriza las salidas y genera las entradas del modulo phy 
+*/
+
 module probador(
     output reg clk_8f,
     output reg reset_L,
@@ -15,177 +23,174 @@ module probador(
 	input valid_data_out_0_estruct,
 	input valid_data_out_1_estruct);
 
-    // reg clk_4f;
-    // reg clk_2f;
-    // reg clk_f;
-
-    // reg [7:0]temp_0_cond;
-    // reg [7:0]temp_1_cond;
-
-    // reg [7:0]temp_0_estruct;
-    // reg [7:0]temp_1_estruct;
-    
-    // reg temp_valid_0_cond;
-    // reg temp_valid_1_cond;
-
-    // reg temp_valid_0_estruct;
-    // reg temp_valid_1_estruct;
    initial begin
-    $dumpfile("bancopruebas.vcd");
+    $dumpfile("phy.vcd");
     $dumpvars;
     // Pruebas
-        enable <= 0;
-        data_in_0 <= 'h00;
-        data_in_1 <= 'h00;
-        valid_data_in_0<='b0;
-        valid_data_in_1<='b0;
-        // Pruebas #1: Reset bajo. 
-        reset_L <= 0;
-        // Prueba #2: Reset alto. Valido primer dato
-        repeat(4) begin
+    // Datos iniciales
+    enable <= 0;
+    data_in_0 <= 'h00;
+    data_in_1 <= 'h00;
+    valid_data_in_0<='b0;
+    valid_data_in_1<='b0;
+    // Pruebas #1: Reset bajo. 
+    reset_L <= 0;
+    // Prueba #2: Reset alto. Valido primer dato
+    repeat(4) begin
         @(posedge clk_8f);
-        end
-        enable <= 1;
-        reset_L <= 1;
-        
-        repeat(4) begin
+    end
+    enable <= 1;
+    reset_L <= 1;
+    repeat(4) begin
         @(posedge clk_8f);
-        end
-        reset_L <= 0;
-
-
-        repeat(4) begin
+    end
+    reset_L <= 0;
+    repeat(4) begin 
+       @(posedge clk_8f);    
+    end
+    reset_L <= 1;    
+    // Prueba #3: Envía BC 4 veces mientras espera un tiempo en cada canal
+    repeat(40) begin
         @(posedge clk_8f);
-        end
-        reset_L <= 1;
-        // Prueba #3: Envía BC 4 veces
-        repeat(16) begin
-        @(posedge clk_8f);
-        end   
-        
-            repeat(4) begin
-        @(posedge clk_8f);
-        end   
-            data_in_0<='hDD;
-            data_in_1<='hCC;
-            valid_data_in_0<='b1;
-            valid_data_in_1<='b1;
-        // Prueba #4: Envía 3 datos validos
-        repeat(4) begin
-        @(posedge clk_8f);
-        end   
-            data_in_0<='hEC;
-            data_in_1<='hBC;
-            valid_data_in_0<='b1;
-            valid_data_in_1<='b1;
-
-        repeat(4) begin
-        @(posedge clk_8f);
-        end   
-            data_in_0<='hAC;
-            data_in_1<='h0C;
-            valid_data_in_0<='b1;
-            valid_data_in_1<='b1;
-        // envia EE
-        repeat(4) begin
-        @(posedge clk_8f);
-        end
-            data_in_0<='hAA;
-            data_in_1<='hBB;
-            valid_data_in_0<='b0;
-            valid_data_in_1<='b1;
-        //envia DD
-        repeat(4) begin
-        @(posedge clk_8f);
-        end
-            data_in_0<='hDD;
-            data_in_1<='hDE;
-            valid_data_in_0<='b0;
-            valid_data_in_1<='b0;
-        // Prueba #5: Envía BC de nuevo. Se espera valid_out = 0
-        repeat(4) begin
-        @(posedge clk_8f);
-        end
-            data_in_0<='h01;
-            data_in_1<='h23;
-            valid_data_in_0<='b0;
-            valid_data_in_1<='b0;
-        // Prueba 6: Vuelve a enviar otro dato valido
-        // envia AA
-        repeat(4) begin
-        @(posedge clk_8f);
-        end
-            data_in_0<='hAA;
-            data_in_1<='hAB;
-            valid_data_in_0<='b1;
-            valid_data_in_1<='b1;
-        // Prueba 7: Envía dato invalido
-        repeat(4) begin
-        @(posedge clk_8f);
-        end
-            data_in_0<='hBC;
-            data_in_1<='hBC;
-            valid_data_in_0<='b1;
-            valid_data_in_1<='b1;
-        // Prueba 8: Envía datos validos
-        // Se envia por lane0 99 y lane 1 11
-        repeat(4) begin
-        @(posedge clk_8f);
-        end
-            data_in_0<='h99;
-            data_in_1<='h11;
-            valid_data_in_0<='b1;
-            valid_data_in_1<='b1;
-        //Dato invalido
-        repeat(4) begin
-        @(posedge clk_8f);
-        end
-            data_in_0<='hEE;
-            data_in_1<='hAA;
-            valid_data_in_0<='b0;
-            valid_data_in_1<='b0;
-        // Se envia por lane0 88 y lane 1 22
-        repeat(4) begin
-        @(posedge clk_8f);
-        end
-            data_in_0<='h88;
-            data_in_1<='h22;
-            valid_data_in_0<='b0;
-            valid_data_in_1<='b0;
-        // Se envia por lane0 77 y lane 1 33
-        repeat(4) begin
-        @(posedge clk_8f);
-        end
-            data_in_0<='h77;
-            data_in_1<='h33;
-            valid_data_in_0<='b0;
-            valid_data_in_1<='b1;
-        //Dato invalido
-        repeat(4) begin
-        @(posedge clk_8f);
-        end
-            data_in_0<='hBC;
-            data_in_1<='hBC;
-            valid_data_in_0<='b1;
-            valid_data_in_1<='b1;
-        // Se envia por lane0 66 y lane 1 44
-        repeat(4) begin
-        @(posedge clk_8f);
-        end
-            data_in_0<='h66;
-            data_in_1<='h44;
-            valid_data_in_0<='b1;
-            valid_data_in_1<='b1;
-        
-        $finish;    
-   end
-
-    initial begin
-    clk_8f <=0;
     end
 
+    // Prueba #4: Envía 4 datos validos en el canal 1 y envia 1 dato válido y uno inválido en el canal 2 al mismo tiempo
+    repeat(4) begin
+        @(posedge clk_8f);
+    end
+    data_in_0<='hDD;
+    data_in_1<='hCC;
+    valid_data_in_0<='b1;
+    valid_data_in_1<='b1;
+    repeat(4) begin
+        @(posedge clk_8f);
+    end   
+    data_in_0<='hEE;
+    data_in_1<='hBB;
+    valid_data_in_0<='b1;
+    valid_data_in_1<='b1;
+    repeat(4) begin
+    @(posedge clk_8f);
+    end   
+    data_in_0<='hFF;
+    data_in_1<='hAA;
+    valid_data_in_0<='b1;
+    valid_data_in_1<='b1;
+    repeat(4) begin
+    @(posedge clk_8f);
+    end
+    data_in_0<='h00;
+    data_in_1<='h99;
+    valid_data_in_0<='b0;
+    valid_data_in_1<='b1;
+    // Sincronizacion
+    repeat(4) begin
+        @(posedge clk_8f);
+    end
+    valid_data_in_0<='b0;
+    valid_data_in_1<='b0;
+    repeat(16) begin
+        @(posedge clk_8f);
+    end
+    // Prueba #5: Envío desfazado de datos CH2 primero
+    data_in_0<='hBC;
+    data_in_1<='h11;
+    valid_data_in_0<='b0;
+    valid_data_in_1<='b1;
+    repeat(4) begin
+        @(posedge clk_8f);
+    end
+    data_in_0<='hFF;
+    data_in_1<='h22;
+    valid_data_in_0<='b1;
+    valid_data_in_1<='b1;
+    repeat(4) begin
+        @(posedge clk_8f);
+    end
+    data_in_0<='hEE;
+    data_in_1<='h33;
+    valid_data_in_0<='b1;
+    valid_data_in_1<='b1;
+    // Sincronizacion
+    repeat(4) begin
+        @(posedge clk_8f);
+    end
+    valid_data_in_0<='b0;
+    valid_data_in_1<='b0;
+    repeat(16) begin
+        @(posedge clk_8f);
+    end
+    // Prueba 6: Envío de datos al mismo tiempo
+    data_in_0<='hDD;
+    data_in_1<='h44;
+    valid_data_in_0<='b1;
+    valid_data_in_1<='b1;
+    repeat(4) begin
+        @(posedge clk_8f);
+    end
+    data_in_0<='hCC;
+    data_in_1<='h55;
+    valid_data_in_0<='b1;
+    valid_data_in_1<='b1;
+    repeat(4) begin
+        @(posedge clk_8f);
+    end
+    data_in_0<='hBB;
+    data_in_1<='h66;
+    valid_data_in_0<='b1;
+    valid_data_in_1<='b1;
+    repeat(4) begin
+        @(posedge clk_8f);
+    end
+    data_in_0<='hAA;
+    data_in_1<='h77;
+    valid_data_in_0<='b1;
+    valid_data_in_1<='b0;
+    // Sincronizacion
+    repeat(4) begin
+        @(posedge clk_8f);
+    end
+    valid_data_in_0<='b0;
+    valid_data_in_1<='b0;
+    repeat(16) begin
+        @(posedge clk_8f);
+    end
+    // Prueba 7: Envío de datos invalidos
+    data_in_0<='hBC;
+    data_in_1<='h88;
+    valid_data_in_0<='b1;
+    valid_data_in_1<='b1;
+    repeat(4) begin
+        @(posedge clk_8f);
+    end
+    data_in_0<='hBC;
+    data_in_1<='h00;
+    valid_data_in_0<='b1;
+    valid_data_in_1<='b1;
+    repeat(4) begin
+        @(posedge clk_8f);
+    end
+    data_in_0<='hBB;
+    data_in_1<='hAA;
+    valid_data_in_0<='b0;
+    valid_data_in_1<='b1;
+    // Sincronizacion
+    repeat(4) begin
+        @(posedge clk_8f);
+    end
+    valid_data_in_0<='b0;
+    valid_data_in_1<='b0;
+    repeat(16) begin
+        @(posedge clk_8f);
+    end
+    // Espera un tiempo para Finalizacion de toma de datos
+    repeat(48) begin
+        @(posedge clk_8f);
+    end
+    $finish;    
+    end
+
+    // Generacion del clk_8f
+    initial clk_8f <=0;
     always #2 clk_8f <=~clk_8f;
-
-
 endmodule
-

@@ -1,38 +1,49 @@
 [*]
 [*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
-[*] Thu May 30 01:36:12 2019
+[*] Thu May 30 02:09:26 2019
 [*]
 [dumpfile] "/home/gianca/Documents/UCR/IE-0523/Proyecto1/Proyecto-Digitales-II/phy_rx/bancopruebas.vcd"
-[dumpfile_mtime] "Thu May 30 01:35:48 2019"
-[dumpfile_size] 321223
+[dumpfile_mtime] "Thu May 30 02:03:14 2019"
+[dumpfile_size] 327014
 [savefile] "/home/gianca/Documents/UCR/IE-0523/Proyecto1/Proyecto-Digitales-II/phy_rx/config.gtkw"
 [timestart] 0
 [size] 1299 713
 [pos] -1 -1
-*-17.208151 215700 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-17.345247 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] bancopruebas.
-[treeopen] bancopruebas.phy_rxcond.
 [sst_width] 223
-[signals_width] 190
+[signals_width] 214
 [sst_expanded] 1
 [sst_vpaned_height] 192
+@200
+-inputs
 @28
-bancopruebas.phy_rxcond.demux0.clk_2f
-bancopruebas.phy_rxcond.demux0.reset_L
-bancopruebas.phy_rxcond.demux0.valid_unstripped
+bancopruebas.probador.clk_8f
+bancopruebas.probador.clk_2f
+bancopruebas.probador.clk_f
+bancopruebas.probador.reset_L
+bancopruebas.probador.in_0
+@29
+bancopruebas.probador.in_1
+@200
+-output cond
 @22
-bancopruebas.phy_rxcond.demux0.data_unstripped[7:0]
+bancopruebas.probador.data_out_0_cond[7:0]
 @28
-bancopruebas.phy_rxcond.demux0.selector
+bancopruebas.probador.valid_out_0_cond
 @22
-bancopruebas.phy_rxcond.demux0.data_demux_0[7:0]
+bancopruebas.probador.data_out_1_cond[7:0]
 @28
-bancopruebas.phy_rxcond.demux0.valid_demux_0
+bancopruebas.probador.valid_out_1_cond
+@200
+-output estr
 @22
-bancopruebas.phy_rxcond.demux0.data_demux_1[7:0]
+bancopruebas.probador.data_out_0_estruct[7:0]
 @28
-bancopruebas.phy_rxcond.demux0.valid_demux_1
+bancopruebas.probador.valid_out_0_estruct
 @22
-bancopruebas.phy_rxcond.demux0.data_reg0[7:0]
+bancopruebas.probador.data_out_1_estruct[7:0]
+@28
+bancopruebas.probador.valid_out_1_estruct
 [pattern_trace] 1
 [pattern_trace] 0

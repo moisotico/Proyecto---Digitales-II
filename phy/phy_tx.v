@@ -84,20 +84,18 @@ bs byte (/*autoinst*/
 	 .clk_2f			(clk_2f));
 
 partoserial line0 (/*autoinst*/
-		   // Outputs
-		   .out			(out_0),
-		   // Inputs
-		   .data_stripe		(data_stripe_0[7:0]),
-		   .valid_stripe	(valid_stripe_0),
-		   .reset_L		(reset_L),
-		   .clk_8f		(clk_8f));
+			.out(out_0),
+			.data_stripe(data_stripe_0[7:0]),
+			.valid_stripe(valid_stripe_0),
+			.reset_L(reset_L),
+			.clk_8f(clk_8f),
+			.clk_f(clk_f));
 
 partoserial line1 (/*autoinst*/
-		   // Outputs
-		   .out			(out_1),
-		   // Inputs
-		   .data_stripe		(data_stripe_1[7:0]),
-		   .valid_stripe	(valid_stripe_1),
-		   .reset_L		(reset_L),
-		   .clk_8f		(clk_8f));
+			.out(out_1),
+			.data_stripe(data_stripe_1[7:0]),
+			.valid_stripe(valid_stripe_1),
+			.reset_L(reset_L),
+			.clk_8f(clk_8f),
+			.clk_f(clk_f));
 endmodule

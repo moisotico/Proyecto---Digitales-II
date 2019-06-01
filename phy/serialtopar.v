@@ -16,12 +16,20 @@ module serialtopar(
 	);
 	reg 			active;		    // regs internos de 1 bit
 	reg 			valid;			// valid temporal
+	reg 			flag;			// indica que hay primer dado de sincronizacion de lectura
+	reg 			first;
 	reg [7:0]		buffer;			// reg desplazante que recibe los datos
 	reg [7:0]		buffer2;		// reg que contiene el dato a enviar a la salida
 	reg [2:0]		bc_cnt;			// reg que cuenta la cantidad de datos de control bc
 	reg [2:0]		cnt_bits;		// contador de bits leidos despues de ultima lectura
 	wire [7:0]		shift_reg;
 
+	always @(*)begin
+		flag = 0;
+		if (shift_reg!='b0)begin
+			flag=1;
+		end
+	end
 
 	assign shift_reg = {buffer[6:0],in};
 
@@ -33,12 +41,16 @@ module serialtopar(
 			cnt_bits <= 0;
 			buffer2 <= 0;
 			valid <= 0;
+			first <= 0;
 		end
 		else begin
 			buffer <= shift_reg;
-			cnt_bits <= cnt_bits + 1;
-			if (cnt_bits==0) begin
-				buffer2<=shift_reg;
+			if (flag==1 || first==1)begin
+				cnt_bits <= cnt_bits + 1;
+				first<=1;
+			end
+			if (cnt_bits==0 && first==1) begin
+				buffer2<=buffer;
 			end
 			if (shift_reg==8'hbc)begin
 				bc_cnt <= bc_cnt +1;
