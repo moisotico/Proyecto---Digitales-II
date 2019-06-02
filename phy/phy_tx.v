@@ -72,16 +72,14 @@ mux mux0 (/*autoinst*/
 	  .data_reg_1			(data_reg_1[7:0]));
 
 bs byte (/*autoinst*/
-	 // Outputs
-	 .data_stripe_0			(data_stripe_0[7:0]),
-	 .valid_stripe_0		(valid_stripe_0),
-	 .data_stripe_1			(data_stripe_1[7:0]),
-	 .valid_stripe_1		(valid_stripe_1),
-	 // Inputs
-	 .data_mux			(data_mux[7:0]),
-	 .valid_mux			(valid_mux),
-	 .reset_L			(reset_L),
-	 .clk_2f			(clk_2f));
+			.data_stripe_0(data_stripe_0[7:0]),
+			.valid_stripe_0(valid_stripe_0),
+			.data_stripe_1(data_stripe_1[7:0]),
+			.valid_stripe_1(valid_stripe_1),
+			.data_mux(data_mux[7:0]),
+			.valid_mux(valid_mux),
+			.reset_L(reset_L),
+			.clk_2f(clk_2f));
 
 partoserial line0 (/*autoinst*/
 			.out(out_0),

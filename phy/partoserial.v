@@ -5,53 +5,57 @@ module partoserial(
     input clk_8f,
     input clk_f,
     output reg out);
+    
+    reg  [7:0]      buffer,buffer2;             // registro que contiene el dato correcto a transformar a serial
+    reg  [2:0]      cnt_bits;           // contador de bits enviados
+    reg             sync,first,start;   // bits de sincronizacion para enviar datos  
 
-reg [7:0]data2send;
-reg [2:0]contador;
-reg [7:0]data_temp;
-reg flag;
+    always @(*) begin
+        if(~reset_L) begin
+            buffer = 'hBC;
+        end else begin
+            buffer = 'hBC;
+            if (valid_stripe==1)
+                buffer = data_stripe;
+            else begin
+                buffer = 'hBC;
+            end
+        end
+    end
 
-always @(*) begin
-    if(reset_L==0)begin
-        data2send='hBC;
+    always @(posedge clk_f) begin
+        if(~reset_L) begin
+            start <= 0;
+        end else begin
+            if (~start) begin
+                start<=1;
+            end
+            buffer2<=buffer;
+        end
     end
-    else begin
-       if (valid_stripe==1)
-            data2send=data_stripe;
-        else
-            data2send='hBC; 
-    end
-end
 
-always @(posedge clk_f) begin
-    if(~reset_L) begin
-        data_temp <= 0;
-    end else begin
-        data_temp <= data2send;
+    always @(posedge clk_8f) begin
+        if(~reset_L) begin
+            out <= 0;
+            cnt_bits<=0;
+            first <= 0;
+            sync <= 0;
+            start<=0;
+        end else begin
+            if (start) begin
+                cnt_bits<=cnt_bits+1;
+            end
+            if (cnt_bits==0 && first==1)begin
+                sync <= 1;
+            end
+            if (sync) begin
+                out <= buffer2[7-cnt_bits];
+            end
+            else begin
+                if (cnt_bits==7)begin
+                    first<=1;
+                end
+            end
+        end
     end
-end
-
-always @(posedge clk_8f)begin
-    if(reset_L==0)begin
-        out<='b0;
-        contador<=0;
-        flag<=0;
-        data_temp<=0;
-    end
-    else begin
-        out<=data_temp[7-contador];
-        contador<=contador+1;
-        // if(flag==1)begin
-        //     out<=data2send[7-contador];
-        //     contador<=contador+1;    
-        // end
-        // //end
-        
-        // if(contador==7)begin
-        //     flag<=1;
-        //     contador<='b0;
-        // end
-    end
-end
-
-endmodule
+endmodule // partoserial

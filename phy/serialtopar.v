@@ -45,20 +45,20 @@ module serialtopar(
 		end
 		else begin
 			buffer <= shift_reg;
-			if (flag==1 || first==1)begin
-				cnt_bits <= cnt_bits + 1;
-				first<=1;
-			end
 			if (cnt_bits==0 && first==1) begin
 				buffer2<=buffer;
 			end
 			if (shift_reg==8'hbc)begin
 				bc_cnt <= bc_cnt +1;
-			end
+				cnt_bits <= 0;
+			end	else if (flag==1 || first==1)begin
+				cnt_bits <= cnt_bits + 1;
+				first<=1;
+			end // end	else if (flag==1 || first==1)
 			if (bc_cnt >= 4) begin
 				active = 1;
 			end
-			if (active && shift_reg!=8'hbc)begin
+			if (active && buffer2!=8'hbc)begin
 				valid <= 1;
 			end		
 			else begin

@@ -45,12 +45,12 @@ module probador(
         @(posedge clk_8f);
     end
     reset_L <= 0;
-    repeat(4) begin 
-       @(posedge clk_8f);    
+    repeat(8) begin
+        @(posedge clk_8f);
     end
-    reset_L <= 1;    
+    reset_L <= 1;
     // Prueba #3: Envía BC 4 veces mientras espera un tiempo en cada canal
-    repeat(40) begin
+    repeat(46) begin
         @(posedge clk_8f);
     end
 
@@ -117,7 +117,7 @@ module probador(
     end
     valid_data_in_0<='b0;
     valid_data_in_1<='b0;
-    repeat(16) begin
+    repeat(28) begin
         @(posedge clk_8f);
     end
     // Prueba 6: Envío de datos al mismo tiempo
@@ -144,7 +144,7 @@ module probador(
     end
     data_in_0<='hAA;
     data_in_1<='h77;
-    valid_data_in_0<='b1;
+    valid_data_in_0<='b0;
     valid_data_in_1<='b0;
     // Sincronizacion
     repeat(4) begin
@@ -152,18 +152,18 @@ module probador(
     end
     valid_data_in_0<='b0;
     valid_data_in_1<='b0;
-    repeat(16) begin
+    repeat(24) begin
         @(posedge clk_8f);
     end
     // Prueba 7: Envío de datos invalidos
-    data_in_0<='hBC;
+    data_in_0<='hDD;
     data_in_1<='h88;
     valid_data_in_0<='b1;
     valid_data_in_1<='b1;
     repeat(4) begin
         @(posedge clk_8f);
     end
-    data_in_0<='hBC;
+    data_in_0<='hCC;
     data_in_1<='h00;
     valid_data_in_0<='b1;
     valid_data_in_1<='b1;
@@ -173,16 +173,7 @@ module probador(
     data_in_0<='hBB;
     data_in_1<='hAA;
     valid_data_in_0<='b0;
-    valid_data_in_1<='b1;
-    // Sincronizacion
-    repeat(4) begin
-        @(posedge clk_8f);
-    end
-    valid_data_in_0<='b0;
     valid_data_in_1<='b0;
-    repeat(16) begin
-        @(posedge clk_8f);
-    end
     // Espera un tiempo para Finalizacion de toma de datos
     repeat(48) begin
         @(posedge clk_8f);
