@@ -31,10 +31,10 @@ wire			valid_mux;		// From mux0 of mux.v
 wire			valid_stripe_0;		// From byte of bs.v
 wire			valid_stripe_1;		// From byte of bs.v
 // End of automatics
-
 wire out_0;
 wire out_1;
 
+// Bloque de flip flops a la entrada del TX
 always @(posedge clk_2f) begin
     if(~reset_L) begin
         data_reg_0 <= 0;
@@ -60,16 +60,14 @@ always @(posedge clk_8f) begin
 end
 
 mux mux0 (/*autoinst*/
-	  // Outputs
-	  .data_mux			(data_mux[7:0]),
-	  .valid_mux			(valid_mux),
-	  // Inputs
-	  .clk_2f			(clk_2f),
-	  .reset_L			(reset_L),
-	  .valid_reg_0			(valid_reg_0),
-	  .data_reg_0			(data_reg_0[7:0]),
-	  .valid_reg_1			(valid_reg_1),
-	  .data_reg_1			(data_reg_1[7:0]));
+			.data_mux(data_mux[7:0]),
+			.valid_mux(valid_mux),
+			.clk_2f(clk_2f),
+			.reset_L(reset_L),
+			.valid_reg_0(valid_data_in_0),
+			.data_reg_0(data_in_0[7:0]),
+			.valid_reg_1(valid_data_in_1),
+			.data_reg_1(data_in_1[7:0]));
 
 bs byte (/*autoinst*/
 			.data_stripe_0(data_stripe_0[7:0]),

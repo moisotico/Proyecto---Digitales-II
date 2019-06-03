@@ -16,12 +16,25 @@ module probador(
     output reg enable,
     input [7:0] data_out_0_cond,
     input [7:0] data_out_1_cond,
-    input valid_out_data_0_cond,
-    input valid_out_data_1_cond,
+    input valid_data_out_0_cond,
+    input valid_data_out_1_cond,
     input [7:0] data_out_0_estruct,
     input [7:0] data_out_1_estruct,
 	input valid_data_out_0_estruct,
 	input valid_data_out_1_estruct);
+
+    //Wires para chequeo de las salidas
+    wire check_out0, check_out1;
+
+    checker_phy phy_check(/*autoinst*/
+          .check_out0(check_out0),
+          .check_out1(check_out1),
+          .clk_8f(clk_8f),
+          .reset_L(reset_L),
+          .data_out0_c(data_out_0_cond[7:0]),
+          .data_out1_c(data_out_1_cond[7:0]),
+          .data_out0_e(data_out_0_estruct[7:0]),
+          .data_out1_e(data_out_1_estruct[7:0]));
 
    initial begin
     $dumpfile("phy.vcd");
@@ -59,9 +72,9 @@ module probador(
         @(posedge clk_8f);
     end
     data_in_0<='hDD;
-    data_in_1<='hCC;
+    data_in_1<='h00;
     valid_data_in_0<='b1;
-    valid_data_in_1<='b1;
+    valid_data_in_1<='b0;
     repeat(4) begin
         @(posedge clk_8f);
     end   
@@ -79,9 +92,9 @@ module probador(
     repeat(4) begin
     @(posedge clk_8f);
     end
-    data_in_0<='h00;
+    data_in_0<='h01;
     data_in_1<='h99;
-    valid_data_in_0<='b0;
+    valid_data_in_0<='b1;
     valid_data_in_1<='b1;
     // Sincronizacion
     repeat(4) begin
@@ -175,7 +188,7 @@ module probador(
     valid_data_in_0<='b0;
     valid_data_in_1<='b0;
     // Espera un tiempo para Finalizacion de toma de datos
-    repeat(48) begin
+    repeat(60) begin
         @(posedge clk_8f);
     end
     $finish;    

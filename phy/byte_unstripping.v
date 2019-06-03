@@ -11,26 +11,33 @@ module byte_unstripping(
 
 //Banderas y senales internas
     
-    reg selector; 
-    reg lectura;
+    reg selector, lectura, valid_reg;
+    reg [7:0] data_us;
 //bloques always
     always @(*)begin
-    data_unstripped='b0;
-    valid_unstripped='b0;
+    data_us='b0;
+    valid_reg='b0;
+    lectura='b0;
         if(!reset_L)begin
-            data_unstripped='b0;
-            valid_unstripped='b0;
+            data_us='b0;
+            valid_reg='b0;
+            lectura='b0;
         end
-
         else begin
+            if(valid_par_0==1 || valid_par_1==1)begin
+                lectura='b1;
+            end
+            else begin
+                lectura='b0;
+            end
             if(lectura==1)begin
                 if(selector==0)begin
-                    data_unstripped=data_par_0;
-                    valid_unstripped=valid_par_0;
+                    data_us=data_par_0;
+                    valid_reg=valid_par_0;
                 end
                 else begin
-                    data_unstripped=data_par_1;
-                    valid_unstripped=valid_par_1;
+                    data_us=data_par_1;
+                    valid_reg=valid_par_1;
                 end
             end
         end
@@ -39,22 +46,16 @@ module byte_unstripping(
     always @(posedge clk_2f)begin
         if (!reset_L) begin
             selector<='b0;
-            lectura<='b0;
         end 
         else begin
-            if(valid_par_0==1)begin
-                lectura<='b1;
-            end
-            else begin
-                lectura<='b0;
-            end
-
             if(lectura==1)begin
                 selector<=~selector;
             end
             else begin
                 selector<='b0;
             end
+            data_unstripped<=data_us;
+            valid_unstripped<=valid_reg;
         end
     end
 endmodule

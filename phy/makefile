@@ -52,13 +52,13 @@ synth:
 rename:
 	@echo 'Renaming module $(NEW_TOP_MODULE)'
 	sed -i 's/$(TOP_MODULE)/$(NEW_TOP_MODULE)/' $(NEW_VLOG_FILE_NAME)
-	sed -i 's/mux/mux_synth/g' $(NEW_VLOG_FILE_NAME)
-	sed -i 's/demux/demux_synth/g' $(NEW_VLOG_FILE_NAME)
-	sed -i 's/bs/bs_synth/g' $(NEW_VLOG_FILE_NAME)
-	sed -i 's/gen_clk/gen_clk_synth/g' $(NEW_VLOG_FILE_NAME)
-	sed -i 's/partoserial/partoserial_synth/g' $(NEW_VLOG_FILE_NAME)
-	sed -i 's/byte_unstripping/byte_unstripping_synth/g' $(NEW_VLOG_FILE_NAME)
-	sed -i 's/serialtopar/serialtopar_synth/g' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/module mux/module mux_synth/g' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/module demux/module demux_synth/g' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/module bs/module bs_synth/g' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/module gen_clk/module gen_clk_synth/g' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/module partoserial/module partoserial_synth/g' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/module byte_unstripping/module byte_unstripping_synth/g' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/module serialtopar/module serialtopar_synth/g' $(NEW_VLOG_FILE_NAME)
 
 tb: assign_tb compile run sim clean
 	@echo 'Testbench tested'

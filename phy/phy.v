@@ -2,6 +2,7 @@
  `include "phy_tx.v"
  `include "phy_rx.v"
  `include "gen_clk.v"
+ `include "checker.v"
 
 module phy(
             input clk_8f,

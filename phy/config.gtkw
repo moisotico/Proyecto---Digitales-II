@@ -1,49 +1,65 @@
 [*]
 [*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
-[*] Sun Jun  2 22:43:59 2019
+[*] Mon Jun  3 00:37:28 2019
 [*]
 [dumpfile] "/home/gianca/Documents/UCR/IE-0523/Proyecto1/Proyecto-Digitales-II/phy/phy.vcd"
-[dumpfile_mtime] "Sun Jun  2 22:42:25 2019"
-[dumpfile_size] 183272
+[dumpfile_mtime] "Mon Jun  3 00:35:33 2019"
+[dumpfile_size] 158921
 [savefile] "/home/gianca/Documents/UCR/IE-0523/Proyecto1/Proyecto-Digitales-II/phy/config.gtkw"
-[timestart] 582000
+[timestart] 0
 [size] 1299 713
 [pos] -1 -1
-*-15.699528 374000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-16.876797 81500 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] tb.
-[treeopen] tb.pcie_phy_con.
+[treeopen] tb.pcie_est.rx_mod.
+[treeopen] tb.pcie_phy_con.tx_mod.
+[treeopen] tb.test.
 [sst_width] 223
-[signals_width] 198
+[signals_width] 222
 [sst_expanded] 1
 [sst_vpaned_height] 192
 @200
 -inputs
 @28
-tb.test.clk_8f
-tb.test.reset_L
+tb.reset_L
 @22
-tb.test.data_in_0[7:0]
+tb.data_in_0[7:0]
 @28
-tb.test.valid_data_in_0
-tb.test.valid_data_in_1
-@22
-tb.test.data_in_1[7:0]
+tb.valid_data_in_0
+@23
+tb.data_in_1[7:0]
+@28
+tb.valid_data_in_1
 @200
--output synth
 -clocks
 @28
-tb.pcie_phy_con.clocks.clk_8f
-tb.pcie_phy_con.clocks.clk_2f
-tb.pcie_phy_con.clocks.clk_f
+tb.clk_8f
+tb.pcie_est.clocks.clk_2f
+tb.pcie_est.clocks.clk_f
 @200
--RX
-@28
-tb.pcie_phy_con.rx_mod.valid_par_0
+-output cond
 @22
-tb.pcie_phy_con.rx_mod.data_par_0[7:0]
+tb.data_out_0_cond[7:0]
 @28
-tb.pcie_phy_con.rx_mod.valid_par_1
+tb.valid_data_out_0_cond
 @22
-tb.pcie_phy_con.rx_mod.data_par_1[7:0]
+tb.data_out_1_cond[7:0]
+@28
+tb.valid_data_out_1_cond
+@200
+-output synth
+@22
+tb.data_out_0_estruct[7:0]
+@28
+tb.valid_data_out_0_estruct
+@22
+tb.data_out_1_estruct[7:0]
+@28
+tb.valid_data_out_1_estruct
+@200
+-checker
+@28
+tb.test.check_out0
+tb.test.check_out1
 [pattern_trace] 1
 [pattern_trace] 0

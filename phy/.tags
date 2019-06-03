@@ -24,14 +24,17 @@ TARGET_VIS	makefile	/^TARGET_VIS := phy.vcd$/;"	m
 TOP_MODULE	makefile	/^export TOP_MODULE := phy$/;"	m
 VISUAL	makefile	/^VISUAL := gtkwave$/;"	m
 VLOG_FILE_NAME	makefile	/^export VLOG_FILE_NAME := phy.v$/;"	m
+_000_	phy_synth.v	/^  wire [7:0] _000_;$/;"	n
 _000_	phy_synth.v	/^  wire _000_;$/;"	n
 _001_	phy_synth.v	/^  wire [2:0] _001_;$/;"	n
+_001_	phy_synth.v	/^  wire [7:0] _001_;$/;"	n
 _001_	phy_synth.v	/^  wire _001_;$/;"	n
 _002_	phy_synth.v	/^  wire [7:0] _002_;$/;"	n
 _002_	phy_synth.v	/^  wire _002_;$/;"	n
 _003_	phy_synth.v	/^  wire [7:0] _003_;$/;"	n
 _003_	phy_synth.v	/^  wire _003_;$/;"	n
 _004_	phy_synth.v	/^  wire [2:0] _004_;$/;"	n
+_004_	phy_synth.v	/^  wire [7:0] _004_;$/;"	n
 _004_	phy_synth.v	/^  wire _004_;$/;"	n
 _005_	phy_synth.v	/^  wire [7:0] _005_;$/;"	n
 _005_	phy_synth.v	/^  wire _005_;$/;"	n
@@ -138,6 +141,7 @@ _093_	phy_synth.v	/^  wire _093_;$/;"	n
 _094_	phy_synth.v	/^  wire _094_;$/;"	n
 _095_	phy_synth.v	/^  wire _095_;$/;"	n
 _096_	phy_synth.v	/^  wire _096_;$/;"	n
+_097_	phy_synth.v	/^  wire _097_;$/;"	n
 _09_	phy_synth.v	/^  wire _09_;$/;"	n
 _10_	phy_synth.v	/^  wire _10_;$/;"	n
 _11_	phy_synth.v	/^  wire _11_;$/;"	n
@@ -171,10 +175,11 @@ active	serialtopar.v	/^	reg 			active;		    \/\/ regs internos de 1 bit$/;"	r
 bc_cnt	phy_synth.v	/^  wire [2:0] bc_cnt;$/;"	n
 bc_cnt	serialtopar.v	/^	reg [2:0]		bc_cnt;			\/\/ reg que cuenta la cantidad de datos de control bc$/;"	r
 bs	bs.v	/^module bs($/;"	m
-bs_synth	phy_synth.v	/^module bs_synth(data_mux_synth, valid_mux_synth, reset_L, clk_2f, data_stripe_0, valid_stripe_0, data_stripe_1, valid_stripe_1);$/;"	m
-buffer	partoserial.v	/^    reg  [7:0]      buffer;             \/\/ registro que contiene el dato correcto a transformar a serial$/;"	r
+bs_synth	phy_synth.v	/^module bs_synth(data_mux, valid_mux, reset_L, clk_2f, data_stripe_0, valid_stripe_0, data_stripe_1, valid_stripe_1);$/;"	m
+buffer	partoserial.v	/^    reg  [7:0]      buffer,buffer2;             \/\/ registro que contiene el dato correcto a transformar a serial$/;"	r
 buffer	phy_synth.v	/^  wire [7:0] buffer;$/;"	n
 buffer	serialtopar.v	/^	reg [7:0]		buffer;			\/\/ reg desplazante que recibe los datos$/;"	r
+buffer2	partoserial.v	/^    reg  [7:0]      buffer,buffer2;             \/\/ registro que contiene el dato correcto a transformar a serial$/;"	r
 buffer2	phy_synth.v	/^  wire [7:0] buffer2;$/;"	n
 buffer2	serialtopar.v	/^	reg [7:0]		buffer2;		\/\/ reg que contiene el dato a enviar a la salida$/;"	r
 byte_unstripping	byte_unstripping.v	/^module byte_unstripping($/;"	m
@@ -182,13 +187,16 @@ byte_unstripping_synth	phy_synth.v	/^module byte_unstripping_synth(data_unstripp
 channel	mux.v	/^	reg 			selector,write,ignore,ignore_i,channel, channel_i; \/\/ regs internos de 1 bit$/;"	r
 channel	phy_synth.v	/^  wire channel;$/;"	n
 channel_i	mux.v	/^	reg 			selector,write,ignore,ignore_i,channel, channel_i; \/\/ regs internos de 1 bit$/;"	r
-clk	bs.v	/^    input clk,$/;"	p
+check_out0	probador.v	/^    wire check_out0, check_out1;$/;"	n
+check_out1	probador.v	/^    wire check_out0, check_out1;$/;"	n
+checker_phy	checker.v	/^module checker_phy($/;"	m
 clk_2f	byte_unstripping.v	/^                        input           clk_2f,$/;"	p
 clk_2f	mux.v	/^	input 			clk_2f,			\/\/ señal de clock del modulo$/;"	p
 clk_2f	phy_synth.v	/^  input clk_2f;$/;"	p
 clk_2f	phy_synth.v	/^  output clk_2f;$/;"	p
 clk_2f	phy_synth.v	/^  wire clk_2f;$/;"	n
 clk_2f	phy_tx.v	/^    input clk_2f,$/;"	p
+clk_8f	checker.v	/^	input 			clk_8f,			\/\/ señal de clock del modulo	$/;"	p
 clk_8f	gen_clk.v	/^    input clk_8f, enable;$/;"	p
 clk_8f	phy.v	/^            input clk_8f,$/;"	p
 clk_8f	phy_rx.v	/^    input clk_8f,$/;"	p
@@ -205,12 +213,14 @@ cnt_bits	phy_synth.v	/^  wire [2:0] cnt_bits;$/;"	n
 cnt_bits	serialtopar.v	/^	reg [2:0]		cnt_bits;		\/\/ contador de bits leidos despues de ultima lectura$/;"	r
 counter	gen_clk.v	/^    reg [1:0] counter;$/;"	r
 counter	phy_synth.v	/^  wire [1:0] counter;$/;"	n
+data_0	demux.v	/^	reg [7:0] data_0, data_1;							\/\/ registros internos para los datos$/;"	r
+data_1	demux.v	/^	reg [7:0] data_0, data_1;							\/\/ registros internos para los datos$/;"	r
 data_demux_0	phy_rx.v	/^wire [7:0]		data_demux_0;		\/\/ From demux0 of demux.v$/;"	n
+data_demux_0	phy_synth.v	/^  output [7:0] data_demux_0;$/;"	p
+data_demux_0	phy_synth.v	/^  wire [7:0] data_demux_0;$/;"	n
 data_demux_1	phy_rx.v	/^wire [7:0]		data_demux_1;		\/\/ From demux0 of demux.v$/;"	n
-data_demux_synth_synth_0	phy_synth.v	/^  output [7:0] data_demux_synth_synth_0;$/;"	p
-data_demux_synth_synth_0	phy_synth.v	/^  wire [7:0] data_demux_synth_synth_0;$/;"	n
-data_demux_synth_synth_1	phy_synth.v	/^  output [7:0] data_demux_synth_synth_1;$/;"	p
-data_demux_synth_synth_1	phy_synth.v	/^  wire [7:0] data_demux_synth_synth_1;$/;"	n
+data_demux_1	phy_synth.v	/^  output [7:0] data_demux_1;$/;"	p
+data_demux_1	phy_synth.v	/^  wire [7:0] data_demux_1;$/;"	n
 data_in_0	phy_synth.v	/^  input [7:0] data_in_0;$/;"	p
 data_in_0	phy_tx.v	/^    input [7:0]data_in_0,$/;"	p
 data_in_0	tb.v	/^	wire [7:0]	data_in_0;		\/\/ From test of probador.v$/;"	n
@@ -218,10 +228,12 @@ data_in_1	phy.v	/^            input[7:0] data_in_1,$/;"	p
 data_in_1	phy_synth.v	/^  input [7:0] data_in_1;$/;"	p
 data_in_1	tb.v	/^	wire [7:0]	data_in_1;		\/\/ From test of probador.v$/;"	n
 data_mux	bs.v	/^    input [7:0]data_mux,$/;"	p
+data_mux	phy_synth.v	/^  input [7:0] data_mux;$/;"	p
+data_mux	phy_synth.v	/^  output [7:0] data_mux;$/;"	p
+data_mux	phy_synth.v	/^  wire [7:0] data_mux;$/;"	n
 data_mux	phy_tx.v	/^wire [7:0]		data_mux;		\/\/ From mux0 of mux.v$/;"	n
-data_mux_synth	phy_synth.v	/^  input [7:0] data_mux_synth;$/;"	p
-data_mux_synth	phy_synth.v	/^  output [7:0] data_mux_synth;$/;"	p
-data_mux_synth	phy_synth.v	/^  wire [7:0] data_mux_synth;$/;"	n
+data_out0_c	checker.v	/^	input [7:0]		data_out0_c,	\/\/ salida 0 del phy conductual$/;"	p
+data_out0_e	checker.v	/^	input [7:0]		data_out0_e,	\/\/ salida 0 del phy estructural$/;"	p
 data_out_0	phy_synth.v	/^  output [7:0] data_out_0;$/;"	p
 data_out_0_cond	probador.v	/^    input [7:0] data_out_0_cond,$/;"	p
 data_out_0_cond	tb.v	/^	wire [7:0]	data_out_0_cond;		\/\/ From pcie_phy_con of phy.v, ...$/;"	n
@@ -240,15 +252,9 @@ data_par_1	phy_rx.v	/^wire [7:0]		data_par_1;		\/\/ From line0 of serialtopar.v,
 data_par_1	phy_synth.v	/^  input [7:0] data_par_1;$/;"	p
 data_par_1	phy_synth.v	/^  wire [7:0] data_par_1;$/;"	n
 data_reg	mux.v	/^	reg [7:0]		data_reg;		\/\/ regs internos que transfieren la entrada a la salida$/;"	r
-data_reg0	demux.v	/^	reg [7:0]		data_reg0, data_reg1;	\/\/ regs internos que transfieren la entrada a la salida y soluciona el problema de temporizacion$/;"	r
-data_reg0	phy_synth.v	/^  wire [7:0] data_reg0;$/;"	n
-data_reg1	demux.v	/^	reg [7:0]		data_reg0, data_reg1;	\/\/ regs internos que transfieren la entrada a la salida y soluciona el problema de temporizacion$/;"	r
-data_reg1	phy_synth.v	/^  wire [7:0] data_reg1;$/;"	n
 data_reg_0	phy_synth.v	/^  input [7:0] data_reg_0;$/;"	p
-data_reg_0	phy_synth.v	/^  wire [7:0] data_reg_0;$/;"	n
 data_reg_0	phy_tx.v	/^reg[7:0]        data_reg_0;$/;"	r
 data_reg_1	phy_synth.v	/^  input [7:0] data_reg_1;$/;"	p
-data_reg_1	phy_synth.v	/^  wire [7:0] data_reg_1;$/;"	n
 data_reg_1	phy_tx.v	/^reg[7:0]        data_reg_1;$/;"	r
 data_stripe	partoserial.v	/^    input [7:0]data_stripe,$/;"	p
 data_stripe	phy_synth.v	/^  input [7:0] data_stripe;$/;"	p
@@ -262,8 +268,9 @@ data_unstripped	phy_rx.v	/^wire [7:0]		data_unstripped;	\/\/ From byte_uns of by
 data_unstripped	phy_synth.v	/^  input [7:0] data_unstripped;$/;"	p
 data_unstripped	phy_synth.v	/^  output [7:0] data_unstripped;$/;"	p
 data_unstripped	phy_synth.v	/^  wire [7:0] data_unstripped;$/;"	n
+data_us	byte_unstripping.v	/^    reg [7:0] data_us;$/;"	r
 demux	demux.v	/^module demux($/;"	m
-demux_synth_synth	phy_synth.v	/^module demux_synth_synth(data_demux_synth_synth_0, data_demux_synth_synth_1, valid_demux_synth_synth_0, valid_demux_synth_synth_1, valid_unstripped, clk_2f, reset_L, data_unstripped);$/;"	m
+demux_synth	phy_synth.v	/^module demux_synth(data_demux_0, data_demux_1, valid_demux_0, valid_demux_1, valid_unstripped, clk_2f, reset_L, data_unstripped);$/;"	m
 enable	gen_clk.v	/^    input clk_8f, enable;$/;"	p
 enable	phy.v	/^            input enable,$/;"	p
 enable	phy_synth.v	/^  input enable;$/;"	p
@@ -272,7 +279,7 @@ f2	gen_clk.v	/^    reg f2;$/;"	r
 first	partoserial.v	/^    reg             sync,first,start;   \/\/ bits de sincronizacion para enviar datos  $/;"	r
 first	phy_synth.v	/^  wire first;$/;"	n
 first	serialtopar.v	/^	reg 			first;$/;"	r
-flag	bs.v	/^reg     flag;$/;"	r
+flag	bs.v	/^reg     flag,valid_0,valid_1,valid_reg_0,valid_reg_1,last;$/;"	r
 flag	phy_synth.v	/^  wire flag;$/;"	n
 flag	serialtopar.v	/^	reg 			flag;			\/\/ indica que hay primer dado de sincronizacion de lectura$/;"	r
 gen_clk	gen_clk.v	/^module gen_clk($/;"	m
@@ -286,6 +293,9 @@ input	bs.v	/^    input valid_mux,$/;"	p
 input	byte_unstripping.v	/^                        input           reset_L,$/;"	p
 input	byte_unstripping.v	/^                        input           valid_par_1);$/;"	p
 input	byte_unstripping.v	/^                        input[7:0]      data_par_1,      \/\/tomando como referencia clk_f$/;"	p
+input	checker.v	/^	input 			reset_L,		\/\/ señal de reset_L del modulo$/;"	p
+input	checker.v	/^	input [7:0]		data_out1_c,	\/\/ salida 1 del phy conductual$/;"	p
+input	checker.v	/^	input [7:0]		data_out1_e		\/\/ salida 1 del phy estructural$/;"	p
 input	demux.v	/^	input 			clk_2f,			\/\/ señal de clock del modulo$/;"	p
 input	demux.v	/^	input [7:0]		data_unstripped			\/\/ señal entrada de datos del demultiplexor$/;"	p
 input	mux.v	/^	input 			reset_L,		\/\/ señal de reset del modulo$/;"	p
@@ -306,24 +316,26 @@ input	phy_tx.v	/^    input valid_data_in_1,$/;"	p
 input	probador.v	/^	input valid_data_out_1_estruct);$/;"	p
 input	probador.v	/^    input [7:0] data_out_1_cond,$/;"	p
 input	probador.v	/^    input [7:0] data_out_1_estruct,$/;"	p
-input	probador.v	/^    input valid_out_data_1_cond,$/;"	p
+input	probador.v	/^    input valid_data_out_1_cond,$/;"	p
 input	serialtopar.v	/^	input			clk_8f,			\/\/ señal de clock a 8f$/;"	p
 input	serialtopar.v	/^	input 			in 				\/\/ entrada de datos serial$/;"	p
-l0	bs.v	/^reg [7:0] l0;$/;"	r
-l0	phy_synth.v	/^  wire [7:0] l0;$/;"	n
-l1	bs.v	/^reg [7:0] l1;$/;"	r
-l1	phy_synth.v	/^  wire [7:0] l1;$/;"	n
-lectura	byte_unstripping.v	/^    reg lectura;$/;"	r
-lectura	phy_synth.v	/^  wire lectura;$/;"	n
+l0	bs.v	/^reg [7:0] l0,reg0;$/;"	r
+l1	bs.v	/^reg [7:0] l1,reg1;$/;"	r
+last	bs.v	/^reg     flag,valid_0,valid_1,valid_reg_0,valid_reg_1,last;$/;"	r
+last	phy_synth.v	/^  wire last;$/;"	n
+lectura	byte_unstripping.v	/^    reg selector, lectura, valid_reg;$/;"	r
 mux	mux.v	/^module mux($/;"	m
-mux_synth	phy_synth.v	/^module mux_synth(data_mux_synth, valid_mux_synth, clk_2f, reset_L, valid_reg_0, data_reg_0, valid_reg_1, data_reg_1);$/;"	m
+mux_synth	phy_synth.v	/^module mux_synth(data_mux, valid_mux, clk_2f, reset_L, valid_reg_0, data_reg_0, valid_reg_1, data_reg_1);$/;"	m
 out	phy_synth.v	/^  output out;$/;"	p
 out	phy_tx.v	/^wire			out;			\/\/ From line0 of partoserial.v, ...$/;"	n
 out_0	phy_synth.v	/^  wire out_0;$/;"	n
 out_0	phy_tx.v	/^wire out_0;$/;"	n
 out_1	phy_synth.v	/^  wire out_1;$/;"	n
 out_1	phy_tx.v	/^wire out_1;$/;"	n
-output	bs.v	/^    output reg [7:0]data_stripe_0,$/;"	p
+out_c_0	checker.v	/^	reg [7:0] 		out_c_0,out_e_0,out_c_1,out_e_1; \/\/ff$/;"	r
+out_c_1	checker.v	/^	reg [7:0] 		out_c_0,out_e_0,out_c_1,out_e_1; \/\/ff$/;"	r
+out_e_0	checker.v	/^	reg [7:0] 		out_c_0,out_e_0,out_c_1,out_e_1; \/\/ff$/;"	r
+out_e_1	checker.v	/^	reg [7:0] 		out_c_0,out_e_0,out_c_1,out_e_1; \/\/ff$/;"	r
 output	partoserial.v	/^    output reg out);$/;"	p
 output	phy.v	/^            output [7:0] data_out_0,$/;"	p
 output	phy.v	/^            output valid_data_out_0,$/;"	p
@@ -336,11 +348,14 @@ phy_synth_rx	phy_synth.v	/^module phy_synth_rx(clk_8f, clk_2f, clk_f, reset_L, t
 phy_synth_tx	phy_synth.v	/^module phy_synth_tx(reset_L, clk_8f, clk_2f, clk_f, valid_data_in_0, valid_data_in_1, data_in_0, data_in_1, transfer_0, transfer_1);$/;"	m
 phy_tx	phy_tx.v	/^module phy_tx($/;"	m
 probador	probador.v	/^module probador($/;"	m
+reg	bs.v	/^    output reg [7:0]data_stripe_0,$/;"	p
 reg	bs.v	/^    output reg [7:0]data_stripe_1,$/;"	p
 reg	bs.v	/^    output reg valid_stripe_0,$/;"	p
 reg	bs.v	/^    output reg valid_stripe_1);$/;"	p
 reg	byte_unstripping.v	/^                        output reg      valid_unstripped,$/;"	p
 reg	byte_unstripping.v	/^                        output reg[7:0] data_unstripped,     \/\/salida a data demux, cambia con clk_2f$/;"	p
+reg	checker.v	/^	output reg		check_out0,		\/\/ salida de 1 bit que indica que ambos datos de la salida 0 son iguales	$/;"	p
+reg	checker.v	/^	output reg		check_out1,		\/\/ salida de 1 bit que indica que ambos datos de la salida 1 son iguales	$/;"	p
 reg	demux.v	/^	output reg 		valid_demux_0,		\/\/ salida 0 bit de valid $/;"	p
 reg	demux.v	/^	output reg 		valid_demux_1,		\/\/ salida 1 bit de valid$/;"	p
 reg	demux.v	/^	output reg[7:0]	data_demux_0,		\/\/ salida 0 de tipo reg del demultiplexor$/;"	p
@@ -363,6 +378,10 @@ reg	probador.v	/^    output reg valid_data_in_0,$/;"	p
 reg	probador.v	/^    output reg valid_data_in_1,$/;"	p
 reg	serialtopar.v	/^	output reg 		valid_par,		\/\/ bit de valid de la salida$/;"	p
 reg	serialtopar.v	/^	output reg[7:0]	data_par,		\/\/ salida en paralelo de 8b$/;"	p
+reg0	bs.v	/^reg [7:0] l0,reg0;$/;"	r
+reg0	phy_synth.v	/^  wire [7:0] reg0;$/;"	n
+reg1	bs.v	/^reg [7:0] l1,reg1;$/;"	r
+reg1	phy_synth.v	/^  wire [7:0] reg1;$/;"	n
 reset_L	bs.v	/^    input reset_L,$/;"	p
 reset_L	demux.v	/^	input 			reset_L,		\/\/ señal de reset en bajo del modulo$/;"	p
 reset_L	partoserial.v	/^    input reset_L,$/;"	p
@@ -371,8 +390,8 @@ reset_L	phy_tx.v	/^    input reset_L,$/;"	p
 reset_L	serialtopar.v	/^	input 			reset_L,		\/\/ señal de reset del modulo$/;"	p
 reset_L	tb.v	/^	wire		reset_L;		\/\/ From test of probador.v$/;"	n
 selector	bs.v	/^reg selector;$/;"	r
-selector	byte_unstripping.v	/^    reg selector; $/;"	r
-selector	demux.v	/^	reg 			selector,valid0,valid1,toggle;		\/\/ regs internos de un 1b $/;"	r
+selector	byte_unstripping.v	/^    reg selector, lectura, valid_reg;$/;"	r
+selector	demux.v	/^	reg selector, start_reading, toggle;			\/\/ flags de control$/;"	r
 selector	mux.v	/^	reg 			selector,write,ignore,ignore_i,channel, channel_i; \/\/ regs internos de 1 bit$/;"	r
 selector	phy_synth.v	/^  wire selector;$/;"	n
 serialtopar	serialtopar.v	/^module serialtopar($/;"	m
@@ -380,9 +399,11 @@ serialtopar_synth	phy_synth.v	/^module serialtopar_synth(data_par, valid_par, cl
 shift_reg	phy_synth.v	/^  wire [7:0] shift_reg;$/;"	n
 shift_reg	serialtopar.v	/^	wire [7:0]		shift_reg;$/;"	n
 start	partoserial.v	/^    reg             sync,first,start;   \/\/ bits de sincronizacion para enviar datos  $/;"	r
+start_reading	demux.v	/^	reg selector, start_reading, toggle;			\/\/ flags de control$/;"	r
 sync	partoserial.v	/^    reg             sync,first,start;   \/\/ bits de sincronizacion para enviar datos  $/;"	r
 tb	tb.v	/^module tb(); \/\/ Testbench$/;"	m
-toggle	demux.v	/^	reg 			selector,valid0,valid1,toggle;		\/\/ regs internos de un 1b $/;"	r
+toggle	demux.v	/^	reg selector, start_reading, toggle;			\/\/ flags de control$/;"	r
+toggle	phy_synth.v	/^  wire toggle;$/;"	n
 transfer_0	phy.v	/^wire			transfer_0;		\/\/ From tx_mod of phy_tx.v$/;"	n
 transfer_0	phy_rx.v	/^    input transfer_0,$/;"	p
 transfer_0	phy_synth.v	/^  input transfer_0;$/;"	p
@@ -394,8 +415,11 @@ transfer_1	phy_synth.v	/^  output transfer_1;$/;"	p
 transfer_1	phy_synth.v	/^  wire transfer_1;$/;"	n
 valid	phy_synth.v	/^  wire valid;$/;"	n
 valid	serialtopar.v	/^	reg 			valid;			\/\/ valid temporal$/;"	r
-valid0	demux.v	/^	reg 			selector,valid0,valid1,toggle;		\/\/ regs internos de un 1b $/;"	r
-valid1	demux.v	/^	reg 			selector,valid0,valid1,toggle;		\/\/ regs internos de un 1b $/;"	r
+valid_0	bs.v	/^reg     flag,valid_0,valid_1,valid_reg_0,valid_reg_1,last;$/;"	r
+valid_0	demux.v	/^	reg valid_0, valid_1;								\/\/ flags de valid$/;"	r
+valid_0	phy_synth.v	/^  wire valid_0;$/;"	n
+valid_1	bs.v	/^reg     flag,valid_0,valid_1,valid_reg_0,valid_reg_1,last;$/;"	r
+valid_1	demux.v	/^	reg valid_0, valid_1;								\/\/ flags de valid$/;"	r
 valid_data_in_0	phy_synth.v	/^  input valid_data_in_0;$/;"	p
 valid_data_in_0	phy_tx.v	/^    input valid_data_in_0,$/;"	p
 valid_data_in_0	tb.v	/^	wire		valid_data_in_0;	\/\/ From test of probador.v$/;"	n
@@ -403,6 +427,7 @@ valid_data_in_1	phy.v	/^            input valid_data_in_1,$/;"	p
 valid_data_in_1	phy_synth.v	/^  input valid_data_in_1;$/;"	p
 valid_data_in_1	tb.v	/^	wire		valid_data_in_1;	\/\/ From test of probador.v$/;"	n
 valid_data_out_0	phy_synth.v	/^  output valid_data_out_0;$/;"	p
+valid_data_out_0_cond	probador.v	/^    input valid_data_out_0_cond,$/;"	p
 valid_data_out_0_cond	tb.v	/^	wire		valid_data_out_0_cond;	\/\/ From pcie_phy_con of phy.v$/;"	n
 valid_data_out_0_estruct	probador.v	/^	input valid_data_out_0_estruct,$/;"	p
 valid_data_out_0_estruct	tb.v	/^	wire		valid_data_out_0_estruct;	\/\/ From pcie_phy_con of phy.v$/;"	n
@@ -411,16 +436,15 @@ valid_data_out_1	phy_synth.v	/^  output valid_data_out_1;$/;"	p
 valid_data_out_1_cond	tb.v	/^	wire		valid_data_out_1_cond;	\/\/ From pcie_phy_con of phy.v$/;"	n
 valid_data_out_1_estruct	tb.v	/^	wire		valid_data_out_1_estruct;	\/\/ From pcie_phy_con of phy.v$/;"	n
 valid_demux_0	phy_rx.v	/^wire			valid_demux_0;		\/\/ From demux0 of demux.v$/;"	n
+valid_demux_0	phy_synth.v	/^  output valid_demux_0;$/;"	p
+valid_demux_0	phy_synth.v	/^  wire valid_demux_0;$/;"	n
 valid_demux_1	phy_rx.v	/^wire			valid_demux_1;		\/\/ From demux0 of demux.v$/;"	n
-valid_demux_synth_synth_0	phy_synth.v	/^  output valid_demux_synth_synth_0;$/;"	p
-valid_demux_synth_synth_0	phy_synth.v	/^  wire valid_demux_synth_synth_0;$/;"	n
-valid_demux_synth_synth_1	phy_synth.v	/^  output valid_demux_synth_synth_1;$/;"	p
-valid_demux_synth_synth_1	phy_synth.v	/^  wire valid_demux_synth_synth_1;$/;"	n
+valid_demux_1	phy_synth.v	/^  output valid_demux_1;$/;"	p
+valid_demux_1	phy_synth.v	/^  wire valid_demux_1;$/;"	n
+valid_mux	phy_synth.v	/^  input valid_mux;$/;"	p
+valid_mux	phy_synth.v	/^  output valid_mux;$/;"	p
+valid_mux	phy_synth.v	/^  wire valid_mux;$/;"	n
 valid_mux	phy_tx.v	/^wire			valid_mux;		\/\/ From mux0 of mux.v$/;"	n
-valid_mux_synth	phy_synth.v	/^  input valid_mux_synth;$/;"	p
-valid_mux_synth	phy_synth.v	/^  output valid_mux_synth;$/;"	p
-valid_mux_synth	phy_synth.v	/^  wire valid_mux_synth;$/;"	n
-valid_out_data_0_cond	probador.v	/^    input valid_out_data_0_cond,$/;"	p
 valid_par	phy_synth.v	/^  output valid_par;$/;"	p
 valid_par_0	byte_unstripping.v	/^                        input           valid_par_0,$/;"	p
 valid_par_0	phy_rx.v	/^wire			valid_par_0;		\/\/ From line0 of serialtopar.v, ...$/;"	n
@@ -429,10 +453,13 @@ valid_par_0	phy_synth.v	/^  wire valid_par_0;$/;"	n
 valid_par_1	phy_rx.v	/^wire			valid_par_1;		\/\/ From line0 of serialtopar.v, ...$/;"	n
 valid_par_1	phy_synth.v	/^  input valid_par_1;$/;"	p
 valid_par_1	phy_synth.v	/^  wire valid_par_1;$/;"	n
+valid_reg	byte_unstripping.v	/^    reg selector, lectura, valid_reg;$/;"	r
+valid_reg_0	bs.v	/^reg     flag,valid_0,valid_1,valid_reg_0,valid_reg_1,last;$/;"	r
 valid_reg_0	mux.v	/^	input 			valid_reg_0,		\/\/ bit valid entrada 0$/;"	p
 valid_reg_0	phy_synth.v	/^  input valid_reg_0;$/;"	p
 valid_reg_0	phy_synth.v	/^  wire valid_reg_0;$/;"	n
 valid_reg_0	phy_tx.v	/^reg             valid_reg_0;$/;"	r
+valid_reg_1	bs.v	/^reg     flag,valid_0,valid_1,valid_reg_0,valid_reg_1,last;$/;"	r
 valid_reg_1	mux.v	/^	input 			valid_reg_1,		\/\/ bit valid entrada 1$/;"	p
 valid_reg_1	phy_synth.v	/^  input valid_reg_1;$/;"	p
 valid_reg_1	phy_synth.v	/^  wire valid_reg_1;$/;"	n
