@@ -12,7 +12,7 @@ SRC = yosys.tcl
 
 # Tags de Variables de modulo con valores por defecto 
 TARGET_TOP := phy.v
-TARGET_VIS := phy.vcd
+TARGET_VIS := config.gtkw
 OUTPUT_SIM := phy.out
 export LIB := cmos_cells.lib
 export VLOG_FILE_NAME := phy.v
