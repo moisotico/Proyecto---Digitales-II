@@ -1,4 +1,4 @@
-# Proyecto Digitales-II 
+# Proyecto Digitales-II
 Diseño de la interfaz PCIe
 
 # Integrantes:
@@ -27,13 +27,13 @@ $ make all			# ejecuta todos los procesos en el orden correcto
 | 1 | Generador de relojes | Moisés | 300 | 330| 100 | 15/5/19 | Finalizado |
 | 1 | Lógica muxes y demuxes | Giancarlo | 300 | 270| 100 | 15/5/19 | Finalizado |
 | 1 | Paralelo a serial | Esteban | 300 | 320 | 100 | 15/5/19 | Finalizado |
-| 2 | Byte striping y un-striping | Esteban/Moisés |300 |- |80  | 22/5/19 | Terminado |
-| 2 | Serial a paralelo | Giancarlo | - | - | - | 22/5/19 | Terminado |
-| 2 | Módulo phy_tx.v | Todos | 150 |- |- | 22/5/19 | Terminado |
-| 3 | Módulo phy_rx.v | Todos | 150 |- |- | 29/5/19 | Terminado |
-| 3 | Módulo phy.v | Todos | 100 | - | - | 29/5/19 | En progreso |
-| 4 | Reporte | Todos | 120 |- |- | 1/6/19 | - |
-| 5 | Presentación | Todos |- |- |-  | 5/6/19 | - |
+| 2 | Byte striping y un-striping | Esteban |600 |620 |100  | 22/5/19 | Finalizado |
+| 2 | Serial a paralelo | Giancarlo | 180 | 180 | 100 | 22/5/19 | Finalizado |
+| 2 | Módulo phy_tx.v | Todos | 150 |300 |100 | 22/5/19 | Finalizado |
+| 3 | Módulo phy_rx.v | Todos | 150 |360 |100 | 29/5/19 | Finalizado |
+| 3 | Módulo phy.v | Todos | 100 | 600 | 100 | 29/5/19 | Finalizado |
+| 4 | Reporte | Todos | 120 |300 |100 | 1/6/19 | Finalizado |
+| 5 | Presentación | Todos |180 |180 |100  | 5/6/19 | Finalizado |
 
 # Bitácora de trabajo
 
