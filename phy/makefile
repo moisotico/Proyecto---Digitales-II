@@ -29,7 +29,7 @@ autoinst_verilog:
 assign_tb: 
 	$(eval TARGET_TOP = tb.v)
 
-all: compile synth rename clean
+all: compile synth rename rename2 clean
 	$(MAKE) tb
 	@echo 'All Done'
 
@@ -59,6 +59,20 @@ rename:
 	sed -i 's/module partoserial/module partoserial_synth/g' $(NEW_VLOG_FILE_NAME)
 	sed -i 's/module byte_unstripping/module byte_unstripping_synth/g' $(NEW_VLOG_FILE_NAME)
 	sed -i 's/module serialtopar/module serialtopar_synth/g' $(NEW_VLOG_FILE_NAME)
+
+
+rename2:
+	sed -i 's/byte_unstripping byte_uns/byte_unstripping_synth byte_uns/g' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/demux demux0/demux_synth demux0/g' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/serialtopar line0/serialtopar_synth line0/g' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/serialtopar line1/serialtopar_synth line1/g' $(NEW_VLOG_FILE_NAME)
+	
+	sed -i 's/bs byte/bs_synth byte/g' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/mux mux0/mux_synth mux0/g' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/partoserial line0/partoserial_synth line0/g' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/partoserial line1/partoserial_synth line1/g' $(NEW_VLOG_FILE_NAME)
+	sed -i 's/gen_clk clocks/gen_clk_synth clocks/g' $(NEW_VLOG_FILE_NAME)
+
 
 tb: assign_tb compile run sim clean
 	@echo 'Testbench tested'
