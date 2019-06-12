@@ -26,11 +26,12 @@ module partoserial(
     always @(posedge clk_f) begin
         if(~reset_L) begin
             start <= 0;
-        end else begin
+        end 
+        else begin
             if (~start) begin
-                start<=1;
+                start=1;
             end
-            buffer2<=buffer;
+            buffer2=buffer;
         end
     end
 
@@ -40,7 +41,7 @@ module partoserial(
             cnt_bits<=0;
             first <= 0;
             sync <= 0;
-            start<=0;
+        //    start<=0;
         end else begin
             if (start) begin
                 cnt_bits<=cnt_bits+1;
