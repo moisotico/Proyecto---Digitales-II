@@ -29,9 +29,9 @@ module partoserial(
         end 
         else begin
             if (~start) begin
-                start=1;
+                start<=1;
             end
-            buffer2=buffer;
+            buffer2<=buffer;
         end
     end
 
