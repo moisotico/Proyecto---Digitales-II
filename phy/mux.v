@@ -16,7 +16,7 @@ module mux(
 	input 			valid_reg_1,		// bit valid entrada 1
 	input [7:0]		data_reg_1		// entrada de datos 1 del multiplexor
 	);
-	reg 			selector,write,ignore,ignore_i,channel, channel_i; // regs internos de 1 bit
+	reg 			selector,write,ignore,ignore_i,channel, channel_i,canalsillo,ultimo; // regs internos de 1 bit
 	reg [7:0]		data_reg;		// regs internos que transfieren la entrada a la salida
 	
 	always @(*) begin				// bloque combinacional
@@ -29,40 +29,52 @@ module mux(
 			write = 1;
 			ignore_i = 1;
 			channel_i = 0;
+			ultimo=channel_i;
 		end // if (valid_reg_0 && !valid_reg_1)
-		else if (!valid_reg_0 && valid_reg_1)begin
-			data_reg = data_reg_1;
-			write = 1;
-			ignore_i = 1;
-			channel_i = 1;
-		end // else if (!valid_reg_0 && valid_reg_1)
-		else if (valid_reg_0 && valid_reg_1 && !ignore) begin
-			write = 1;
-			ignore_i = 1;
-			if (!selector) begin
-				data_reg = data_reg_0;
-			end // if (!selector)
-			else begin
-				data_reg = data_reg_1;
-			end // if (!selector)
-		end // else if (valid_reg_0 && valid_reg_1 && ignore==0)
-		else if (valid_reg_0 && valid_reg_1 && ignore) begin
-			write = 1;
-			ignore_i = 1;
-			channel_i = channel;
-			if (!channel) begin
-				data_reg = data_reg_0;
-			end // if (!selector)
-			else begin
-				data_reg = data_reg_1;
-			end // if (!selector)
-		end // else if (valid_reg_0 && valid_reg_1 && !ignore)
+				else if (!valid_reg_0 && valid_reg_1)begin
+					data_reg = data_reg_1;
+					write = 1;
+					ignore_i = 1;
+					channel_i = 1;
+				end // else if (!valid_reg_0 && valid_reg_1)
+				
+				else if (valid_reg_0 && valid_reg_1 && !ignore) begin
+					write = 1;
+					ignore_i = 1;
+					if (!selector) begin
+						data_reg = data_reg_0;
+					end // if (!selector)
+					else begin
+						data_reg = data_reg_1;
+					end // if (!selector)
+				end // else if (valid_reg_0 && valid_reg_1 && ignore==0)
+				
+				else if (valid_reg_0 && valid_reg_1 && ignore) begin
+					write = 1;
+					ignore_i = 1;
+					channel_i = channel;
+					if (!channel) begin
+						data_reg = data_reg_0;
+					end // if (!selector)
+					else begin
+						data_reg = data_reg_1;
+					end // if (!selector)
+				end // else if (valid_reg_0 && valid_reg_1 && !ignore)
+		
 		else begin
 			write = 0;
 			ignore_i =0;
 			channel_i = 0;
 		end // else
 	end
+		always @(posedge write)begin
+			if (channel_i) begin
+				canalsillo<=1;
+			end else begin
+				canalsillo<=0;
+			end
+		end
+
 
     always @(posedge clk_2f) begin		// bloque sincrono
 		if (!reset_L) begin		// reset de los flops 
@@ -71,15 +83,21 @@ module mux(
     		data_mux <= 0;
     		ignore <= 0;
     		channel <= 0;
+				canalsillo<=0;
 		end
 		else begin					// asignacion de los flops de manera sincrona
 			data_mux <= data_reg;	
     		valid_mux <= write;
     		ignore <= ignore_i;
-    		if (valid_reg_0 && valid_reg_1 && !ignore)begin // cambia selector solo cuando llegan al mismo tiempo la primera vez
-    			selector<=~selector;
+				
+				
+
+				if (valid_reg_0 && valid_reg_1 && !ignore)begin // cambia selector solo cuando llegan al mismo tiempo la primera vez
+    			selector<=~canalsillo;
     			channel<=selector;
     		end
+				
+    		
     		else begin
     			channel<=channel_i;
     		end
