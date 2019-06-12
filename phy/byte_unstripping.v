@@ -46,6 +46,8 @@ module byte_unstripping(
     always @(posedge clk_2f)begin
         if (!reset_L) begin
             selector<='b0;
+            valid_unstripped<=0;
+            data_unstripped<=0;
         end 
         else begin
             if(lectura==1)begin
